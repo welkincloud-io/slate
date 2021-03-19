@@ -492,14 +492,360 @@ If you with to update entire User Object, you can use `PUT`
 
 ## Working Hours
 
-Note: psmId is userId. We will change it in the future releases to reflect that
+
+```
+{
+ "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "daysInfo": [
+   {
+     "day": 1,
+     "startTime": "09:00:00",
+     "endTime": "18:00:00"
+   },
+   {
+     "day": 2,
+     "startTime": "09:00:00",
+     "endTime": "18:00:00"
+   }
+ ]
+}
+```
+
+Note: 
+1. psmId is userId. We will change it in the future releases to reflect that
+2. day field represents day of week (1 - monday, 2 - tuesday, ...)
+
+
 
 Using Working Hours API, users (doctors, clinicians) can set flexible working hours that vary from week to week. It is beneficial for people involved part-time.
 
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} /calendar/work-hours`
+
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} /calendar/ work-hours`
 
 in our example it would be:
-`https://api.live.welkincloud.io/gh/sb-demo/`
+`https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours`
+
+1. HTTP Method: POST
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours`
+
+## Read Work Hours
+```     
+[
+   {
+       "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+       "details": [
+           {
+               "workHoursId": "d22d0c67-691f-4f1c-991b-09cce97ec7ce",
+               "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+               "createdAt": "2021-01-14T02:31:55.000Z",
+               "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+               "updatedAt": "2021-01-14T02:31:55.000Z",
+               "startDateTime": "2020-01-01T00:00:00.000Z",
+               "endDateTime": "2020-01-31T23:59:59.000Z",
+               "daysInfo": [
+                   {
+                       "daysInfoId": "249414bb-a6a5-42a2-9ddf-d75ce16dcae3",
+                       "startTime": "09:00:00",
+                       "endTime": "18:00:00",
+                       "day": 1
+                   }
+               ]
+           }
+       ]
+   }
+]
+```
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours`
+
+Parameters| Format | Description
+--------- | ----------- | --------
+psm-ids | list of id and values | psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489
+from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
+to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
+
+Example:
+1. `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours
+?psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489a
+&from=2020-01-01T00:00:00.000Z
+&to=2020-01-31T23:59:59.000Z
+`
+
+2. `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours
+?psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489a,18f393a8-62b3-4b4b-aa42-da769ce4489a
+&from=2020-01-01T00:00:00.000Z
+&to=2020-01-31T23:59:59.000Z
+`
+
+## Update Work Hours
+
+Updating work hours by ID
+
+```
+{
+ "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "daysInfo": [
+   {
+     "day": 1,
+     "startTime": "10:00:00",
+     "endTime": "19:00:00"
+   },
+   {
+     "day": 2,
+     "startTime": "10:00:00",
+     "endTime": "19:00:00"
+   }
+ ]
+}
+```
+1. HTTP Method: PUT
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours/c7a4251f-d70e-4ccb-8c96-1038c76fd737`
+
+# Calendar Events
+
+```
+{
+ "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "eventTitle": "Weekly Appointment with Jack",
+ "eventDescription": "",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "eventType": "APPOINTMENT",
+ "eventStatus": "SCHEDULED",
+ "eventMode": "IN-PERSON",
+ "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "additionalInfo": {
+   "location": "",
+   "remarks": "",
+   "attachment": ""
+ },
+ "participants": [
+   {
+     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+     "participantRole": "psm",
+     "attended": false
+   },
+   {
+     "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
+     "participantRole": "patient",
+     "attended": false
+   }
+ ]
+}
+
+```
+
+It is a typical calendar API to create and manage events
+
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} /calendar/ events`
+
+in our example it would be:
+`https://api.live.welkincloud.io/gh/sb-demo/calendar/events`
+
+Fields description: 
+
+Field Name|  Supported Values
+--------- |  ----------------
+eventType | "GROUP_THERAPY", "APPOINTMENT", "LEAVE"
+eventStatus |"SCHEDULED", "CANCELLED", "COMPLETED", "MISSED"
+eventMode | "IN-PERSON", "CALL", "VIDEO"
+participantRole | "patient", "psm"
+
+## Create Calendar Event
+
+1. HTTP Method: POST
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events`
+
+## Get Event By ID
+
+```
+{
+ "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "eventTitle": "Weekly Appointment with Jack",
+ "eventDescription": "",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "eventType": "APPOINTMENT",
+ "eventStatus": "SCHEDULED",
+ "eventMode": "IN-PERSON",
+ "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "additionalInfo": {
+   "location": "",
+   "remarks": "",
+   "attachment": ""
+ },
+ "participants": [
+   {
+     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+     "participantRole": "psm",
+     "attended": false
+   },
+   {
+     "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
+     "participantRole": "patient",
+     "attended": false
+   }
+ ]
+}
+
+```
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
+
+## Find Events
+
+```
+{
+   "content": [
+       {
+           "id": "62b94a26-7ec4-478f-baaf-bca9c8d20d88",
+           "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+           "createdAt": "2020-12-18T11:19:46.000Z",
+           "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+           "updatedAt": "2020-12-18T14:34:37.000Z",
+           "eventTitle": "Patient Appointment",
+           "eventDescription": "problem in hands",
+           "startDateTime": "2020-01-15T16:00:00.000Z",
+           "endDateTime": "2020-01-15T17:00:00.000Z",
+           "allDayEvent": false,
+           "duration": 3600,
+           "eventType": "APPOINTMENT",
+           "eventStatus": "RESCHEDULED",
+           "eventMode": "IN-PERSON",
+           "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+           "additionalInfo": {
+               "remarks": "Please wear mask",
+               "location": "Room 1408",
+               "attachment": ""
+           },
+           "participants": [
+               {
+                   "id": "544286e3-9b5f-4f4a-bda0-a038878b87a3",
+                   "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+                   "participantRole": "psm",
+                   "participationStatus": "Yes",
+                   "attended": false
+               }
+           ]
+       }
+   ],
+   "pageable": {
+       "sort": {
+           "sorted": false,
+           "unsorted": true,
+           "empty": true
+       },
+       "offset": 0,
+       "pageNumber": 0,
+       "pageSize": 20,
+       "paged": true,
+       "unpaged": false
+   },
+   "last": true,
+   "totalPages": 1,
+   "totalElements": 1,
+   "size": 20,
+   "number": 0,
+   "sort": {
+       "sorted": false,
+       "unsorted": true,
+       "empty": true
+   },
+   "numberOfElements": 1,
+   "first": true,
+   "empty": false
+}
+
+```
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
+
+Parameters| Format | Description
+--------- | ----------- | --------
+participantIds | list of id and values, either users or patients | participantIds=28f393a8-62b3-4b4b-aa42-da769ce4489
+from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
+to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
+eventType | Enum of allowed values | "GROUP_THERAPY", "APPOINTMENT", "LEAVE"
+
+## Update Calendar Event by ID
+
+```
+{
+ "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "eventTitle": "Patient Appointment",
+ "eventDescription": "problem in hands",
+ "startDateTime": "2020-01-15T16:00:00.000Z",
+ "endDateTime": "2020-01-15T17:00:00.000Z",
+ "eventType": "APPOINTMENT",
+ "eventStatus": "SCHEDULED",
+ "eventMode": "IN-PERSON",
+ "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "additionalInfo": {
+   "location": "Room 1408",
+   "remarks": "Please wear mask",
+   "attachment": ""
+ },
+ "participants": [
+   {
+     "id": "4ebfd582-3b20-43d9-b4ee-e658194caeb0",
+     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+     "participantRole": "psm",
+     "attended": false
+   },
+   {
+     "id": "9fe72d19-c0c8-4ebe-8a91-e8f19d4ca7bc",
+     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489b",
+     "participantRole": "patient",
+     "attended": false
+   }
+ ]
+}
+
+```
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
+
+## Update event invitation response by ID
+
+```
+{
+   "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
+   "participationStatus": "Yes"
+}
+
+```
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573/invitation-response`
+
+
+## Delete Calendar Event by ID
+
+Note: Only future events can be deleted
+
+1. HTTP Method: DELETE
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
+
+## Get Summary for the User
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-event-summary?from=2020-01-15T14:00:00.000Z&to=2020-02-11T00:00:00.000Z&psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489a`
+
+Parameters| Format | Description
+--------- | ----------- | --------
+psm-ids | user id | psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489
+from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
+to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
+
 
 
