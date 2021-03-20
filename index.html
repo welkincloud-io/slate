@@ -291,7 +291,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -299,12 +299,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-5a64c26b.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -318,16 +315,102 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#patients" class="toc-h1 toc-link" data-title="Patients">Patients</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#get-all-patients" class="toc-h2 toc-link" data-title="Get All Patients">Get All Patients</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#create-a-patient" class="toc-h2 toc-link" data-title="Create a Patient">Create a Patient</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#get-a-specific-patient" class="toc-h2 toc-link" data-title="Get a Specific Patient">Get a Specific Patient</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-patient" class="toc-h2 toc-link" data-title="Delete a Specific Patient">Delete a Specific Patient</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#custom-data-types-cdt" class="toc-h1 toc-link" data-title="Custom Data Types (CDT)">Custom Data Types (CDT)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#system-fields" class="toc-h2 toc-link" data-title="System Fields">System Fields</a>
+                  </li>
+                  <li>
+                    <a href="#working-with-cdt-records" class="toc-h2 toc-link" data-title="Working with CDT records">Working with CDT records</a>
+                  </li>
+                  <li>
+                    <a href="#create-cdt-record" class="toc-h2 toc-link" data-title="Create CDT Record">Create CDT Record</a>
+                  </li>
+                  <li>
+                    <a href="#reading-cdt-record" class="toc-h2 toc-link" data-title="Reading CDT Record">Reading CDT Record</a>
+                  </li>
+                  <li>
+                    <a href="#updating-cdt-record" class="toc-h2 toc-link" data-title="Updating CDT Record">Updating CDT Record</a>
+                  </li>
+                  <li>
+                    <a href="#find-cdt-records" class="toc-h2 toc-link" data-title="Find CDT records">Find CDT records</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-user-record" class="toc-h2 toc-link" data-title="Create User Record">Create User Record</a>
+                  </li>
+                  <li>
+                    <a href="#read-user-record" class="toc-h2 toc-link" data-title="Read User Record">Read User Record</a>
+                  </li>
+                  <li>
+                    <a href="#update-user-record-partial-update" class="toc-h2 toc-link" data-title="Update User Record (Partial update)">Update User Record (Partial update)</a>
+                  </li>
+                  <li>
+                    <a href="#update-user-record-full-update" class="toc-h2 toc-link" data-title="Update User Record (Full update)">Update User Record (Full update)</a>
+                  </li>
+                  <li>
+                    <a href="#delete-user-record" class="toc-h2 toc-link" data-title="Delete User Record">Delete User Record</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#calendar" class="toc-h1 toc-link" data-title="Calendar">Calendar</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#working-hours" class="toc-h2 toc-link" data-title="Working Hours">Working Hours</a>
+                  </li>
+                  <li>
+                    <a href="#read-work-hours" class="toc-h2 toc-link" data-title="Read Work Hours">Read Work Hours</a>
+                  </li>
+                  <li>
+                    <a href="#update-work-hours" class="toc-h2 toc-link" data-title="Update Work Hours">Update Work Hours</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#calendar-events" class="toc-h1 toc-link" data-title="Calendar Events">Calendar Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-calendar-event" class="toc-h2 toc-link" data-title="Create Calendar Event">Create Calendar Event</a>
+                  </li>
+                  <li>
+                    <a href="#get-event-by-id" class="toc-h2 toc-link" data-title="Get Event By ID">Get Event By ID</a>
+                  </li>
+                  <li>
+                    <a href="#find-events" class="toc-h2 toc-link" data-title="Find Events">Find Events</a>
+                  </li>
+                  <li>
+                    <a href="#update-calendar-event-by-id" class="toc-h2 toc-link" data-title="Update Calendar Event by ID">Update Calendar Event by ID</a>
+                  </li>
+                  <li>
+                    <a href="#update-event-invitation-response-by-id" class="toc-h2 toc-link" data-title="Update event invitation response by ID">Update event invitation response by ID</a>
+                  </li>
+                  <li>
+                    <a href="#delete-calendar-event-by-id" class="toc-h2 toc-link" data-title="Delete Calendar Event by ID">Delete Calendar Event by ID</a>
+                  </li>
+                  <li>
+                    <a href="#get-summary-for-the-user" class="toc-h2 toc-link" data-title="Get Summary for the User">Get Summary for the User</a>
                   </li>
               </ul>
           </li>
@@ -336,7 +419,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://welkinhealth.com'>Visit our Website</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -344,182 +427,904 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to Welkin V8 Release.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Welkin is currently in Closed Beta state, and APIs are subject to changes</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>For better demonstration of the API, we will use:</p>
+
+<ol>
+<li>Organization (Tenant): <strong>gh</strong></li>
+<li>Instance (Environment): <strong>sb-demo</strong></li>
+</ol>
+
+<p>In order to better understand what it means, lets review the URL structure</p>
+
+<p>and </p>
+
+<p><code>Patients URL Structure: &quot;https://api.{}.welkincloud.io/{}/admin/api_clients/{}&quot;</code></p>
+
+<p>The first variable is Environment type. For most of your use cases, that would be &quot;live&quot;, 
+though &quot;sandbox&quot; is going to be supported soon</p>
+
+<p>The second variable is your Organization Name and the t</p>
 <h1 id='authentication'>Authentication</h1>
+<p>In order to Authenticate in Welkin, one needs to follow few steps:</p>
+
+<ol>
+<li>Create API client in your Organization 
+
+<ul>
+<li>Navigate to Admin -&gt; API Clients -&gt; Create Client</li>
+<li>Copy the Client Name and Secret Key or download it. 
+For this example we will assume Client Name is <strong>QRUPCFEHJRJK</strong>
+and Secret Key is <strong>+}B{KGTG6#zG%P;tQm0C</strong></li>
+</ul></li>
+<li>Navigate to the API Client page you created
+
+<ul>
+<li>Configure appropriate access for the client (Instance Access, Roles, Security Policies)</li>
+</ul></li>
+</ol>
+
+<p>Welkin V8 Token URL follows convention that can be described like this:</p>
+
+<p><code>Token URL Structure: &quot;https://api.{}.welkincloud.io/{}/admin/api_clients/{}&quot;</code></p>
+
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<div class="highlight"><pre class="highlight python tab-python"><code>    <span class="kn">import</span> <span class="nn">requests</span>
+    <span class="n">TOKEN_BASE_URL</span> <span class="o">=</span> <span class="s">"https://api.{}.welkincloud.io/{}/admin/api_clients/{}"</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+    <span class="n">token_url</span> <span class="o">=</span> <span class="n">TOKEN_BASE_URL</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">"live"</span><span class="p">,</span> <span class="s">"gh"</span><span class="p">,</span> <span class="s">"QRUPCFEHJRJK"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Token URL {} "</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token_url</span><span class="p">))</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'secret'</span><span class="p">:</span> <span class="s">'+}B{KGTG6#zG%P;tQm0C'</span><span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">token_url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
 </code></pre></div>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p>Make sure to replace <code>secret</code> with your Secret Key.</p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
-</code></pre></div>
-<blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"clientName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MTNKDGUAGPUE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJraWQiOiJvaGloUEZOREk2WmE5WEtXNEVIdTdVaFFob1l3Ull0aFFFMmpIY1MrczZrPSIsImFsZyI6IlJTMjU2In0.eyJjdXN0b206dHlwZSI6IkFQSV9DTElFTlQiLCJzdWIiOiIzZWQyMjNjOS1hNjFmLTRmMDktOGUzMi0wNGRkNjU2NDY2YzQiLCJhdWQiOiIycTJ0YmRnanV0Y3Zqdjg5NGY0Zm4wcXRnMCIsImV2ZW50X2lkIjoiMWVmYTc4MWItMzMzNy00MWI4LWExZjYtNTlmY2ZmYWYzMjgxIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2MTUyMjg0MjcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzBjOVhLV1pFQSIsImN1c3RvbTppZCI6IjAyZDI0MzU5LTU0ZWYtNGQ4Mi05MmRjLWZiY2RjOTQyNDJjMCIsImNvZ25pdG86dXNlcm5hbWUiOiJNVE5LREdVQUdQVUUiLCJleHAiOjE2MTUyMzIwMjcsImlhdCI6MTYxNTIyODQyN30.ktjPG0CIHP0As8e8I1UGMP1kocvjd4AIeQBZlZ0esMz414Dpsb6gwPNuDhJS-ej_gh_tZNSw4tePdxQcagfJHp64ByOuv3ZtAHPAm5l5dEZOcVxG4l4O45Mn1hIGhqP6vizNVBFlBWTnzYTyPlbJKS2PMeMsWPqxUDKeoEffczr2sb9VptUMg2dgY-vz6VZvZjtpPfWjKjnJHeIVMxUiW-9LcR-6BK2DHj5qwlzOkDs89rnqE_OFMUiyLfQlvQuoglSRUUiXNXGiU88YCNNzzG7fb3luuwFXBAdwWhK7pXM4o355eDp2bH-EFx_q82mJBy7lB0DfZTm1AHHjcn8BXg"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
+<p>The first variable is Environment type. 
+For most of your use cases, that would be <strong>live</strong>, though <strong>sandbox</strong> is going to be supported soon</p>
+
+<p>The second variable is your Organization Name, in our example that is <strong>gh</strong></p>
+
+<p>The third variable is your Client Name that you previously generated in the steps above: <strong>QRUPCFEHJRJK</strong></p>
+
+<p>Full URL to obtain token is:</p>
+
+<p><code>https://api.live.welkincloud.io/gh/admin/api_clients/QRUPCFEHJRJK</code></p>
+
+<aside class="notice">
+Don't forget to use your Organization Name and Environment Name and replace the values in this example 
+</aside>
+<h1 id='patients'>Patients</h1><h2 id='get-all-patients'>Get All Patients</h2>
+<p><code>Patients URL Structure: https://api.{}.welkincloud.io/{}/{}/patients</code></p>
+
+<p>In our example that is <code>https://api.live.welkincloud.io/gh/sb-demo/patients</code></p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>GET https://api.live.welkincloud.io/gh/sb-demo/patients</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
+<th>Examples</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>sort</td>
+<td>Allows one to specify the sort order of the returned patients collection</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients?sort=firstName,desc</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>email</td>
+<td>When specified, will execute a search for a patient based of email address</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients?email=1@1.com</td>
 </tr>
 </tbody></table>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="p">}</span>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="nl">"content"</span><span class="p">:</span><span class="w"> 
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6801d498-26f4-4aee-961b-5daffcf193c8"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charlie"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schwarzenegger"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"middleName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mc"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-12T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1@1.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+13363034233"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"American Samoa"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99451"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hollywood Blvd 2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"timezone "</span><span class="p">:</span><span class="w"> </span><span class="s2">"America / Los_Angeles"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"patientTerritories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"careTeam"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="err">....pagination</span><span class="w"> </span><span class="err">links</span><span class="w"> </span><span class="err">omitted</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='create-a-patient'>Create a Patient</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.live.welkincloud.io/gh/sb-demo/patients</code></p>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"firstName"</span><span class="p">:</span> <span class="s">"Charlie"</span><span class="p">,</span>
+        <span class="s">"lastName"</span><span class="p">:</span> <span class="s">"Taylor"</span><span class="p">,</span>
+        <span class="s">"birthDate"</span><span class="p">:</span> <span class="s">"2012-3-12T00:00:00.000Z"</span><span class="p">,</span>
+        <span class="s">"timezone"</span><span class="p">:</span> <span class="s">"America/Los_Angeles"</span><span class="p">,</span>
+        <span class="s">"phone"</span><span class="p">:</span> <span class="s">"+15556491369"</span><span class="p">,</span>
+        <span class="s">"email"</span><span class="p">:</span> <span class="s">"Charlie.Taylor@superemail.com"</span>
+    <span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+ <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3dd671a-86f0-4951-80fb-13b12766292f"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"externalGuid"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charlie"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taylor"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"middleName"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-03-12T00:00:00.000Z"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charlie.Taylor@superemail.com"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+15556491369"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"zip"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"addressLine2"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Los_Angeles"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"patientTerritories"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"careTeam"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='get-a-specific-patient'>Get a Specific Patient</h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8</code></p>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8"</span><span class="p">,</span> 
+  <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6801d498-26f4-4aee-961b-5daffcf193c8"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Charlie"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schwarzenegger"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"middleName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mc"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-12T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1@1.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+13363034233"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"American Samoa"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99451"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hollywood Blvd 2021"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timezone "</span><span class="p">:</span><span class="w"> </span><span class="s2">"America / Los_Angeles"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"patientTerritories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+</span><span class="p">}</span><span class="w">  
+</span></code></pre></div><h2 id='delete-a-specific-patient'>Delete a Specific Patient</h2><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8</code></p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<aside class="notice">
+This operation is not supported yet</aside>
+<h1 id='custom-data-types-cdt'>Custom Data Types (CDT)</h1>
+<p>Custom data types in Welkin are associated with a Patient. In REST terms, they are a sub-resource to the patient object</p>
+
+<p><code>CDT URL Structure: https://api.{env}.welkincloud.io/{tenant}/{instance}/patients/{patient-id}/cdts/{cdt-name}/{cdt-record-id}</code></p>
+
+<p>Each CDT has a set of system fields associated with it and a set of custom fields that you will create in the designer</p>
+<h2 id='system-fields'>System Fields</h2>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field Name</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>id</td>
+<td>UUID</td>
+<td>Unique autogenerated identifier</td>
+</tr>
+<tr>
+<td>updated_by</td>
+<td>UUID</td>
+<td>UUID of user or client who updated the record</td>
+</tr>
+<tr>
+<td>updated_by_name</td>
+<td>String</td>
+<td>Full name of the user or api client that updated the record</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>Date and time of the last update to the record</td>
+</tr>
+<tr>
+<td>created_by</td>
+<td>UUID</td>
+<td>UUID of user or client who created the record</td>
+</tr>
+<tr>
+<td>created_by_name</td>
+<td>String</td>
+<td>Full name of the user or api client that created the record</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>Date and time when the record was created</td>
+</tr>
+<tr>
+<td>source_type</td>
+<td>String</td>
+<td>Source type of the record (for example: ASSESSMENT if assessment type  generated this record)</td>
+</tr>
+<tr>
+<td>source_name</td>
+<td>String</td>
+<td>Name of the source type (for example: my_medication_assessment if assessment type  generated this record)</td>
+</tr>
+<tr>
+<td>source_id</td>
+<td>UUID</td>
+<td>record ID of the source</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='working-with-cdt-records'>Working with CDT records</h2>
+<p>Let&#39;s consider the following example.
+CDT that was created in the designer is <strong>medication</strong> with three fields
+1. medication_name
+2. medication_status
+3. medication_start_date</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>In our example the collection URL is
+<code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication</code></p>
+<h2 id='create-cdt-record'>Create CDT Record</h2>
+<ol>
+<li>HTTP Method: POST</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication</code> </li>
+<li>Request Body:
+<code>
+{
+  &quot;medication_name&quot;: &quot;Tylenol&quot;,
+  &quot;medication_status&quot;: &quot;active&quot;,
+  &quot;medication_start_date&quot;: &quot;2012-04-23T18:25:43.511Z&quot;
+}
+</code></li>
+</ol>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s">"medication_name"</span><span class="p">:</span> <span class="s">"Tylenol"</span><span class="p">,</span>
+      <span class="s">"medication_status"</span><span class="p">:</span> <span class="s">"active"</span><span class="p">,</span>
+      <span class="s">"medication_start_date"</span><span class="p">:</span> <span class="s">"2012-04-23T18:25:43.511Z"</span>
+<span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication"</span><span class="p">,</span> 
+  <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns JSON of the created record, with system fields 
+HTTP Status for success is 201</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h2 id='reading-cdt-record'>Reading CDT Record</h2>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375</code> </li>
+</ol>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON of the record, with system fields 
+HTTP Status for success is 200</p>
+</blockquote>
+<h2 id='updating-cdt-record'>Updating CDT Record</h2>
+<p>All updates are partial updates, meaning that we will update only the fields you will send to the server</p>
+
+<ol>
+<li>HTTP Method: PATCH</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375</code> </li>
+</ol>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s">"medication_status"</span><span class="p">:</span> <span class="s">"inactive"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">patch</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication"</span><span class="p">,</span> 
+  <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON of the record, with system fields 
+HTTP Status for success is 200</p>
+</blockquote>
+<h2 id='find-cdt-records'>Find CDT records</h2>
+<p>Read multiple records example return all records. Use finder parameters to filter output</p>
+
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication</code> </li>
+</ol>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Parameters</th>
+<th>Format</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>fields</td>
+<td><list fields></td>
+<td>fields=name,phone</td>
+</tr>
+<tr>
+<td>page</td>
+<td>page number Integer</td>
+<td>UUID of user or client who updated the record</td>
+</tr>
+<tr>
+<td>size</td>
+<td>page size Integer</td>
+<td></td>
+</tr>
+<tr>
+<td>filters</td>
+<td>key=v1,v2,v3</td>
+<td></td>
+</tr>
+<tr>
+<td>dateStart</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>dateStart=2021-01-28T23:10:04.874Z</td>
+</tr>
+<tr>
+<td>dateEnd</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>dateEnd=2021-01-28T23:10:04.874Z</td>
+</tr>
+</tbody></table>
+<h1 id='users'>Users</h1>
+<p>Users API url consist of the following structure
+1. {{url}}
+2. {{tenantName}} - a tenant name reserved reserved for your company
+3. {{instanceName}} - a name of HCRM instance
+4. {{patientId}} - an id of Patient</p>
+
+<p>In our example, the url would be:
+<code>https://api.live.welkincloud.io/gh/admin/users</code> </p>
+<h2 id='create-user-record'>Create User Record</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+   "username": "johndoe",
+   "email": "j.doe@email.com",
+   "phone": "+15552009845",
+   "timezone": "America/Los_Angeles",
+   "firstName": "John",
+   "lastName": "Doe",
+   "credentials": "MD"
+}
+</code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/users</code> </li>
+<li>Request Body (on the right --&gt;)</li>
+</ol>
+<h2 id='read-user-record'>Read User Record</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+   "username": "johndoe",
+   "email": "j.doe@email.com",
+   "phone": "+15552009845",
+   "timezone": "America/Los_Angeles",
+   "firstName": "John",
+   "lastName": "Doe",
+   "credentials": "MD"
+}
+</code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/users/johndoe</code> </li>
+</ol>
+<h2 id='update-user-record-partial-update'>Update User Record (Partial update)</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+   "username": "johndoe",
+   "email": "j.doe@email.com",
+   "phone": "+15552009845",
+   "timezone": "America/Los_Angeles",
+   "firstName": "John",
+   "lastName": "Doe",
+   "credentials": "MD"
+}
+</code></pre></div>
+<p>If you with to update some of the user fields, but not all, you can use <code>PATCH</code></p>
+
+<ol>
+<li>HTTP Method: PATCH</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/users/johndoe</code> </li>
+</ol>
+<h2 id='update-user-record-full-update'>Update User Record (Full update)</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+   "username": "johndoe",
+   "email": "j.doe@email.com",
+   "phone": "+15552009845",
+   "timezone": "America/Los_Angeles",
+   "firstName": "John",
+   "lastName": "Doe",
+   "credentials": "MD"
+}
+</code></pre></div>
+<p>If you with to update entire User Object, you can use <code>PUT</code></p>
+
+<ol>
+<li>HTTP Method: PUT</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/users/johndoe</code> </li>
+</ol>
+<h2 id='delete-user-record'>Delete User Record</h2>
+<ol>
+<li>HTTP Method: DELETE</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/users/johndoe</code> </li>
+</ol>
+<h1 id='calendar'>Calendar</h1><h2 id='working-hours'>Working Hours</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+ "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "daysInfo": [
+   {
+     "day": 1,
+     "startTime": "09:00:00",
+     "endTime": "18:00:00"
+   },
+   {
+     "day": 2,
+     "startTime": "09:00:00",
+     "endTime": "18:00:00"
+   }
+ ]
+}
+</code></pre></div>
+<p>Note: 
+1. psmId is userId. We will change it in the future releases to reflect that
+2. day field represents day of week (1 - monday, 2 - tuesday, ...)</p>
+
+<p>Using Working Hours API, users (doctors, clinicians) can set flexible working hours that vary from week to week. It is beneficial for people involved part-time.</p>
+
+<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} /calendar/ work-hours</code></p>
+
+<p>in our example it would be:
+<code>https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours</code></p>
+
+<ol>
+<li>HTTP Method: POST</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours</code></li>
+</ol>
+<h2 id='read-work-hours'>Read Work Hours</h2><div class="highlight"><pre class="highlight plaintext"><code>[
+   {
+       "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+       "details": [
+           {
+               "workHoursId": "d22d0c67-691f-4f1c-991b-09cce97ec7ce",
+               "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+               "createdAt": "2021-01-14T02:31:55.000Z",
+               "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+               "updatedAt": "2021-01-14T02:31:55.000Z",
+               "startDateTime": "2020-01-01T00:00:00.000Z",
+               "endDateTime": "2020-01-31T23:59:59.000Z",
+               "daysInfo": [
+                   {
+                       "daysInfoId": "249414bb-a6a5-42a2-9ddf-d75ce16dcae3",
+                       "startTime": "09:00:00",
+                       "endTime": "18:00:00",
+                       "day": 1
+                   }
+               ]
+           }
+       ]
+   }
+]
+</code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours</code></li>
+</ol>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>psm-ids</td>
+<td>list of id and values</td>
+<td>psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489</td>
+</tr>
+<tr>
+<td>from</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>from=2021-01-28T23:10:04.874Z</td>
+</tr>
+<tr>
+<td>to</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>to=2021-01-28T23:10:04.874Z</td>
+</tr>
+</tbody></table>
+
+<p>Example:
+1. <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours
+?psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489a
+&amp;from=2020-01-01T00:00:00.000Z
+&amp;to=2020-01-31T23:59:59.000Z
+</code></p>
+
+<ol>
+<li><code>https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours
+?psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489a,18f393a8-62b3-4b4b-aa42-da769ce4489a
+&amp;from=2020-01-01T00:00:00.000Z
+&amp;to=2020-01-31T23:59:59.000Z
+</code></li>
+</ol>
+<h2 id='update-work-hours'>Update Work Hours</h2>
+<p>Updating work hours by ID</p>
+<div class="highlight"><pre class="highlight plaintext"><code>{
+ "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "daysInfo": [
+   {
+     "day": 1,
+     "startTime": "10:00:00",
+     "endTime": "19:00:00"
+   },
+   {
+     "day": 2,
+     "startTime": "10:00:00",
+     "endTime": "19:00:00"
+   }
+ ]
+}
+</code></pre></div>
+<ol>
+<li>HTTP Method: PUT</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours/c7a4251f-d70e-4ccb-8c96-1038c76fd737</code></li>
+</ol>
+<h1 id='calendar-events'>Calendar Events</h1><div class="highlight"><pre class="highlight plaintext"><code>{
+ "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "eventTitle": "Weekly Appointment with Jack",
+ "eventDescription": "",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "eventType": "APPOINTMENT",
+ "eventStatus": "SCHEDULED",
+ "eventMode": "IN-PERSON",
+ "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "additionalInfo": {
+   "location": "",
+   "remarks": "",
+   "attachment": ""
+ },
+ "participants": [
+   {
+     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+     "participantRole": "psm",
+     "attended": false
+   },
+   {
+     "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
+     "participantRole": "patient",
+     "attended": false
+   }
+ ]
+}
+
+</code></pre></div>
+<p>It is a typical calendar API to create and manage events</p>
+
+<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} /calendar/ events</code></p>
+
+<p>in our example it would be:
+<code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events</code></p>
+
+<p>Fields description: </p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>Supported Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eventType</td>
+<td>&quot;GROUP_THERAPY&quot;, &quot;APPOINTMENT&quot;, &quot;LEAVE&quot;</td>
+</tr>
+<tr>
+<td>eventStatus</td>
+<td>&quot;SCHEDULED&quot;, &quot;CANCELLED&quot;, &quot;COMPLETED&quot;, &quot;MISSED&quot;</td>
+</tr>
+<tr>
+<td>eventMode</td>
+<td>&quot;IN-PERSON&quot;, &quot;CALL&quot;, &quot;VIDEO&quot;</td>
+</tr>
+<tr>
+<td>participantRole</td>
+<td>&quot;patient&quot;, &quot;psm&quot;</td>
+</tr>
+</tbody></table>
+<h2 id='create-calendar-event'>Create Calendar Event</h2>
+<ol>
+<li>HTTP Method: POST</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events</code></li>
+</ol>
+<h2 id='get-event-by-id'>Get Event By ID</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+ "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "eventTitle": "Weekly Appointment with Jack",
+ "eventDescription": "",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "eventType": "APPOINTMENT",
+ "eventStatus": "SCHEDULED",
+ "eventMode": "IN-PERSON",
+ "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "additionalInfo": {
+   "location": "",
+   "remarks": "",
+   "attachment": ""
+ },
+ "participants": [
+   {
+     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+     "participantRole": "psm",
+     "attended": false
+   },
+   {
+     "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
+     "participantRole": "patient",
+     "attended": false
+   }
+ ]
+}
+
+</code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573</code></li>
+</ol>
+<h2 id='find-events'>Find Events</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+   "content": [
+       {
+           "id": "62b94a26-7ec4-478f-baaf-bca9c8d20d88",
+           "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+           "createdAt": "2020-12-18T11:19:46.000Z",
+           "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+           "updatedAt": "2020-12-18T14:34:37.000Z",
+           "eventTitle": "Patient Appointment",
+           "eventDescription": "problem in hands",
+           "startDateTime": "2020-01-15T16:00:00.000Z",
+           "endDateTime": "2020-01-15T17:00:00.000Z",
+           "allDayEvent": false,
+           "duration": 3600,
+           "eventType": "APPOINTMENT",
+           "eventStatus": "RESCHEDULED",
+           "eventMode": "IN-PERSON",
+           "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+           "additionalInfo": {
+               "remarks": "Please wear mask",
+               "location": "Room 1408",
+               "attachment": ""
+           },
+           "participants": [
+               {
+                   "id": "544286e3-9b5f-4f4a-bda0-a038878b87a3",
+                   "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+                   "participantRole": "psm",
+                   "participationStatus": "Yes",
+                   "attended": false
+               }
+           ]
+       }
+   ],
+   "pageable": {
+       "sort": {
+           "sorted": false,
+           "unsorted": true,
+           "empty": true
+       },
+       "offset": 0,
+       "pageNumber": 0,
+       "pageSize": 20,
+       "paged": true,
+       "unpaged": false
+   },
+   "last": true,
+   "totalPages": 1,
+   "totalElements": 1,
+   "size": 20,
+   "number": 0,
+   "sort": {
+       "sorted": false,
+       "unsorted": true,
+       "empty": true
+   },
+   "numberOfElements": 1,
+   "first": true,
+   "empty": false
+}
+
+</code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573</code></li>
+</ol>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>participantIds</td>
+<td>list of id and values, either users or patients</td>
+<td>participantIds=28f393a8-62b3-4b4b-aa42-da769ce4489</td>
+</tr>
+<tr>
+<td>from</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>from=2021-01-28T23:10:04.874Z</td>
+</tr>
+<tr>
+<td>to</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>to=2021-01-28T23:10:04.874Z</td>
+</tr>
+<tr>
+<td>eventType</td>
+<td>Enum of allowed values</td>
+<td>&quot;GROUP_THERAPY&quot;, &quot;APPOINTMENT&quot;, &quot;LEAVE&quot;</td>
+</tr>
+</tbody></table>
+<h2 id='update-calendar-event-by-id'>Update Calendar Event by ID</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+ "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "eventTitle": "Patient Appointment",
+ "eventDescription": "problem in hands",
+ "startDateTime": "2020-01-15T16:00:00.000Z",
+ "endDateTime": "2020-01-15T17:00:00.000Z",
+ "eventType": "APPOINTMENT",
+ "eventStatus": "SCHEDULED",
+ "eventMode": "IN-PERSON",
+ "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "additionalInfo": {
+   "location": "Room 1408",
+   "remarks": "Please wear mask",
+   "attachment": ""
+ },
+ "participants": [
+   {
+     "id": "4ebfd582-3b20-43d9-b4ee-e658194caeb0",
+     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+     "participantRole": "psm",
+     "attended": false
+   },
+   {
+     "id": "9fe72d19-c0c8-4ebe-8a91-e8f19d4ca7bc",
+     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489b",
+     "participantRole": "patient",
+     "attended": false
+   }
+ ]
+}
+
+</code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573</code></li>
+</ol>
+<h2 id='update-event-invitation-response-by-id'>Update event invitation response by ID</h2><div class="highlight"><pre class="highlight plaintext"><code>{
+   "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
+   "participationStatus": "Yes"
+}
+
+</code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573/invitation-response</code></li>
+</ol>
+<h2 id='delete-calendar-event-by-id'>Delete Calendar Event by ID</h2>
+<p>Note: Only future events can be deleted</p>
+
+<ol>
+<li>HTTP Method: DELETE</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573</code></li>
+</ol>
+<h2 id='get-summary-for-the-user'>Get Summary for the User</h2>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-event-summary?from=2020-01-15T14:00:00.000Z&amp;to=2020-02-11T00:00:00.000Z&amp;psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489a</code></li>
+</ol>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>psm-ids</td>
+<td>user id</td>
+<td>psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489</td>
+</tr>
+<tr>
+<td>from</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>from=2021-01-28T23:10:04.874Z</td>
+</tr>
+<tr>
+<td>to</td>
+<td>Date_time in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> format</td>
+<td>to=2021-01-28T23:10:04.874Z</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
@@ -527,7 +1332,7 @@ Remember — a happy kitten is an authenticated kitten!
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -545,49 +1350,38 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed</td>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>Not Acceptable</td>
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>Gone</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>Internal Server Error</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
