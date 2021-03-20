@@ -18,108 +18,104 @@ code_clipboard: true
 
 # Introduction
 
+<aside class="warning">
+Welkin is currently in Closed Beta state, and APIs are subject to changes
+</aside>
+
+
 Welcome to Welkin V8 Release.
 
-Welkin is currently in Closed Beta state, and APIs are subject to changes
+When reading this API, we take a liberty and assume that you are familiar with the following Welkin concepts, but for the sake of clarity will shortly repeat them here:
 
-For better demonstration of the API, we will use:
+1. **Tenant (Organization)** - This is a customer space, dedicated to one customer. Every customer will have its own tenant that will host customer users, apps and instances
+2. **Instance (Environment)** - This is a separate database inside a tenant. Typical customer will have 2-3 instances, representing customer development, testing and live environments, as you build out your Welkin care program
+3. **API client** - this is an auto-generated pair of key and secrets, that allows you to access variety of API that Welkin exposes
+4. **Security Policies and Roles** - set of rules that dictates what API your client can access and what actions are allowed to be performed
+5. **Designer** - Codeless editor for configuring Care Program and all the elements of that program, including Permissions and Roles
+6. **Admin** - Admin app that allows one to assign permissions and roles to API clients (among other things)
+7. **Care** - Care portal that users will be using to deliver care to patients
+
+For better demonstration of the API, we will use the following setup:
 
 1. Organization (Tenant): **gh**
 2. Instance (Environment): **sb-demo**
 
-In order to better understand what it means, lets review the URL structure
-
-
-and 
-
-`Patients URL Structure: "https://api.{}.welkincloud.io/{}/admin/api_clients/{}"`
-
-The first variable is Environment type. For most of your use cases, that would be "live", 
-though "sandbox" is going to be supported soon
-
-The second variable is your Organization Name and the t
-# Authentication
-
-In order to Authenticate in Welkin, one needs to follow few steps:
+# Creating API Client
+Though this is better covered in our User Guide document, we are going to repeat the steps here, to ensure successful setup
 
 1. Create API client in your Organization 
-   * Navigate to Admin -> API Clients -> Create Client
-   * Copy the Client Name and Secret Key or download it. 
-   For this example we will assume Client Name is **QRUPCFEHJRJK**
-   and Secret Key is **+}B{KGTG6#zG%P;tQm0C**
+  * Navigate to Admin -> API Clients -> Create Client
+  * Copy the Client Name and Secret Key or download it.
+
 2. Navigate to the API Client page you created
-   * Configure appropriate access for the client (Instance Access, Roles, Security Policies)
+  * Configure appropriate access for the client (Instance Access, Roles, Security Policies)
 
-Welkin V8 Token URL follows convention that can be described like this:
- 
-`Token URL Structure: "https://api.{}.welkincloud.io/{}/admin/api_clients/{}"`
+Reminder: Security Policies and Roles are defined in the Designer and assigned in the Admin
 
-> To authorize, use this code:
+For this example we will assume Client Name is **QRUPCFEHJRJK** and Secret Key is **+}B{KGTG6#zG%P;tQm0C**
+
+
+# Authentication
+
+> To obtain a Bearer token:
 
 ```python
-    import requests
-    TOKEN_BASE_URL = "https://api.{}.welkincloud.io/{}/admin/api_clients/{}"
+import requests
 
-    token_url = TOKEN_BASE_URL.format("live", "gh", "QRUPCFEHJRJK")
-    print("Token URL {} ".format(token_url))
-
-    params = {'secret': '+}B{KGTG6#zG%P;tQm0C'}
-    r = requests.post(token_url, json=params)
-    print("Response Code: {}".format(r.status_code))
+params = {'secret': '+}B{KGTG6#zG%P;tQm0C'}
+r = requests.post('https://api.live.welkincloud.io/gh/admin/api_clients/QRUPCFEHJRJK', json=params)
+print(r.json())
 ```
-> Make sure to replace `secret` with your Secret Key.
 
-> The above command returns JSON structured like this:
+> Successful response will look like:
 
 ```json
 {
-  "clientName": "MTNKDGUAGPUE",
+  "clientName": "QRUPCFEHJRJK",
   "token": "eyJraWQiOiJvaGloUEZOREk2WmE5WEtXNEVIdTdVaFFob1l3Ull0aFFFMmpIY1MrczZrPSIsImFsZyI6IlJTMjU2In0.eyJjdXN0b206dHlwZSI6IkFQSV9DTElFTlQiLCJzdWIiOiIzZWQyMjNjOS1hNjFmLTRmMDktOGUzMi0wNGRkNjU2NDY2YzQiLCJhdWQiOiIycTJ0YmRnanV0Y3Zqdjg5NGY0Zm4wcXRnMCIsImV2ZW50X2lkIjoiMWVmYTc4MWItMzMzNy00MWI4LWExZjYtNTlmY2ZmYWYzMjgxIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2MTUyMjg0MjcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzBjOVhLV1pFQSIsImN1c3RvbTppZCI6IjAyZDI0MzU5LTU0ZWYtNGQ4Mi05MmRjLWZiY2RjOTQyNDJjMCIsImNvZ25pdG86dXNlcm5hbWUiOiJNVE5LREdVQUdQVUUiLCJleHAiOjE2MTUyMzIwMjcsImlhdCI6MTYxNTIyODQyN30.ktjPG0CIHP0As8e8I1UGMP1kocvjd4AIeQBZlZ0esMz414Dpsb6gwPNuDhJS-ej_gh_tZNSw4tePdxQcagfJHp64ByOuv3ZtAHPAm5l5dEZOcVxG4l4O45Mn1hIGhqP6vizNVBFlBWTnzYTyPlbJKS2PMeMsWPqxUDKeoEffczr2sb9VptUMg2dgY-vz6VZvZjtpPfWjKjnJHeIVMxUiW-9LcR-6BK2DHj5qwlzOkDs89rnqE_OFMUiyLfQlvQuoglSRUUiXNXGiU88YCNNzzG7fb3luuwFXBAdwWhK7pXM4o355eDp2bH-EFx_q82mJBy7lB0DfZTm1AHHjcn8BXg",
   "enabled": true
 }
 ```
 
+Once you finished the steps, lets review the URL structure that is typically generated for such setup:
+
+`URL Structure: https://api.live.welkincloud.io/{}/admin/api_clients/{}`
+
+There are several variables in this structure:
+
+1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
+2. Second variable is your client name. We will use **QRUPCFEHJRJK** as a api client name
 
 
+In order to Authenticate in Welkin, one needs to follow few steps:
 
-The first variable is Environment type. 
-For most of your use cases, that would be **live**, though **sandbox** is going to be supported soon
+1. HTTP Method: POST
+2. HTTP URL: `https://api.live.welkincloud.io/gh/admin/api_clients/QRUPCFEHJRJK` 
+3. HTTP Reponse Codes: 201, 400, 500
 
-The second variable is your Organization Name, in our example that is **gh**
+There are three field in response object:
 
-The third variable is your Client Name that you previously generated in the steps above: **QRUPCFEHJRJK**
-
-Full URL to obtain token is:
-
-`https://api.live.welkincloud.io/gh/admin/api_clients/QRUPCFEHJRJK`
-
-<aside class="notice">
-Don't forget to use your Organization Name and Environment Name and replace the values in this example 
-</aside>
-
-
+Field Name | Description | Examples
+--------- | ----------- | --------
+clientName | Echos back the name of API client you used
+token | Bearer token that you will use in subsequent requests
+enabled | will indicate if the client is enable. This is also controlled in the Admin app
 
 # Patients
 
-## Get All Patients
+Collection of all patients would be located at the following URL
 
-`Patients URL Structure: https://api.{}.welkincloud.io/{}/{}/patients`
+`URL Structure: https://api.live.welkincloud.io/{}/{}/patients`
 
 In our example that is `https://api.live.welkincloud.io/gh/sb-demo/patients`
 
+The collection supports several interactions
 
-### HTTP Request
+1. Allows to obtain a list of patients (can be sorted)
+2. Allows to obtain a filtered list of patients based of email address (commonly referred as FINDER)
+2. Allows to create a new patient
 
-`GET https://api.live.welkincloud.io/gh/sb-demo/patients`
-
-### Query Parameters
-
-Parameter | Description | Examples
---------- | ----------- | --------
-sort |Allows one to specify the sort order of the returned patients collection | https://api.live.welkincloud.io/gh/sb-demo/patients?sort=firstName,desc
-email |When specified, will execute a search for a patient based of email address | https://api.live.welkincloud.io/gh/sb-demo/patients?email=1@1.com
-
-
+## Get All Patients
 
 ```python
 import requests
@@ -128,11 +124,10 @@ h = {
     }
 
 r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patients", headers=h)
-print("Response Code: {}".format(r.status_code))
 print(r.json())
 ```
 
-> The above command returns JSON structured like this:
+> The above request returns JSON structured like this:
 
 ```json
 {"content": 
@@ -159,12 +154,21 @@ print(r.json())
 }
 ```
 
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients`
+3. HTTP Reponse Codes: 201, 400, 500
+
+Following Query Parameters can be used to sort or find approporiately
+
+Parameter | Description | Examples
+--------- | ----------- | --------
+sort |Allows one to specify the sort order of the returned patients collection | https://api.live.welkincloud.io/gh/sb-demo/patients?sort=firstName,desc
+email |When specified, will execute a search for a patient based of email address | https://api.live.welkincloud.io/gh/sb-demo/patients?email=1@1.com
+
+
 ## Create a Patient
 
-### HTTP Request
-
-`POST https://api.live.welkincloud.io/gh/sb-demo/patients`
-
+Creating a new Patient is a simple as posting to a Patient Collection resource
 
 ```python
 import requests
@@ -181,12 +185,11 @@ data = {
         "email": "Charlie.Taylor@superemail.com"
     }
 
- r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients", json=data, headers=h)
-print("Response Code: {}".format(r.status_code))
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients", json=data, headers=h)
 print(r.json())
 ```
 
-> The above command returns JSON structured like this:
+> The above request returns JSON structured like this:
 
 ```json
 
@@ -210,13 +213,13 @@ print(r.json())
   "careTeam": None
 }
 ```
+1. HTTP Method: POST
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients`
+3. HTTP Reponse Codes: 201, 400, 500
 
-## Get a Specific Patient
 
-### HTTP Request
 
-`GET https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8`
-
+## Get a Specific Patient By ID
 
 ```python
 import requests
@@ -251,21 +254,22 @@ print(r.json())
 }  
 ```
 
+To get a patient by a known ID
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8`
+3. HTTP Reponse Codes: 200, 400, 500
+
 
 ## Delete a Specific Patient
 
-### HTTP Request
-
-`DELETE https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8`
-
-<aside class="notice">
-This operation is not supported yet</aside>
+<aside class="warning">
+This operation is not supported yet
+</aside>
 
 # Custom Data Types (CDT)
 
 Custom data types in Welkin are associated with a Patient. In REST terms, they are a sub-resource to the patient object
-
-`CDT URL Structure: https://api.{env}.welkincloud.io/{tenant}/{instance}/patients/{patient-id}/cdts/{cdt-name}/{cdt-record-id}`
 
 Each CDT has a set of system fields associated with it and a set of custom fields that you will create in the designer
 
@@ -286,6 +290,11 @@ source_id | UUID | record ID of the source
 
 ## Working with CDT records
 
+Lets examine the URL structure
+
+`https://api.live.welkincloud.io/{tenant}/{instance}/patients/{patient-id}/cdts/{cdt-name}/{cdt-record-id}`
+
+
 Let's consider the following example.
 CDT that was created in the designer is **medication** with three fields
 1. medication_name
@@ -295,18 +304,9 @@ CDT that was created in the designer is **medication** with three fields
 In our example the collection URL is
 `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication`
 
-## Create CDT Record
+This collection is collection of records for a medication cdt object, associated with a specific patient as described by the patient id
 
-1. HTTP Method: POST
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication` 
-3. Request Body:
-`    
-  {
-      "medication_name": "Tylenol",
-      "medication_status": "active",
-      "medication_start_date": "2012-04-23T18:25:43.511Z"
-  }
-`
+## Create CDT Record
 
 ```python
 import requests
@@ -327,13 +327,13 @@ print("Response Code: {}".format(r.status_code))
 print(r.json())
 ```
 
-> The above command returns JSON of the created record, with system fields 
-> HTTP Status for success is 201
+1. HTTP Method: POST
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication` 
+3. HTTP Reponse Codes: 201, 400, 500
+
+> The above request returns JSON of the created record, with system fields 
 
 ## Reading CDT Record
-1. HTTP Method: GET
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375` 
-
 
 ```python
 import requests
@@ -347,15 +347,14 @@ r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-2
 print("Response Code: {}".format(r.status_code))
 print(r.json())
 ```
-> The above command returns JSON of the record, with system fields 
-> HTTP Status for success is 200
+> The above request returns JSON of the record, with system fields 
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375` 
+3. HTTP Reponse Codes: 200, 400, 500
+
 
 ## Updating CDT Record
-All updates are partial updates, meaning that we will update only the fields you will send to the server
-
-1. HTTP Method: PATCH
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375` 
-
 
 ```python
 import requests
@@ -373,12 +372,16 @@ r = requests.patch("https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498
 print("Response Code: {}".format(r.status_code))
 print(r.json())
 ```
-> The above command returns JSON of the record, with system fields 
-> HTTP Status for success is 200
+> The above request returns JSON of the record, with system fields 
+All updates are partial updates, meaning that we will update only the fields you will send to the server
+
+1. HTTP Method: PATCH
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375` 
+3. HTTP Reponse Codes: 200, 400, 500
 
 ## Find CDT records
 
-Read multiple records example return all records. Use finder parameters to filter output
+Use finder parameters to filter output of the collection for a given patient
 
 1. HTTP Method: GET
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication` 
@@ -394,37 +397,39 @@ dateEnd |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format 
 
 # Users
 
+This API allows one to work with User records
+
+## Create User Record
+
+```json     
+{
+   "username": "johndoe",
+   "email": "j.doe@email.com",
+   "phone": "+15552009845",
+   "timezone": "America/Los_Angeles",
+   "firstName": "John",
+   "lastName": "Doe",
+   "credentials": "MD"
+}
+```
+
 Users API url consist of the following structure
-1. {{url}}
-2. {{tenantName}} - a tenant name reserved reserved for your company
-3. {{instanceName}} - a name of HCRM instance
-4. {{patientId}} - an id of Patient
+
+`https://api.live.welkincloud.io/{}/admin/users` 
 
 In our example, the url would be:
 `https://api.live.welkincloud.io/gh/admin/users` 
 
-## Create User Record
 
-```     
-{
-   "username": "johndoe",
-   "email": "j.doe@email.com",
-   "phone": "+15552009845",
-   "timezone": "America/Los_Angeles",
-   "firstName": "John",
-   "lastName": "Doe",
-   "credentials": "MD"
-}
-```
 
-1. HTTP Method: GET
+
+1. HTTP Method: POST
 2. HTTP URL: `https://api.live.welkincloud.io/gh/admin/users` 
-3. Request Body (on the right -->)
-
 
 
 ## Read User Record
-```     
+
+```json     
 {
    "username": "johndoe",
    "email": "j.doe@email.com",
@@ -435,16 +440,20 @@ In our example, the url would be:
    "credentials": "MD"
 }
 ```
+
+User Record API url consist of the following structure
+
+`https://api.live.welkincloud.io/{}/admin/users/{}` 
+
+In our example, the url would be:
+`https://api.live.welkincloud.io/gh/admin/users/johndoe` 
 
 1. HTTP Method: GET
 2. HTTP URL: `https://api.live.welkincloud.io/gh/admin/users/johndoe` 
 
-
-
-
 ## Update User Record (Partial update)
 
-```     
+```json     
 {
    "username": "johndoe",
    "email": "j.doe@email.com",
@@ -464,7 +473,7 @@ If you with to update some of the user fields, but not all, you can use `PATCH`
 
 ## Update User Record (Full update)
 
-```     
+```json     
 {
    "username": "johndoe",
    "email": "j.doe@email.com",
@@ -493,7 +502,7 @@ If you with to update entire User Object, you can use `PUT`
 ## Working Hours
 
 
-```
+```json
 {
  "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
  "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
@@ -533,7 +542,7 @@ in our example it would be:
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours`
 
 ## Read Work Hours
-```     
+```json     
 [
    {
        "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
@@ -586,7 +595,7 @@ Example:
 
 Updating work hours by ID
 
-```
+```json
 {
  "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
  "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
@@ -611,7 +620,7 @@ Updating work hours by ID
 
 # Calendar Events
 
-```
+```json
 {
  "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
  "eventTitle": "Weekly Appointment with Jack",
@@ -666,7 +675,7 @@ participantRole | "patient", "psm"
 
 ## Get Event By ID
 
-```
+```json
 {
  "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
  "eventTitle": "Weekly Appointment with Jack",
@@ -703,7 +712,7 @@ participantRole | "patient", "psm"
 
 ## Find Events
 
-```
+```json
 {
    "content": [
        {
@@ -779,7 +788,7 @@ eventType | Enum of allowed values | "GROUP_THERAPY", "APPOINTMENT", "LEAVE"
 
 ## Update Calendar Event by ID
 
-```
+```json
 {
  "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
  "eventTitle": "Patient Appointment",
@@ -818,7 +827,7 @@ eventType | Enum of allowed values | "GROUP_THERAPY", "APPOINTMENT", "LEAVE"
 
 ## Update event invitation response by ID
 
-```
+```json
 {
    "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
    "participationStatus": "Yes"
@@ -847,5 +856,52 @@ psm-ids | user id | psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489
 from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
 to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
 
+# Schedule
+
+There are two APIs that are relevant to the schedules feature:
+
+## Get Schedules
+
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / calendar /psm-schedules`
+
+in our example it would be:
+`https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-schedules`
+
+
+Parameters| Format | Description
+--------- | ----------- | --------
+psmIds | list of id and values | psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489
+from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
+to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
+
+Example:
+
+`https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-schedules
+?psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489a,18f393a8-62b3-4b4b-aa42-da769ce4489a
+&from=2020-01-01T00:00:00.000Z
+&to=2020-01-31T23:59:59.000Z
+`
+
+## Get Available Schedules
+
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / calendar / available-psm-schedules`
+
+in our example it would be:
+`https://api.live.welkincloud.io/gh/sb-demo/calendar/available-psm-schedules`
+
+
+Parameters| Format | Description
+--------- | ----------- | --------
+psmIds | list of id and values | psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489
+from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
+to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
+
+Example:
+
+`https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-schedules
+?psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489a,18f393a8-62b3-4b4b-aa42-da769ce4489a
+&from=2020-01-01T00:00:00.000Z
+&to=2020-01-31T23:59:59.000Z
+`
 
 
