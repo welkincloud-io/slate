@@ -52,7 +52,7 @@ Though this is better covered in our User Guide document, we are going to repeat
 
 Reminder: Security Policies and Roles are defined in the Designer and assigned in the Admin
 
-For this example we will assume Client Name is **QRUPCFEHJRJK** and Secret Key is **+}B{KGTG6#zG%P;tQm0C**
+For this example we will assume Client Name is **VBOPNRYRWJIP** and Secret Key is **+}B{KGTG6#zG%P;tQm0C**
 
 
 # Authentication
@@ -63,7 +63,7 @@ For this example we will assume Client Name is **QRUPCFEHJRJK** and Secret Key i
 import requests
 
 params = {'secret': '+}B{KGTG6#zG%P;tQm0C'}
-r = requests.post('https://api.live.welkincloud.io/gh/admin/api_clients/QRUPCFEHJRJK', json=params)
+r = requests.post('https://api.live.welkincloud.io/gh/admin/api_clients/VBOPNRYRWJIP', json=params)
 print(r.json())
 ```
 
@@ -71,7 +71,7 @@ print(r.json())
 
 ```json
 {
-  "clientName": "QRUPCFEHJRJK",
+  "clientName": "VBOPNRYRWJIP",
   "token": "eyJraWQiOiJvaGloUEZOREk2WmE5WEtXNEVIdTdVaFFob1l3Ull0aFFFMmpIY1MrczZrPSIsImFsZyI6IlJTMjU2In0.eyJjdXN0b206dHlwZSI6IkFQSV9DTElFTlQiLCJzdWIiOiIzZWQyMjNjOS1hNjFmLTRmMDktOGUzMi0wNGRkNjU2NDY2YzQiLCJhdWQiOiIycTJ0YmRnanV0Y3Zqdjg5NGY0Zm4wcXRnMCIsImV2ZW50X2lkIjoiMWVmYTc4MWItMzMzNy00MWI4LWExZjYtNTlmY2ZmYWYzMjgxIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2MTUyMjg0MjcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzBjOVhLV1pFQSIsImN1c3RvbTppZCI6IjAyZDI0MzU5LTU0ZWYtNGQ4Mi05MmRjLWZiY2RjOTQyNDJjMCIsImNvZ25pdG86dXNlcm5hbWUiOiJNVE5LREdVQUdQVUUiLCJleHAiOjE2MTUyMzIwMjcsImlhdCI6MTYxNTIyODQyN30.ktjPG0CIHP0As8e8I1UGMP1kocvjd4AIeQBZlZ0esMz414Dpsb6gwPNuDhJS-ej_gh_tZNSw4tePdxQcagfJHp64ByOuv3ZtAHPAm5l5dEZOcVxG4l4O45Mn1hIGhqP6vizNVBFlBWTnzYTyPlbJKS2PMeMsWPqxUDKeoEffczr2sb9VptUMg2dgY-vz6VZvZjtpPfWjKjnJHeIVMxUiW-9LcR-6BK2DHj5qwlzOkDs89rnqE_OFMUiyLfQlvQuoglSRUUiXNXGiU88YCNNzzG7fb3luuwFXBAdwWhK7pXM4o355eDp2bH-EFx_q82mJBy7lB0DfZTm1AHHjcn8BXg",
   "enabled": true
 }
@@ -84,13 +84,13 @@ Once you finished the steps, lets review the URL structure that is typically gen
 There are several variables in this structure:
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
-2. Second variable is your client name. We will use **QRUPCFEHJRJK** as a api client name
+2. Second variable is your client name. We will use **VBOPNRYRWJIP** as a api client name
 
 
 In order to Authenticate in Welkin, one needs to follow few steps:
 
 1. HTTP Method: POST
-2. HTTP URL: `https://api.live.welkincloud.io/gh/admin/api_clients/QRUPCFEHJRJK` 
+2. HTTP URL: `https://api.live.welkincloud.io/gh/admin/api_clients/VBOPNRYRWJIP` 
 3. HTTP Reponse Codes: 201, 400, 500
 
 There are three field in response object:
@@ -296,15 +296,15 @@ Lets examine the URL structure
 
 
 Let's consider the following example.
-CDT that was created in the designer is **medication** with three fields
-1. medication_name
-2. medication_status
-3. medication_start_date
+CDT that was created in the designer is **vitals** with three fields
+1. blood_sugar
+2. systolic
+3. diastolic
 
 In our example the collection URL is
-`https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication`
+`https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/vitals`
 
-This collection is collection of records for a medication cdt object, associated with a specific patient as described by the patient id
+This collection is collection of records for a vitals cdt object, associated with a specific patient as described by the patient id
 
 ## Create CDT Record
 
@@ -315,23 +315,47 @@ h = {
 }
 
 data = {
-      "medication_name": "Tylenol",
-      "medication_status": "active",
-      "medication_start_date": "2012-04-23T18:25:43.511Z"
+    "blood_sugar": random.randint(90, 300),
+    "diastolic": random.randint(90, 220),
+    "systolic": random.randint(60, 140),
 }
 
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication", 
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals", 
   json=data, headers=h)
 
 print("Response Code: {}".format(r.status_code))
 print(r.json())
 ```
+> The above request returns JSON of the created record, with system fields 
 
+```json
+
+{
+  "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
+  "patientId": "a02a0310-5fca-4af8-aa87-c14d6b4d5723",
+  "cdtId": "11f9d7c0-5065-433e-937e-8abfee98ff31",
+  "version": 5,
+  "jsonBody": {
+    "created_at": "2021-03-22T06:40:08.482Z",
+    "source_type": None,
+    "created_by_name": "API_CLIENT:VBOPNRYRWJIP",
+    "created_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
+    "updated_by_name": "API_CLIENT:VBOPNRYRWJIP",
+    "diastolic": 174,
+    "systolic": 100,
+    "updated_at": "2021-03-22T06:40:08.482Z",
+    "updated_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
+    "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
+    "source_id": None,
+    "blood_sugar": 196,
+    "source_name": None
+  }
+}
+```
 1. HTTP Method: POST
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication` 
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals` 
 3. HTTP Reponse Codes: 201, 400, 500
 
-> The above request returns JSON of the created record, with system fields 
 
 ## Reading CDT Record
 
@@ -342,15 +366,39 @@ h = {
 }
 
 
-r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375", headers=h)
+r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31", headers=h)
 
 print("Response Code: {}".format(r.status_code))
 print(r.json())
 ```
-> The above request returns JSON of the record, with system fields 
+> The above request returns JSON of the created record, with system fields 
 
+```json
+
+{
+  "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
+  "patientId": "a02a0310-5fca-4af8-aa87-c14d6b4d5723",
+  "cdtId": "11f9d7c0-5065-433e-937e-8abfee98ff31",
+  "version": 5,
+  "jsonBody": {
+    "created_at": "2021-03-22T06:40:08.482Z",
+    "source_type": None,
+    "created_by_name": "API_CLIENT:VBOPNRYRWJIP",
+    "created_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
+    "updated_by_name": "API_CLIENT:VBOPNRYRWJIP",
+    "diastolic": 174,
+    "systolic": 100,
+    "updated_at": "2021-03-22T06:40:08.482Z",
+    "updated_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
+    "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
+    "source_id": None,
+    "blood_sugar": 196,
+    "source_name": None
+  }
+}
+```
 1. HTTP Method: GET
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375` 
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31` 
 3. HTTP Reponse Codes: 200, 400, 500
 
 
@@ -359,24 +407,50 @@ print(r.json())
 ```python
 import requests
 h = {
-        "Authorization": "Bearer {}".format(token)
+    "Authorization": "Bearer {}".format(token)
 }
 
 data = {
-      "medication_status": "inactive",
+    "blood_sugar": "200",
 }
 
-r = requests.patch("https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication", 
+r = requests.patch("https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals", 
   json=data, headers=h)
 
 print("Response Code: {}".format(r.status_code))
 print(r.json())
 ```
 > The above request returns JSON of the record, with system fields 
+
+```json
+
+{
+  "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
+  "patientId": "a02a0310-5fca-4af8-aa87-c14d6b4d5723",
+  "cdtId": "11f9d7c0-5065-433e-937e-8abfee98ff31",
+  "version": 5,
+  "jsonBody": {
+    "created_at": "2021-03-22T06:40:08.482Z",
+    "source_type": None,
+    "created_by_name": "API_CLIENT:VBOPNRYRWJIP",
+    "created_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
+    "updated_by_name": "API_CLIENT:VBOPNRYRWJIP",
+    "diastolic": 165,
+    "systolic": 128,
+    "updated_at": "2021-03-22T06:50:37.739Z",
+    "updated_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
+    "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
+    "source_id": None,
+    "blood_sugar": 200,
+    "source_name": None
+  }
+}
+```
+
 All updates are partial updates, meaning that we will update only the fields you will send to the server
 
 1. HTTP Method: PATCH
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375` 
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31` 
 3. HTTP Reponse Codes: 200, 400, 500
 
 ## Find CDT records
@@ -384,7 +458,7 @@ All updates are partial updates, meaning that we will update only the fields you
 Use finder parameters to filter output of the collection for a given patient
 
 1. HTTP Method: GET
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication` 
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals` 
 
 Parameters| Format | Description
 --------- | ----------- | --------
