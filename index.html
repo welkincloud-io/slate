@@ -484,7 +484,7 @@ Welkin is currently in Closed Beta state, and APIs are subject to changes
 
 <p>Reminder: Security Policies and Roles are defined in the Designer and assigned in the Admin</p>
 
-<p>For this example we will assume Client Name is <strong>QRUPCFEHJRJK</strong> and Secret Key is <strong>+}B{KGTG6#zG%P;tQm0C</strong></p>
+<p>For this example we will assume Client Name is <strong>VBOPNRYRWJIP</strong> and Secret Key is <strong>+}B{KGTG6#zG%P;tQm0C</strong></p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To obtain a Bearer token:</p>
@@ -492,14 +492,14 @@ Welkin is currently in Closed Beta state, and APIs are subject to changes
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'secret'</span><span class="p">:</span> <span class="s">'+}B{KGTG6#zG%P;tQm0C'</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.live.welkincloud.io/gh/admin/api_clients/QRUPCFEHJRJK'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.live.welkincloud.io/gh/admin/api_clients/VBOPNRYRWJIP'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
 <p>Successful response will look like:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"clientName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRUPCFEHJRJK"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"clientName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJraWQiOiJvaGloUEZOREk2WmE5WEtXNEVIdTdVaFFob1l3Ull0aFFFMmpIY1MrczZrPSIsImFsZyI6IlJTMjU2In0.eyJjdXN0b206dHlwZSI6IkFQSV9DTElFTlQiLCJzdWIiOiIzZWQyMjNjOS1hNjFmLTRmMDktOGUzMi0wNGRkNjU2NDY2YzQiLCJhdWQiOiIycTJ0YmRnanV0Y3Zqdjg5NGY0Zm4wcXRnMCIsImV2ZW50X2lkIjoiMWVmYTc4MWItMzMzNy00MWI4LWExZjYtNTlmY2ZmYWYzMjgxIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2MTUyMjg0MjcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzBjOVhLV1pFQSIsImN1c3RvbTppZCI6IjAyZDI0MzU5LTU0ZWYtNGQ4Mi05MmRjLWZiY2RjOTQyNDJjMCIsImNvZ25pdG86dXNlcm5hbWUiOiJNVE5LREdVQUdQVUUiLCJleHAiOjE2MTUyMzIwMjcsImlhdCI6MTYxNTIyODQyN30.ktjPG0CIHP0As8e8I1UGMP1kocvjd4AIeQBZlZ0esMz414Dpsb6gwPNuDhJS-ej_gh_tZNSw4tePdxQcagfJHp64ByOuv3ZtAHPAm5l5dEZOcVxG4l4O45Mn1hIGhqP6vizNVBFlBWTnzYTyPlbJKS2PMeMsWPqxUDKeoEffczr2sb9VptUMg2dgY-vz6VZvZjtpPfWjKjnJHeIVMxUiW-9LcR-6BK2DHj5qwlzOkDs89rnqE_OFMUiyLfQlvQuoglSRUUiXNXGiU88YCNNzzG7fb3luuwFXBAdwWhK7pXM4o355eDp2bH-EFx_q82mJBy7lB0DfZTm1AHHjcn8BXg"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -512,14 +512,14 @@ Welkin is currently in Closed Beta state, and APIs are subject to changes
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
-<li>Second variable is your client name. We will use <strong>QRUPCFEHJRJK</strong> as a api client name</li>
+<li>Second variable is your client name. We will use <strong>VBOPNRYRWJIP</strong> as a api client name</li>
 </ol>
 
 <p>In order to Authenticate in Welkin, one needs to follow few steps:</p>
 
 <ol>
 <li>HTTP Method: POST</li>
-<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/api_clients/QRUPCFEHJRJK</code> </li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/api_clients/VBOPNRYRWJIP</code> </li>
 <li>HTTP Reponse Codes: 201, 400, 500</li>
 </ol>
 
@@ -780,48 +780,116 @@ This operation is not supported yet
 <p><code>https://api.live.welkincloud.io/{tenant}/{instance}/patients/{patient-id}/cdts/{cdt-name}/{cdt-record-id}</code></p>
 
 <p>Let&#39;s consider the following example.
-CDT that was created in the designer is <strong>medication</strong> with three fields
-1. medication_name
-2. medication_status
-3. medication_start_date</p>
+CDT that was created in the designer is <strong>vitals</strong> with three fields
+1. blood_sugar
+2. systolic
+3. diastolic</p>
 
 <p>In our example the collection URL is
-<code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication</code></p>
+<code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/vitals</code></p>
 
-<p>This collection is collection of records for a medication cdt object, associated with a specific patient as described by the patient id</p>
+<p>This collection is collection of records for a vitals cdt object, associated with a specific patient as described by the patient id</p>
 <h2 id='create-cdt-record'>Create CDT Record</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s">"medication_name"</span><span class="p">:</span> <span class="s">"Tylenol"</span><span class="p">,</span>
-      <span class="s">"medication_status"</span><span class="p">:</span> <span class="s">"active"</span><span class="p">,</span>
-      <span class="s">"medication_start_date"</span><span class="p">:</span> <span class="s">"2012-04-23T18:25:43.511Z"</span>
+    <span class="s">"blood_sugar"</span><span class="p">:</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+    <span class="s">"diastolic"</span><span class="p">:</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">220</span><span class="p">),</span>
+    <span class="s">"systolic"</span><span class="p">:</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">140</span><span class="p">),</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
-<ol>
-<li>HTTP Method: POST</li>
-<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication</code> </li>
-<li>HTTP Reponse Codes: 201, 400, 500</li>
-</ol>
-
 <blockquote>
 <p>The above request returns JSON of the created record, with system fields </p>
 </blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e46bfff7-62c9-407b-a0a1-5d522aeab9d0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"patientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a02a0310-5fca-4af8-aa87-c14d6b4d5723"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cdtId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11f9d7c0-5065-433e-937e-8abfee98ff31"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"jsonBody"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-22T06:40:08.482Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_type"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API_CLIENT:VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API_CLIENT:VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"diastolic"</span><span class="p">:</span><span class="w"> </span><span class="mi">174</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"systolic"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-22T06:40:08.482Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e46bfff7-62c9-407b-a0a1-5d522aeab9d0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"blood_sugar"</span><span class="p">:</span><span class="w"> </span><span class="mi">196</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_name"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<ol>
+<li>HTTP Method: POST</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals</code> </li>
+<li>HTTP Reponse Codes: 201, 400, 500</li>
+</ol>
 <h2 id='reading-cdt-record'>Reading CDT Record</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="p">}</span>
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>The above request returns JSON of the created record, with system fields </p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e46bfff7-62c9-407b-a0a1-5d522aeab9d0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"patientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a02a0310-5fca-4af8-aa87-c14d6b4d5723"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cdtId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11f9d7c0-5065-433e-937e-8abfee98ff31"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"jsonBody"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-22T06:40:08.482Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_type"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API_CLIENT:VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API_CLIENT:VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"diastolic"</span><span class="p">:</span><span class="w"> </span><span class="mi">174</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"systolic"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-22T06:40:08.482Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e46bfff7-62c9-407b-a0a1-5d522aeab9d0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"blood_sugar"</span><span class="p">:</span><span class="w"> </span><span class="mi">196</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_name"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31</code> </li>
+<li>HTTP Reponse Codes: 200, 400, 500</li>
+</ol>
+<h2 id='updating-cdt-record'>Updating CDT Record</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"blood_sugar"</span><span class="p">:</span> <span class="s">"200"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">patch</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals"</span><span class="p">,</span> 
+  <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
@@ -829,35 +897,34 @@ CDT that was created in the designer is <strong>medication</strong> with three f
 <blockquote>
 <p>The above request returns JSON of the record, with system fields </p>
 </blockquote>
-
-<ol>
-<li>HTTP Method: GET</li>
-<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375</code> </li>
-<li>HTTP Reponse Codes: 200, 400, 500</li>
-</ol>
-<h2 id='updating-cdt-record'>Updating CDT Record</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s">"medication_status"</span><span class="p">:</span> <span class="s">"inactive"</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">patch</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication"</span><span class="p">,</span> 
-  <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
-</code></pre></div>
-<blockquote>
-<p>The above request returns JSON of the record, with system fields 
-All updates are partial updates, meaning that we will update only the fields you will send to the server</p>
-</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e46bfff7-62c9-407b-a0a1-5d522aeab9d0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"patientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a02a0310-5fca-4af8-aa87-c14d6b4d5723"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cdtId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11f9d7c0-5065-433e-937e-8abfee98ff31"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"jsonBody"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-22T06:40:08.482Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_type"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API_CLIENT:VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API_CLIENT:VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"diastolic"</span><span class="p">:</span><span class="w"> </span><span class="mi">165</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"systolic"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-22T06:50:37.739Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e46bfff7-62c9-407b-a0a1-5d522aeab9d0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"blood_sugar"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_name"</span><span class="p">:</span><span class="w"> </span><span class="err">None</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>All updates are partial updates, meaning that we will update only the fields you will send to the server</p>
 
 <ol>
 <li>HTTP Method: PATCH</li>
-<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication/758463f9-0f7a-4696-8819-8c6d09f10375</code> </li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31</code> </li>
 <li>HTTP Reponse Codes: 200, 400, 500</li>
 </ol>
 <h2 id='find-cdt-records'>Find CDT records</h2>
@@ -865,7 +932,7 @@ All updates are partial updates, meaning that we will update only the fields you
 
 <ol>
 <li>HTTP Method: GET</li>
-<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/medication</code> </li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals</code> </li>
 </ol>
 
 <table><thead>
