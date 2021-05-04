@@ -573,7 +573,20 @@ If you with to update entire User Object, you can use `PUT`
 
 # Calendar
 
-## Working Hours
+```json
+{
+ "localStartDateTime": "2020-01-01T00:00:00.000+03:00",
+ "localEndDateTime": "2020-01-31T23:59:59.000+03:00",
+}
+```
+
+Note: 
+
+1. Calendar API includes read only date fields (such as `localStartDateTime` or `localEndDateTime`) with the user timezone applied. Such fields use [ISO-8601](https://www.w3.org/TR/NOTE-datetime) datetime format.
+
+# Calendar Working Hours
+
+Using Working Hours API, users (doctors, clinicians) can set flexible working hours that vary from week to week. It is beneficial for people involved part-time.
 
 
 ```json
@@ -582,6 +595,8 @@ If you with to update entire User Object, you can use `PUT`
  "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
  "startDateTime": "2020-01-01T00:00:00.000Z",
  "endDateTime": "2020-01-31T23:59:59.000Z",
+ "localStartDateTime": "2020-01-01T00:00:00.000+03:00",
+ "localEndDateTime": "2020-01-31T23:59:59.000+03:00",
  "daysInfo": [
    {
      "day": 1,
@@ -598,19 +613,85 @@ If you with to update entire User Object, you can use `PUT`
 ```
 
 Note: 
-1. psmId is userId. We will change it in the future releases to reflect that
-2. day field represents day of week (1 - monday, 2 - tuesday, ...)
 
-
-
-Using Working Hours API, users (doctors, clinicians) can set flexible working hours that vary from week to week. It is beneficial for people involved part-time.
-
-
+1. `psmId` is `userId`. We will change it in the future releases to reflect that
+2. `day` field represents day of week (1 - monday, 2 - tuesday, ...)
 
 `URL Structure: {{url}} / {{tenantName}} / {{instanceName}} /calendar/ work-hours`
 
-in our example it would be:
+In our example it would be:
 `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours`
+
+
+
+## Create Work Hours
+
+
+```python
+import requests
+h = {
+    "Authorization": "Bearer {}".format(token)
+}
+
+data = {
+ "psmId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+ "createdBy": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+ "startDateTime": "2020-01-01T00:00:00.000Z",
+ "endDateTime": "2020-01-31T23:59:59.000Z",
+ "daysInfo": [
+   {
+     "day": 1,
+     "startTime": "09:00:00",
+     "endTime": "18:00:00"
+   },
+   {
+     "day": 2,
+     "startTime": "09:00:00",
+     "endTime": "18:00:00"
+   }
+ ]
+}
+
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals", 
+  json=data, headers=h)
+
+print("Response Code: {}".format(r.status_code))
+print(r.json())
+```
+> The above request returns JSON of the created work hours
+
+```json
+{
+  "psmId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+  "details": [
+    {
+      "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+      "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+      "createdAt": "2021-05-03T13:18:16.424Z",
+      "updatedAt": "2021-05-03T13:18:16.424Z",
+      "workHoursId": "18b80840-63ef-4849-9d3a-0d36a2ace332",
+      "startDateTime": "2020-01-01T00:00:00.000Z",
+      "endDateTime": "2020-01-31T23:59:59.000Z",
+      "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+      "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+      "daysInfo": [
+        {
+          "daysInfoId": "24e217e0-f33e-495d-96ae-f19b6d15a4c3",
+          "startTime": "09:00:00",
+          "endTime": "18:00:00",
+          "day": 1
+        },
+        {
+          "daysInfoId": "d740b70f-1aa7-41c6-8890-0a75cd5535df",
+          "startTime": "09:00:00",
+          "endTime": "18:00:00",
+          "day": 2
+        }
+      ]
+    }
+  ]
+}
+```
 
 1. HTTP Method: POST
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours`
@@ -618,28 +699,36 @@ in our example it would be:
 ## Read Work Hours
 ```json     
 [
-   {
-       "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
-       "details": [
-           {
-               "workHoursId": "d22d0c67-691f-4f1c-991b-09cce97ec7ce",
-               "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
-               "createdAt": "2021-01-14T02:31:55.000Z",
-               "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
-               "updatedAt": "2021-01-14T02:31:55.000Z",
-               "startDateTime": "2020-01-01T00:00:00.000Z",
-               "endDateTime": "2020-01-31T23:59:59.000Z",
-               "daysInfo": [
-                   {
-                       "daysInfoId": "249414bb-a6a5-42a2-9ddf-d75ce16dcae3",
-                       "startTime": "09:00:00",
-                       "endTime": "18:00:00",
-                       "day": 1
-                   }
-               ]
-           }
-       ]
-   }
+  {
+    "psmId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+    "details": [
+      {
+        "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+        "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+        "createdAt": "2021-05-03T13:18:16.424Z",
+        "updatedAt": "2021-05-03T13:18:16.424Z",
+        "workHoursId": "18b80840-63ef-4849-9d3a-0d36a2ace332",
+        "startDateTime": "2020-01-01T00:00:00.000Z",
+        "endDateTime": "2020-01-31T23:59:59.000Z",
+        "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+        "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+        "daysInfo": [
+          {
+            "daysInfoId": "24e217e0-f33e-495d-96ae-f19b6d15a4c3",
+            "startTime": "09:00:00",
+            "endTime": "18:00:00",
+            "day": 1
+          },
+          {
+            "daysInfoId": "d740b70f-1aa7-41c6-8890-0a75cd5535df",
+            "startTime": "09:00:00",
+            "endTime": "18:00:00",
+            "day": 2
+          }
+        ]
+      }
+    ]
+  }
 ]
 ```
 
@@ -648,19 +737,20 @@ in our example it would be:
 
 Parameters| Format | Description
 --------- | ----------- | --------
-psm-ids | list of id and values | psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489
+psm-ids | list of id and values | psm-ids=301b2895-cbf0-4cac-b4cf-1d082faee95c
 from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
 to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
 
-Example:
+URL examples:
+
 1. `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours
-?psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489a
+?psm-ids=301b2895-cbf0-4cac-b4cf-1d082faee95c
 &from=2020-01-01T00:00:00.000Z
 &to=2020-01-31T23:59:59.000Z
 `
 
 2. `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours
-?psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489a,18f393a8-62b3-4b4b-aa42-da769ce4489a
+?psm-ids=301b2895-cbf0-4cac-b4cf-1d082faee95c,18f393a8-62b3-4b4b-aa42-da769ce4489a
 &from=2020-01-01T00:00:00.000Z
 &to=2020-01-31T23:59:59.000Z
 `
@@ -671,8 +761,8 @@ Updating work hours by ID
 
 ```json
 {
- "psmId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
- "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "psmId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+ "updatedBy": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
  "startDateTime": "2020-01-01T00:00:00.000Z",
  "endDateTime": "2020-01-31T23:59:59.000Z",
  "daysInfo": [
@@ -696,29 +786,42 @@ Updating work hours by ID
 
 ```json
 {
- "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "id": "313c2029-493b-4114-8b86-788d631a1851",
+ "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+ "createdAt": "2021-05-03T13:39:12.847Z",
+ "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+ "updatedAt": "2021-05-03T13:39:12.847Z",
  "eventTitle": "Weekly Appointment with Jack",
  "eventDescription": "",
  "startDateTime": "2020-01-01T00:00:00.000Z",
+ "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
  "endDateTime": "2020-01-31T23:59:59.000Z",
+ "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+ "allDayEvent": false,
+ "duration": 2678399,
  "eventType": "APPOINTMENT",
  "eventStatus": "SCHEDULED",
  "eventMode": "IN-PERSON",
- "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "eventColor": null,
+ "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
  "additionalInfo": {
-   "location": "",
    "remarks": "",
+   "location": "",
    "attachment": ""
  },
  "participants": [
    {
-     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+     "id": "d4e6eb8b-b627-461d-a17d-292083446df8",
+     "participantId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
      "participantRole": "psm",
+     "participationStatus": "",
      "attended": false
    },
    {
-     "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
+     "id": "8416e538-7417-4f3d-aaf5-19d212ae6f3b",
+     "participantId": "4f684417-7868-467a-ae0a-f7aa8a4323e6",
      "participantRole": "patient",
+     "participationStatus": "",
      "attended": false
    }
  ]
@@ -731,6 +834,7 @@ It is a typical calendar API to create and manage events
 `URL Structure: {{url}} / {{tenantName}} / {{instanceName}} /calendar/ events`
 
 in our example it would be:
+
 `https://api.live.welkincloud.io/gh/sb-demo/calendar/events`
 
 Fields description: 
@@ -744,14 +848,11 @@ participantRole | "patient", "psm"
 
 ## Create Calendar Event
 
-1. HTTP Method: POST
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events`
-
-## Get Event By ID
+> Request body
 
 ```json
 {
- "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "createdBy": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
  "eventTitle": "Weekly Appointment with Jack",
  "eventDescription": "",
  "startDateTime": "2020-01-01T00:00:00.000Z",
@@ -759,7 +860,7 @@ participantRole | "patient", "psm"
  "eventType": "APPOINTMENT",
  "eventStatus": "SCHEDULED",
  "eventMode": "IN-PERSON",
- "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+ "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
  "additionalInfo": {
    "location": "",
    "remarks": "",
@@ -767,91 +868,171 @@ participantRole | "patient", "psm"
  },
  "participants": [
    {
-     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+     "participantId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
      "participantRole": "psm",
      "attended": false
    },
    {
-     "participantId": "2279cbc9-0cb5-410b-9566-7f22b8f4263f",
+     "participantId": "4f684417-7868-467a-ae0a-f7aa8a4323e6",
      "participantRole": "patient",
      "attended": false
    }
  ]
 }
+```
 
+> Response 
+
+```json
+{
+  "id": "313c2029-493b-4114-8b86-788d631a1851",
+  "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "createdAt": "2021-05-03T13:39:12.847Z",
+  "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "updatedAt": "2021-05-03T13:39:12.847Z",
+  "eventTitle": "Weekly Appointment with Jack",
+  "eventDescription": "",
+  "startDateTime": "2020-01-01T00:00:00.000Z",
+  "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+  "endDateTime": "2020-01-31T23:59:59.000Z",
+  "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+  "allDayEvent": false,
+  "duration": 2678399,
+  "eventType": "APPOINTMENT",
+  "eventStatus": "SCHEDULED",
+  "eventMode": "IN-PERSON",
+  "eventColor": null,
+  "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+  "additionalInfo": {
+    "location": "",
+    "remarks": "",
+    "attachment": ""
+  },
+  "participants": [
+    {
+      "id": "d4e6eb8b-b627-461d-a17d-292083446df8",
+      "participantId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+      "participantRole": "psm",
+      "participationStatus": "",
+      "attended": false
+    },
+    {
+      "id": "8416e538-7417-4f3d-aaf5-19d212ae6f3b",
+      "participantId": "4f684417-7868-467a-ae0a-f7aa8a4323e6",
+      "participantRole": "patient",
+      "participationStatus": "",
+      "attended": false
+    }
+  ]
+}
+```
+
+1. HTTP Method: POST
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events`
+
+## Get Event By ID
+
+```json
+{
+  "id": "313c2029-493b-4114-8b86-788d631a1851",
+  "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "createdAt": "2021-05-03T13:39:12.847Z",
+  "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "updatedAt": "2021-05-03T13:55:59.652Z",
+  "eventTitle": "New event title",
+  "eventDescription": "",
+  "startDateTime": "2020-01-01T00:00:00.000Z",
+  "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+  "endDateTime": "2020-01-31T23:59:59.000Z",
+  "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+  "allDayEvent": false,
+  "duration": 2678399,
+  "eventType": "APPOINTMENT",
+  "eventStatus": "SCHEDULED",
+  "eventMode": "IN-PERSON",
+  "eventColor": null,
+  "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+  "additionalInfo": {
+    "remarks": "",
+    "location": "",
+    "attachment": ""
+  },
+  "participants": [
+    {
+      "id": "d4e6eb8b-b627-461d-a17d-292083446df8",
+      "participantId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+      "participantRole": "psm",
+      "participationStatus": "",
+      "attended": false
+    },
+    {
+      "id": "8416e538-7417-4f3d-aaf5-19d212ae6f3b",
+      "participantId": "4f684417-7868-467a-ae0a-f7aa8a4323e6",
+      "participantRole": "patient",
+      "participationStatus": "",
+      "attended": false
+    }
+  ]
+}
 ```
 
 1. HTTP Method: GET
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/313c2029-493b-4114-8b86-788d631a1851`
 
 ## Find Events
 
 ```json
 {
-   "content": [
-       {
-           "id": "62b94a26-7ec4-478f-baaf-bca9c8d20d88",
-           "createdBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
-           "createdAt": "2020-12-18T11:19:46.000Z",
-           "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
-           "updatedAt": "2020-12-18T14:34:37.000Z",
-           "eventTitle": "Patient Appointment",
-           "eventDescription": "problem in hands",
-           "startDateTime": "2020-01-15T16:00:00.000Z",
-           "endDateTime": "2020-01-15T17:00:00.000Z",
-           "allDayEvent": false,
-           "duration": 3600,
-           "eventType": "APPOINTMENT",
-           "eventStatus": "RESCHEDULED",
-           "eventMode": "IN-PERSON",
-           "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
-           "additionalInfo": {
-               "remarks": "Please wear mask",
-               "location": "Room 1408",
-               "attachment": ""
-           },
-           "participants": [
-               {
-                   "id": "544286e3-9b5f-4f4a-bda0-a038878b87a3",
-                   "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
-                   "participantRole": "psm",
-                   "participationStatus": "Yes",
-                   "attended": false
-               }
-           ]
-       }
-   ],
-   "pageable": {
-       "sort": {
-           "sorted": false,
-           "unsorted": true,
-           "empty": true
-       },
-       "offset": 0,
-       "pageNumber": 0,
-       "pageSize": 20,
-       "paged": true,
-       "unpaged": false
-   },
-   "last": true,
-   "totalPages": 1,
-   "totalElements": 1,
-   "size": 20,
-   "number": 0,
-   "sort": {
-       "sorted": false,
-       "unsorted": true,
-       "empty": true
-   },
-   "numberOfElements": 1,
-   "first": true,
-   "empty": false
+  "content": [
+    {
+      "id": "313c2029-493b-4114-8b86-788d631a1851",
+      "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+      "createdAt": "2021-05-03T13:39:12.847Z",
+      "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+      "updatedAt": "2021-05-03T13:39:12.847Z",
+      "eventTitle": "Weekly Appointment with Jack",
+      "eventDescription": "",
+      "startDateTime": "2020-01-01T00:00:00.000Z",
+      "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+      "endDateTime": "2020-01-31T23:59:59.000Z",
+      "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+      "allDayEvent": false,
+      "duration": 2678399,
+      "eventType": "APPOINTMENT",
+      "eventStatus": "SCHEDULED",
+      "eventMode": "IN-PERSON",
+      "eventColor": null,
+      "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+      "additionalInfo": {
+        "remarks": "",
+        "location": "",
+        "attachment": ""
+      },
+      "participants": [
+        {
+          "id": "d4e6eb8b-b627-461d-a17d-292083446df8",
+          "participantId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+          "participantRole": "psm",
+          "participationStatus": "",
+          "attended": false
+        },
+        {
+          "id": "8416e538-7417-4f3d-aaf5-19d212ae6f3b",
+          "participantId": "4f684417-7868-467a-ae0a-f7aa8a4323e6",
+          "participantRole": "patient",
+          "participationStatus": "",
+          "attended": false
+        }
+      ]
+    }
+  ],
+....pagination links omitted
 }
 
 ```
 
 1. HTTP Method: GET
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/`
 
 Parameters| Format | Description
 --------- | ----------- | --------
@@ -859,45 +1040,160 @@ participantIds | list of id and values, either users or patients | participantId
 from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
 to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
 eventType | Enum of allowed values | "GROUP_THERAPY", "APPOINTMENT", "LEAVE"
+sort | Allows one to specify the sort order of the returned patients collection	 | sort=createdAt,asc
+
+Example URLs: 
+
+1. `https://api.live.welkincloud.io/gh/sb-demo/calendar/events?from=2020-01-15T14:00:00.000Z&participantIds=301b2895-cbf0-4cac-b4cf-1d082faee95c&sort=createdAt,asc&to=2020-02-11T00:00:00.000Z&eventType=APPOINTMENT`
 
 ## Update Calendar Event by ID
 
+> Request body
+
 ```json
 {
- "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
- "eventTitle": "Patient Appointment",
- "eventDescription": "problem in hands",
- "startDateTime": "2020-01-15T16:00:00.000Z",
- "endDateTime": "2020-01-15T17:00:00.000Z",
- "eventType": "APPOINTMENT",
- "eventStatus": "SCHEDULED",
- "eventMode": "IN-PERSON",
- "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
- "additionalInfo": {
-   "location": "Room 1408",
-   "remarks": "Please wear mask",
-   "attachment": ""
- },
- "participants": [
-   {
-     "id": "4ebfd582-3b20-43d9-b4ee-e658194caeb0",
-     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
-     "participantRole": "psm",
-     "attended": false
-   },
-   {
-     "id": "9fe72d19-c0c8-4ebe-8a91-e8f19d4ca7bc",
-     "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489b",
-     "participantRole": "patient",
-     "attended": false
-   }
- ]
+  "updatedBy": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+  "eventTitle": "Patient Appointment",
+  "eventDescription": "problem in hands",
+  "startDateTime": "2020-01-15T16:00:00.000Z",
+  "endDateTime": "2020-01-15T17:00:00.000Z",
+  "eventType": "APPOINTMENT",
+  "eventStatus": "SCHEDULED",
+  "eventMode": "IN-PERSON",
+  "hostId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+  "additionalInfo": {
+    "location": "Room 1408",
+    "remarks": "Please wear mask",
+    "attachment": ""
+  },
+  "participants": [
+    {
+      "id": "4ebfd582-3b20-43d9-b4ee-e658194caeb0",
+      "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489a",
+      "participantRole": "psm",
+      "attended": false
+    },
+    {
+      "id": "9fe72d19-c0c8-4ebe-8a91-e8f19d4ca7bc",
+      "participantId": "28f393a8-62b3-4b4b-aa42-da769ce4489b",
+      "participantRole": "patient",
+      "attended": false
+    }
+  ]
+}
+```
+
+> Response 
+
+```json
+{
+  "id": "313c2029-493b-4114-8b86-788d631a1851",
+  "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "createdAt": "2021-05-03T13:39:12.847Z",
+  "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "updatedAt": "2021-05-03T13:55:59.652Z",
+  "eventTitle": "Patient Appointment",
+  "eventDescription": "",
+  "startDateTime": "2020-01-01T00:00:00.000Z",
+  "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+  "endDateTime": "2020-01-31T23:59:59.000Z",
+  "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+  "allDayEvent": false,
+  "duration": 2678399,
+  "eventType": "APPOINTMENT",
+  "eventStatus": "SCHEDULED",
+  "eventMode": "IN-PERSON",
+  "eventColor": null,
+  "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+  "additionalInfo": {
+    "location": "Room 1408",
+    "remarks": "Please wear mask",
+    "attachment": ""
+  },
+  "participants": [
+    {
+      "id": "d4e6eb8b-b627-461d-a17d-292083446df8",
+      "participantId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+      "participantRole": "psm",
+      "participationStatus": "",
+      "attended": false
+    },
+    {
+      "id": "8416e538-7417-4f3d-aaf5-19d212ae6f3b",
+      "participantId": "4f684417-7868-467a-ae0a-f7aa8a4323e6",
+      "participantRole": "patient",
+      "participationStatus": "",
+      "attended": false
+    }
+  ]
 }
 
 ```
 
-1. HTTP Method: GET
+1. HTTP Method: PUT
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
+
+## Patch update event by ID
+
+> Request body
+
+```json
+{
+ "eventTitle": "New event title"
+}
+```
+
+> Response 
+
+```json
+{
+  "id": "313c2029-493b-4114-8b86-788d631a1851",
+  "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "createdAt": "2021-05-03T13:39:12.847Z",
+  "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "updatedAt": "2021-05-03T13:55:59.652Z",
+  "eventTitle": "New event title",
+  "eventDescription": "",
+  "startDateTime": "2020-01-01T00:00:00.000Z",
+  "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+  "endDateTime": "2020-01-31T23:59:59.000Z",
+  "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+  "allDayEvent": false,
+  "duration": 2678399,
+  "eventType": "APPOINTMENT",
+  "eventStatus": "SCHEDULED",
+  "eventMode": "IN-PERSON",
+  "eventColor": null,
+  "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+  "additionalInfo": {
+    "location": "Room 1408",
+    "remarks": "Please wear mask",
+    "attachment": ""
+  },
+  "participants": [
+    {
+      "id": "d4e6eb8b-b627-461d-a17d-292083446df8",
+      "participantId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+      "participantRole": "psm",
+      "participationStatus": "",
+      "attended": false
+    },
+    {
+      "id": "8416e538-7417-4f3d-aaf5-19d212ae6f3b",
+      "participantId": "4f684417-7868-467a-ae0a-f7aa8a4323e6",
+      "participantRole": "patient",
+      "participationStatus": "",
+      "attended": false
+    }
+  ]
+}
+```
+
+
+1. HTTP Method: PATCH
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
+
+
 
 ## Update event invitation response by ID
 
@@ -908,7 +1204,7 @@ eventType | Enum of allowed values | "GROUP_THERAPY", "APPOINTMENT", "LEAVE"
 }
 
 ```
-1. HTTP Method: GET
+1. HTTP Method: PUT
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573/invitation-response`
 
 
@@ -921,12 +1217,33 @@ Note: Only future events can be deleted
 
 ## Get Summary for the User
 
+```json
+{
+ "startDateTime": "2020-01-15T14:00:00.000Z",
+ "endDateTime": "2020-02-11T00:00:00.000Z",
+ "summary": [
+   {
+     "psmId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+     "totalCreatedEvents": 1,
+     "totalOccurredEvents": 1,
+     "totalFutureEvents": 0,
+     "eventStatusCount": {
+       "SCHEDULED": 1
+     },
+     "totalWorkingHours": "63.0 hours",
+     "totalEventHours": "394.0 hours",
+     "occupancy": "625.4%"
+   }
+ ]
+}
+```
+
 1. HTTP Method: GET
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-event-summary?from=2020-01-15T14:00:00.000Z&to=2020-02-11T00:00:00.000Z&psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489a`
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-event-summary?from=2020-01-15T14:00:00.000Z&to=2020-02-11T00:00:00.000Z&psmIds=301b2895-cbf0-4cac-b4cf-1d082faee95c`
 
 Parameters| Format | Description
 --------- | ----------- | --------
-psm-ids | user id | psm-ids=28f393a8-62b3-4b4b-aa42-da769ce4489
+psm-ids | user id | psm-ids=301b2895-cbf0-4cac-b4cf-1d082faee95c
 from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | from=2021-01-28T23:10:04.874Z
 to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
 
@@ -935,6 +1252,53 @@ to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=
 There are two APIs that are relevant to the schedules feature:
 
 ## Get Schedules
+
+
+```json
+[
+ {
+   "psmId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+   "workHours": [
+     {
+       "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+       "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+       "createdAt": "2021-05-03T13:18:16.424Z",
+       "updatedAt": "2021-05-03T13:18:16.424Z",
+       "workHoursId": "18b80840-63ef-4849-9d3a-0d36a2ace332",
+       "startDateTime": "2020-01-01T00:00:00.000Z",
+       "endDateTime": "2020-01-31T23:59:59.000Z",
+       "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+       "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+       "daysInfo": [
+         {
+           "daysInfoId": "24e217e0-f33e-495d-96ae-f19b6d15a4c3",
+           "startTime": "09:00:00",
+           "endTime": "18:00:00",
+           "day": 1
+         },
+         {
+           "daysInfoId": "d740b70f-1aa7-41c6-8890-0a75cd5535df",
+           "startTime": "09:00:00",
+           "endTime": "18:00:00",
+           "day": 2
+         }
+       ]
+     }
+   ],
+   "events": [
+     {
+       "eventId": "313c2029-493b-4114-8b86-788d631a1851",
+       "eventTitle": "New event title",
+       "eventType": "APPOINTMENT",
+       "startDateTime": "2020-01-01T00:00:00.000Z",
+       "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+       "endDateTime": "2020-01-31T23:59:59.000Z",
+       "localEndDateTime": "2020-02-01T02:59:59.000+03:00"
+     }
+   ]
+ }
+]
+```
 
 `URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / calendar /psm-schedules`
 
@@ -957,6 +1321,52 @@ Example:
 `
 
 ## Get Available Schedules
+
+```json
+[
+  {
+    "psmId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+    "workHours": [
+      {
+        "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+        "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+        "createdAt": "2021-05-03T13:18:16.424Z",
+        "updatedAt": "2021-05-03T13:18:16.424Z",
+        "workHoursId": "18b80840-63ef-4849-9d3a-0d36a2ace332",
+        "startDateTime": "2020-01-01T00:00:00.000Z",
+        "endDateTime": "2020-01-31T23:59:59.000Z",
+        "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+        "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+        "daysInfo": [
+          {
+            "daysInfoId": "24e217e0-f33e-495d-96ae-f19b6d15a4c3",
+            "startTime": "09:00:00",
+            "endTime": "18:00:00",
+            "day": 1
+          },
+          {
+            "daysInfoId": "d740b70f-1aa7-41c6-8890-0a75cd5535df",
+            "startTime": "09:00:00",
+            "endTime": "18:00:00",
+            "day": 2
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "eventId": "313c2029-493b-4114-8b86-788d631a1851",
+        "eventTitle": "New event title",
+        "eventType": "APPOINTMENT",
+        "startDateTime": "2020-01-01T00:00:00.000Z",
+        "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+        "endDateTime": "2020-01-31T23:59:59.000Z",
+        "localEndDateTime": "2020-02-01T02:59:59.000+03:00"
+      }
+    ]
+  }
+]
+```
 
 `URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / calendar / available-psm-schedules`
 
