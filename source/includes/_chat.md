@@ -1,16 +1,31 @@
 # Chat
 
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patient / {{patientId}} / chat`
+
+in our example it would be:
+
+`https://api.live.welkincloud.io/gh/sb-demo/calendar/events`
+
+
 ## Send message 
 
-> Request body
-
-```json
-{
+```python
+import requests
+h = {
+    "Authorization": "Bearer {}".format(token)
+}
+data = {
     "message": "hello, world!"
 }
+
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patient/7272b601-bb09-4abf-87c0-ade48ddfaea0/chat/inbound", 
+  json=data, headers=h)
+
+print("Response Code: {}".format(r.status_code))
+print(r.json())
 ```
 
-> Response
+> Returned json
 
 ```json
 {
@@ -25,10 +40,17 @@
 }
 ```
 
+Send message from patient to care team. 
 
-Sending message from patient to care team
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patient / {{patientId}} / chat / inbound`
+
+in our example it would be:
+
+`https://api.live.welkincloud.io/gh/sb-demo/patient/7272b601-bb09-4abf-87c0-ade48ddfaea0/chat/inbound`
 
 ## Webhook
+
+Webhook are sent to the configured endpoint when user sends a message to the patient. Webhooks are configured in the welkin admin panel. 
 
 > Headers
 
@@ -50,36 +72,69 @@ X-WEBHOOK-API-SECRET: Configured 3rdparty Api secret
 
 ```
 
-## Find messages
+## Get messages
+
+```python
+import requests
+h = {
+    "Authorization": "Bearer {}".format(token)
+}
+
+r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patient/7272b601-bb09-4abf-87c0-ade48ddfaea0/chat", 
+   headers=h)
+
+print("Response Code: {}".format(r.status_code))
+print(r.json())
+```
+
+> Returned json
 
 ```json
 {
    "meta": {
-       "nextPageToken": "eyJ0eXBlIjoiTE9DQUxfU0VBUkNIIiwicGFnZVNpemUiOjIsImJvcmRlckRhdGUiOiIyMDIxLTAzLTA1VDE2OjA2OjQ0LjEyMVoiLCJxdWVyeSI6ImhlbGxvIiwiYmVmb3JlIjp0cnVlfQ==",
-       "prevPageToken": "eyJ0eXBlIjoiTE9DQUxfU0VBUkNIIiwicGFnZVNpemUiOjIsImJvcmRlckRhdGUiOiIyMDIxLTAzLTA1VDE2OjA3OjMxLjI5OFoiLCJxdWVyeSI6ImhlbGxvIiwiYmVmb3JlIjpmYWxzZX0=",
+       "nextPageToken": "eyJ0eXBlIjoiUFJPVklERVIiLCJ0d2lsaW9Ub2tlbiI6Ik9yZGVyPWRlc2MmUGFnZVNpemU9MSZQYWdlPTEmUGFnZVRva2VuPVBUMTAifQ==",
+       "prevPageToken": null,
        "pageSize": 1,
        "found": true
    },
    "content": [
        {
-           "meta": {
-               "nextPageToken": "eyJ0eXBlIjoiTE9DQUxfRklORCIsInBhZ2VTaXplIjoyLCJib3JkZXJEYXRlIjoiMjAyMS0wMy0wNVQxNjowNzozMS4yOThaIiwiYmVmb3JlIjp0cnVlfQ==",
-               "prevPageToken": "eyJ0eXBlIjoiTE9DQUxfRklORCIsInBhZ2VTaXplIjoyLCJib3JkZXJEYXRlIjoiMjAyMS0wMy0wNVQxNjowNzozMS4yOThaIiwiYmVmb3JlIjpmYWxzZX0="
+           "sender": {
+               "clientType": "USER",
+               "id": "379a1c22-aac4-4741-a083-c3c80105ee94",
+               "titleName": "Root Root"
            },
-           "message": {
-               "sender": {
-                   "clientType": "PATIENT",
-                   "id": "795412db-3bea-499a-be10-3e6839349197",
-                   "titleName": null
-               },
-               "message": "Hello from API client: 3",
-               "externalId": "IM873a5e02c4cc4c7d84b23a7ccd73fc7e",
-               "createdAt": "2021-03-05T16:07:31.298Z"
-           }
+           "message": "Hello, World!",
+           "externalId": "IMa1614231a02d456a84d6ad6e193adb66",
+           "createdAt": "2021-03-09T12:23:18.000Z"
        }
    ]
 }
 ```
+
+
+Get messages for patient. 
+
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patient / {{patientId}} / chat `
+
+in our example it would be:
+
+`https://api.live.welkincloud.io/gh/sb-demo/patient/7272b601-bb09-4abf-87c0-ade48ddfaea0/chat`
+
+### Query parametrs: 
+
+Parameters| Description
+--------- |  --------
+includeArchived | if true, include archived messages to the result
+pageSize | page size, mutually exclusive with pageToken
+pageToken | token for fetching specific page, mutually exclusive with pageSize
+
+### Response fields
+
+Field | Description
+--------- |  --------
+nextPageToken | Token for receiving next page (null if this  page is last)
+prevPageToken | Token for receiving previous page (null if this page is first)
 
 ## Search messages
 
