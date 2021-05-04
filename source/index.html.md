@@ -9,8 +9,11 @@ toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - data_audit
+  - security_audit
+  - webhook_audit
   - errors
-
+  
 search: true
 
 code_clipboard: true
