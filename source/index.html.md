@@ -15,6 +15,9 @@ includes:
   - cdt
   - calendar
   - calendar_events
+  - calendar_work_hours
+  - calendar_schedule
+  - chat
   - schedule
   - data_audit
   - security_audit
