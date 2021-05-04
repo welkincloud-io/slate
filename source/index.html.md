@@ -16,6 +16,9 @@ includes:
   - calendar
   - calendar_events
   - schedule
+  - data_audit
+  - security_audit
+  - webhook_audit
   - errors
   
 search: true
