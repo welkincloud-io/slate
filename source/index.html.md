@@ -22,6 +22,7 @@ includes:
   - data_audit
   - security_audit
   - webhook_audit
+  - documents
   - errors
   
 search: true
