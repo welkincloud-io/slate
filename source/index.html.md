@@ -25,6 +25,7 @@ includes:
   - documents
   - encounter
   - care_plans
+  - tasks
   - errors
   
 search: true
