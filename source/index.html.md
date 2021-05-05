@@ -18,6 +18,7 @@ includes:
   - calendar_work_hours
   - calendar_schedule
   - chat
+  - emails
   - schedule
   - data_audit
   - security_audit
