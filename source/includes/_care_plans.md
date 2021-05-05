@@ -179,6 +179,7 @@ in our example it would be:
 
 ## Create Goal
 
+
 > Request
 
 ```python
@@ -197,6 +198,8 @@ headers = {
 
 response = requests.request("POST", url, headers=headers, json=payload)
 ```
+
+> Note: The goal-template must already be created in the designer.
 
 > Response
 
@@ -217,7 +220,6 @@ response = requests.request("POST", url, headers=headers, json=payload)
 
 ### Description
 Create goal for patient by goal-template
-> Note: The goal-template must already be created in the designer.
 
 ### HTTP Request
 ***POST*** `/{tenantName}/{instanceName}/patients/{patientId}/care-plan/goals`
@@ -240,7 +242,6 @@ in our example it would be:
 
 | Code | Description |
 | ---- | ----------- |
-| 200 | OK |
 | 201 | Created |
 | 401 | Unauthorized |
 | 403 | Forbidden |
@@ -306,7 +307,6 @@ in our example it would be:
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | dto | body | dto | Yes | json |
-
 
 **Responses**
 
@@ -476,7 +476,7 @@ response = requests.request("GET", url, headers=headers, json=payload)
 ```
 
 ### Description
-Get goals list (can be filtered by status)
+Get goals list without additional entity (tasks, comments), can be filtered by status.
 
 ### HTTP Request
 ***GET*** `/{tenantName}/{instanceName}/patients/{patientId}/care-plan/goals`
