@@ -24,6 +24,7 @@ includes:
   - webhook_audit
   - documents
   - encounter
+  - care_plans
   - errors
   
 search: true
