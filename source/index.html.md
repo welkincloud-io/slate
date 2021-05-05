@@ -23,6 +23,7 @@ includes:
   - security_audit
   - webhook_audit
   - documents
+  - encounter
   - errors
   
 search: true
