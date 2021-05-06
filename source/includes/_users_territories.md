@@ -2,7 +2,7 @@
 
 This API allows to configure users regions and territories.
 
-## Get user terrtories by user id
+## Get user territories by user id
 
 > Request
 
@@ -99,6 +99,13 @@ payload = {
                 "tacoma"
             ],
             "instanceName": "live"
+        },
+        {
+            "instanceName": "stage",
+            "name": "california",
+            "territories": [
+                "los-angeles"
+            ]
         }
     ]
 }
@@ -127,13 +134,21 @@ response = requests.request("PUT", url, headers=headers, data=payload)
         "seattle",
         "tacoma"
       ]
+    },
+    {
+      "instanceName": "stage",
+      "name": "california",
+      "territories": [
+        "los-angeles"
+      ]
     }
   ]
 }
 ```
 
 ### Example overview
-Assigned region `washington` with territories `seattle`, `tacoma` 
+From `live` instance assigned region `washington` with territories `seattle` and `tacoma` 
+and from `stage` instance assigned region `california` with territory `los-angeles`
 for user `20eb246e-8099-4c7c-854c-5e0f9a366ddb`.
 
 ### HTTP Request

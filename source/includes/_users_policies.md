@@ -81,7 +81,7 @@ in our example it would be:
 | 403 | Forbidden |
 | 404 | Not Found |
 
-## Create/Update application access
+## Create/Update policies and roles
 
 > Note 1: PUT request works like Create or Update, 
 > so there is no need to create user permissions with POST request
