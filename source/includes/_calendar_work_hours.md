@@ -109,6 +109,16 @@ print(r.json())
 1. HTTP Method: POST
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours`
 
+### Work Hours required fields
+
+* psmId
+* startDateTime
+* endDateTime
+* daysInfo
+* daysInfo.startTime
+* daysInfo.endTime
+* daysInfo.day
+
 ## Read Work Hours
 
 ```python
@@ -243,3 +253,5 @@ print(r.json())
 ```
 1. HTTP Method: PUT
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/work-hours/c7a4251f-d70e-4ccb-8c96-1038c76fd737`
+
+See [list](#work-hours-required-fields) of the required fields
