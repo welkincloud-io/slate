@@ -21,181 +21,419 @@ source_id | UUID | record ID of the source
 
 ## Working with CDT records
 
-Lets examine the URL structure
+### Description
+Get all cdt records
 
-`https://api.live.welkincloud.io/{tenant}/{instance}/patients/{patient-id}/cdts/{cdt-name}/{cdt-record-id}`
+### HTTP Request
+***GET*** `/{tenantName}/{instanceName}/patients/{patientId}/cdts/{cdtName}`
 
+in our example it would be:
 
-Let's consider the following example.
-CDT that was created in the designer is **vitals** with three fields
-1. blood_sugar
-2. systolic
-3. diastolic
+***GET*** `https://api.live.welkincloud.io/gh/sb-demo/patients/d6ea79ce-d3d6-4c2d-a27e-e4d1207f60f1/cdts/vitals`
 
-In our example the collection URL is
-`https://api.live.welkincloud.io/gh/sb-demo/patients/6801d498-26f4-4aee-961b-5daffcf193c8/cdt/vitals`
-
-This collection is collection of records for a vitals cdt object, associated with a specific patient as described by the patient id
-
-## Create CDT Record
-
-```python
-import requests
-h = {
-        "Authorization": "Bearer {}".format(token)
-}
-
-data = {
-    "blood_sugar": random.randint(90, 300),
-    "diastolic": random.randint(90, 220),
-    "systolic": random.randint(60, 140),
-}
-
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals", 
-  json=data, headers=h)
-
-print("Response Code: {}".format(r.status_code))
-print(r.json())
-```
-> The above request returns JSON of the created record, with system fields
+> Response
 
 ```json
-
 {
-  "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
-  "patientId": "a02a0310-5fca-4af8-aa87-c14d6b4d5723",
-  "cdtId": "11f9d7c0-5065-433e-937e-8abfee98ff31",
-  "version": 5,
-  "jsonBody": {
-    "created_at": "2021-03-22T06:40:08.482Z",
-    "source_type": None,
-    "created_by_name": "API_CLIENT:VBOPNRYRWJIP",
-    "created_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
-    "updated_by_name": "API_CLIENT:VBOPNRYRWJIP",
-    "diastolic": 174,
-    "systolic": 100,
-    "updated_at": "2021-03-22T06:40:08.482Z",
-    "updated_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
-    "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
-    "source_id": None,
-    "blood_sugar": 196,
-    "source_name": None
-  }
+    "name": "vitals",
+    "data": {
+        "content": [
+            {
+                "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+                "patientId": "eac29796-6943-4307-bfe6-6b424d8b4b4b",
+                "cdtId": "ba36a882-bbec-49ea-a99a-c84aac025f3f",
+                "version": 70,
+                "jsonBody": {
+                    "external_guid": null,
+                    "source_record_id": null,
+                    "weight": 1,
+                    "created_at": "2021-01-28T13:35:36.861Z",
+                    "source_type": null,
+                    "external_id": null,
+                    "created_by_name": "MY NAME",
+                    "created_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+                    "updated_by_name": "MY NAME",
+                    "systolic": 1,
+                    "diastolic": -1,
+                    "updated_at": "2021-01-28T13:35:36.861Z",
+                    "pulse": 1,
+                    "temperature": -1,
+                    "updated_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+                    "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+                    "source_id": null,
+                    "blood_sugar": 1,
+                    "source_name": null,
+                    "height": -1
+                }
+            }
+        ],
+        "pageable": {
+            "sort": {
+                "sorted": false,
+                "unsorted": true,
+                "empty": true
+            },
+            "pageNumber": 0,
+            "pageSize": 20,
+            "offset": 0,
+            "paged": true,
+            "unpaged": false
+        },
+        "last": true,
+        "totalPages": 1,
+        "totalElements": 1,
+        "numberOfElements": 1,
+        "first": true,
+        "number": 0,
+        "sort": {
+            "sorted": false,
+            "unsorted": true,
+            "empty": true
+        },
+        "size": 20,
+        "empty": false
+    }
 }
 ```
-1. HTTP Method: POST
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals`
-3. HTTP Reponse Codes: 201, 400, 500
 
+**Parameters**
 
-## Reading CDT Record
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| patientId | path | ID of patient | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| cdtName | path | Name of cdt | Yes | string |
+| fields |  args |<list fields>: fields=name,phone | No | string array
+| page | args | page number | No | integer
+| size | args |page size | No | integer
+| sort | args |page size | No | integer
+| filters | args |key=v1,v2,v3 | No | key-value
+| dateStart | args |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | No | datetime
+| dateEnd | args |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | No | datetime
 
-```python
-import requests
-h = {
-        "Authorization": "Bearer {}".format(token)
-}
+**Responses**
 
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
 
-r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31", headers=h)
+### Description
+Get cdt record by id
 
-print("Response Code: {}".format(r.status_code))
-print(r.json())
-```
-> The above request returns JSON of the created record, with system fields
+### HTTP Request
+***GET*** `/{tenantName}/{instanceName}/patients/{patientId}/cdts/{cdtName}/{cdtRecordId}`
+
+in our example it would be:
+
+***GET*** `https://api.live.welkincloud.io/gh/sb-demo/patients/d6ea79ce-d3d6-4c2d-a27e-e4d1207f60f1/cdts/vitals/8c0684ac-217e-45f4-8727-5587220dd512`
+
+> Response
 
 ```json
-
 {
-  "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
-  "patientId": "a02a0310-5fca-4af8-aa87-c14d6b4d5723",
-  "cdtId": "11f9d7c0-5065-433e-937e-8abfee98ff31",
-  "version": 5,
-  "jsonBody": {
-    "created_at": "2021-03-22T06:40:08.482Z",
-    "source_type": None,
-    "created_by_name": "API_CLIENT:VBOPNRYRWJIP",
-    "created_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
-    "updated_by_name": "API_CLIENT:VBOPNRYRWJIP",
-    "diastolic": 174,
-    "systolic": 100,
-    "updated_at": "2021-03-22T06:40:08.482Z",
-    "updated_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
-    "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
-    "source_id": None,
-    "blood_sugar": 196,
-    "source_name": None
-  }
+    "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+    "patientId": "eac29796-6943-4307-bfe6-6b424d8b4b4b",
+    "cdtId": "ba36a882-bbec-49ea-a99a-c84aac025f3f",
+    "version": 70,
+    "jsonBody": {
+        "external_guid": null,
+        "source_record_id": null,
+        "weight": 1,
+        "created_at": "2021-01-28T13:35:36.861Z",
+        "source_type": null,
+        "external_id": null,
+        "created_by_name": "MY NAME",
+        "created_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+        "updated_by_name": "MY NAME",
+        "systolic": 1,
+        "diastolic": -1,
+        "updated_at": "2021-01-28T13:35:36.861Z",
+        "pulse": 1,
+        "temperature": -1,
+        "updated_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+        "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+        "source_id": null,
+        "blood_sugar": 1,
+        "source_name": null,
+        "height": -1
+    }
 }
 ```
-1. HTTP Method: GET
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31`
-3. HTTP Reponse Codes: 200, 400, 500
 
+**Parameters**
 
-## Updating CDT Record
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| patientId | path | ID of patient | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| cdtName | path | Name of cdt | Yes | string |
+| cdtRecordId | path | ID of cdt record | Yes | UUID |
 
-```python
-import requests
-h = {
-    "Authorization": "Bearer {}".format(token)
-}
+**Responses**
 
-data = {
-    "blood_sugar": "200",
-}
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
 
-r = requests.patch("https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals", 
-  json=data, headers=h)
+### Description
+Create cdt record
 
-print("Response Code: {}".format(r.status_code))
-print(r.json())
-```
-> The above request returns JSON of the record, with system fields
+### HTTP Request
+***POST*** `/{tenantName}/{instanceName}/patients/{patientId}/cdts/{cdtName}`
+
+in our example it would be:
+
+***POST*** `https://api.live.welkincloud.io/gh/sb-demo/patients/d6ea79ce-d3d6-4c2d-a27e-e4d1207f60f1/cdts/{cdtName}`
+
+> Request
 
 ```json
-
 {
-  "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
-  "patientId": "a02a0310-5fca-4af8-aa87-c14d6b4d5723",
-  "cdtId": "11f9d7c0-5065-433e-937e-8abfee98ff31",
-  "version": 5,
-  "jsonBody": {
-    "created_at": "2021-03-22T06:40:08.482Z",
-    "source_type": None,
-    "created_by_name": "API_CLIENT:VBOPNRYRWJIP",
-    "created_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
-    "updated_by_name": "API_CLIENT:VBOPNRYRWJIP",
-    "diastolic": 165,
-    "systolic": 128,
-    "updated_at": "2021-03-22T06:50:37.739Z",
-    "updated_by": "16d7a4ff-cce4-4c9c-bcc9-74d1b00b72bf",
-    "id": "e46bfff7-62c9-407b-a0a1-5d522aeab9d0",
-    "source_id": None,
-    "blood_sugar": 200,
-    "source_name": None
-  }
+    "weight": 1,
+    "systolic": 1,
+    "diastolic": -1,
+    "pulse": 1,
+    "temperature": -1,
+    "blood_sugar": 1,
+    "height": -1
 }
 ```
 
-All updates are partial updates, meaning that we will update only the fields you will send to the server
+> Response
 
-1. HTTP Method: PATCH
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals/11f9d7c0-5065-433e-937e-8abfee98ff31`
-3. HTTP Reponse Codes: 200, 400, 500
+```json
+{
+    "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+    "patientId": "eac29796-6943-4307-bfe6-6b424d8b4b4b",
+    "cdtId": "ba36a882-bbec-49ea-a99a-c84aac025f3f",
+    "version": 70,
+    "jsonBody": {
+        "external_guid": null,
+        "source_record_id": null,
+        "weight": 1,
+        "created_at": "2021-01-28T13:35:36.861Z",
+        "source_type": null,
+        "external_id": null,
+        "created_by_name": "MY NAME",
+        "created_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+        "updated_by_name": "MY NAME",
+        "systolic": 1,
+        "diastolic": -1,
+        "updated_at": "2021-01-28T13:35:36.861Z",
+        "pulse": 1,
+        "temperature": -1,
+        "updated_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+        "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+        "source_id": null,
+        "blood_sugar": 1,
+        "source_name": null,
+        "height": -1
+    }
+}
+```
 
-## Find CDT records
+**Parameters**
 
-Use finder parameters to filter output of the collection for a given patient
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path | ID of user | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| cdtName | path | Name of cdt | Yes | string |
 
-1. HTTP Method: GET
-2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients/a02a0310-5fca-4af8-aa87-c14d6b4d5723/cdt/vitals`
+**Responses**
 
-Parameters| Format | Description
---------- | ----------- | --------
-fields | <list fields> | fields=name,phone
-page | page number Integer |UUID of user or client who updated the record
-size | page size Integer
-filters | key=v1,v2,v3
-dateStart | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | dateStart=2021-01-28T23:10:04.874Z
-dateEnd |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | dateEnd=2021-01-28T23:10:04.874Z
+| Code | Description |
+| ---- | ----------- |
+| 201 | Created |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### Description
+Update cdt record by id
+
+### HTTP Request
+***PATCH*** `/{tenantName}/{instanceName}/patients/{patientId}/cdts/{cdtName}/{cdtRecordId}`
+
+in our example it would be:
+
+***PATCH*** `https://api.live.welkincloud.io/gh/sb-demo/patients/d6ea79ce-d3d6-4c2d-a27e-e4d1207f60f1/cdts/vitals/8c0684ac-217e-45f4-8727-5587220dd512`
+
+> Request
+
+```json
+{
+   "pulse": 222
+}
+```
+
+> Response
+
+```json
+{
+    "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+    "patientId": "eac29796-6943-4307-bfe6-6b424d8b4b4b",
+    "cdtId": "ba36a882-bbec-49ea-a99a-c84aac025f3f",
+    "version": 70,
+    "jsonBody": {
+        "external_guid": null,
+        "source_record_id": null,
+        "weight": 1,
+        "created_at": "2021-01-28T13:35:36.861Z",
+        "source_type": null,
+        "external_id": null,
+        "created_by_name": "MY NAME",
+        "created_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+        "updated_by_name": "MY NAME",
+        "systolic": 1,
+        "diastolic": -1,
+        "updated_at": "2021-01-28T13:35:36.861Z",
+        "pulse": 222,
+        "temperature": -1,
+        "updated_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+        "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+        "source_id": null,
+        "blood_sugar": 1,
+        "source_name": null,
+        "height": -1
+    }
+}
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path | ID of user | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| cdtName | path | Name of cdt | Yes | string |
+| cdtRecordId | path | ID of cdt record | Yes | UUID |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### Description
+Update cdt records with bulk. Allowed only for list fields with bulk edit flag
+
+### HTTP Request
+***PATCH*** `/{tenantName}/{instanceName}/patients/{patientId}/cdts/{cdtName}`
+
+in our example it would be:
+
+***PATCH*** `https://api.live.welkincloud.io/gh/sb-demo/patients/d6ea79ce-d3d6-4c2d-a27e-e4d1207f60f1/cdts/vitals`
+
+> Request
+
+```json
+{
+    "rows": [
+        {
+            "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+            "jsonBody": {
+                "list_field": "a"
+            }
+        }
+    ]
+}
+```
+
+> Response
+
+```json
+{
+    "rows": [
+        {
+            "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+            "jsonBody": {
+                "external_guid": null,
+                "weight": 1,
+                "created_at": "2021-01-28T13:35:36.861Z",
+                "source_type": null,
+                "external_id": null,
+                "list_field": "a",
+                "created_by_name": "MY NAME",
+                "created_by": "f5b84d92-7989-45f4-bb5f-d85336c8e4b6",
+                "updated_by_name": "MY NAME",
+                "systolic": 1,
+                "diastolic": -1,
+                "updated_at": "2021-05-05T14:29:23.368Z",
+                "pulse": 1,
+                "temperature": -1,
+                "updated_by": "2116dedb-1833-42a3-9a09-77ba00e20959",
+                "id": "8c0684ac-217e-45f4-8727-5587220dd512",
+                "source_id": null,
+                "blood_sugar": 1,
+                "source_name": null,
+                "height": -1
+            },
+            "result": {
+                "status": "OK",
+                "content": null
+            }
+        }
+    ]
+}
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path | ID of user | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| cdtName | path | Name of cdt | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### Description
+Delete cdt record by id
+
+### HTTP Request
+***DELETE*** `/{tenantName}/{instanceName}/patients/{patientId}/cdts/{cdtName}/{cdtRecordId}`
+
+in our example it would be:
+
+***DELETE*** `https://api.live.welkincloud.io/gh/sb-demo/patients/d6ea79ce-d3d6-4c2d-a27e-e4d1207f60f1/cdts/vitals/8c0684ac-217e-45f4-8727-5587220dd512`
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path | ID of user | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| cdtName | path | Name of cdt | Yes | string |
+| cdtRecordId | path | ID of cdt record | Yes | UUID |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |

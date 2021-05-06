@@ -18,10 +18,14 @@ includes:
   - calendar_work_hours
   - calendar_schedule
   - chat
+  - emails
   - data_audit
   - security_audit
   - webhook_audit
   - documents
+  - encounter
+  - care_plans
+  - tasks
   - errors
   
 search: true
