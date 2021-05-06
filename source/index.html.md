@@ -11,6 +11,9 @@ toc_footers:
 includes:
   - authentication
   - users
+  - users_app_accesses
+  - users_policies
+  - users_territories
   - patients
   - cdt
   - calendar
