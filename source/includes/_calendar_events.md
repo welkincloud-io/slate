@@ -63,6 +63,13 @@ eventStatus |"SCHEDULED", "CANCELLED", "COMPLETED", "MISSED"
 eventMode | "IN-PERSON", "CALL", "VIDEO"
 participantRole | "patient", "psm"
 
+Field Name|  Field description
+--------- |  ----------------
+hostId | ID of user which owns the event
+additionalInfo | Custom object without strict defined structure
+
+Please note that `participants` field must contain participant with `id=hostId`
+
 ## Create Calendar Event
 
 ```python
@@ -154,6 +161,15 @@ print(r.json())
 
 1. HTTP Method: POST
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events`
+
+### Event required fields: 
+
+* startDateTime
+* endDateTime
+* hostId
+* participants
+* participants.participantId
+* participants.participantRole
 
 ## Get Event By ID
 
@@ -396,6 +412,9 @@ print(r.json())
 1. HTTP Method: PUT
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573`
 
+
+Note: see [list](#event-required-fields) of the required fields
+
 ## Patch update event by ID
 
 ```python
@@ -486,6 +505,8 @@ print("Response Code: {}".format(r.status_code))
 
 1. HTTP Method: PUT
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/2dfbd113-5282-4f70-b456-d8cf7ecb5573/invitation-response`
+
+Note: all fields are required
 
 
 ## Delete Calendar Event by ID

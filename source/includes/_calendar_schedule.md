@@ -94,7 +94,7 @@ h = {
     "Authorization": "Bearer {}".format(token)
 }
 
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-schedules?psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489a,18f393a8-62b3-4b4b-aa42-da769ce4489a&from=2020-01-01T00:00:00.000Z&to=2020-01-31T23:59:59.000Z", 
+r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/calendar/psm-schedules?psmIds=28f393a8-62b3-4b4b-aa42-da769ce4489a,18f393a8-62b3-4b4b-aa42-da769ce4489a&from=2020-01-01T00:00:00.000Z&to=2020-01-31T23:59:59.000Z", 
    headers=h)
 
 print("Response Code: {}".format(r.status_code))
