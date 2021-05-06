@@ -1,6 +1,6 @@
 # Tasks
 
-APIs for working with tasks care plan: overview and goals
+APIs for working with tasks
 
 The collection supports several interactions
 
