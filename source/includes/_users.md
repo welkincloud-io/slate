@@ -51,6 +51,41 @@ User Record API url consist of the following structure
 In our example, the url would be:
 `https://api.live.welkincloud.io/gh/admin/users/johndoe`
 
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| patientId | path | ID of patient | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| page | args | Pagination: page number | no | integer |
+| size | args | Pagination: page size | no | integer |
+| sort | args | Sort field with sorting order(asc or desc) after coma | no | field,order |
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/admin/users/johndoe`
+
+## Read User Record
+
+```json     
+{
+   "username": "johndoe",
+   "email": "j.doe@email.com",
+   "phone": "+15552009845",
+   "timezone": "America/Los_Angeles",
+   "firstName": "John",
+   "lastName": "Doe",
+   "credentials": "MD"
+}
+```
+
+User Record API url consist of the following structure
+
+`https://api.live.welkincloud.io/{}/admin/users/{}`
+
+In our example, the url would be:
+`https://api.live.welkincloud.io/gh/admin/users/johndoe`
+
 1. HTTP Method: GET
 2. HTTP URL: `https://api.live.welkincloud.io/gh/admin/users/johndoe`
 
