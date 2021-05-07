@@ -40,11 +40,12 @@ print(r.json())
       "receiver": "830b8744-2c0f-4750-ad6d-5c2c94ada65d",
       "to": "+15625345678",
       "direction": "OUT",
-      "externalId": "cfe7c1a0-aeef-11eb-8529-0242ac130003",
+      "externalId": "SM993260f0b8744163ae3a56ce9d158a05",
       "starred": false,
       "senderName": "Nick Snow",
       "receiverName": "John Doe",
       "message": "sms message",
+      "parts" : 1,
       "status": "DELIVERED"
     }
     ....pagination links omitted
@@ -107,11 +108,12 @@ print(r.json())
   "receiver": "830b8744-2c0f-4750-ad6d-5c2c94ada65d",
   "to": "+15625345678",
   "direction": "OUT",
-  "externalId": "cfe7c1a0-aeef-11eb-8529-0242ac130003",
+  "externalId": "SM993260f0b8744163ae3a56ce9d158a05",
   "starred": false,
   "senderName": "Nick Snow",
   "receiverName": "John Doe",
   "message": "sms message",
+  "parts" : 1,
   "status": "DELIVERED"
 }
 ```
@@ -161,11 +163,12 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/sms",
   "receiver": "8b676172-78f8-4cc6-b105-5329c8a58ef2",
   "to": "+15625345678",
   "direction": "OUT",
-  "externalId": "cfe7c1a0-aeef-11eb-8529-0242ac130003",
+  "externalId": "SM993260f0b8744163ae3a56ce9d158a05",
   "starred": false,
   "senderName": "Nick Snow",
   "receiverName": "John Doe",
   "message": "Hi dear patient!",
+  "parts" : 1,
   "status": "DELIVERED"
 }
 ```
@@ -220,11 +223,12 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/sms/4fb7f28d-91ca-
   "receiver": "8b676172-78f8-4cc6-b105-5329c8a58ef2",
   "to": "+15625345678",
   "direction": "OUT",
-  "externalId": "cfe7c1a0-aeef-11eb-8529-0242ac130003",
+  "externalId": "SM993260f0b8744163ae3a56ce9d158a05",
   "starred": true,
   "senderName": "Nick Snow",
   "receiverName": "John Doe",
   "message": "sms message",
+  "parts" : 1,
   "status": "DELIVERED"
 }
 ```
@@ -266,11 +270,12 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/sms/4fb7f28d-91ca-
   "receiver": "8b676172-78f8-4cc6-b105-5329c8a58ef2",
   "to": "+15625345678",
   "direction": "OUT",
-  "externalId": "cfe7c1a0-aeef-11eb-8529-0242ac130003",
+  "externalId": "SM993260f0b8744163ae3a56ce9d158a05",
   "starred": true,
   "senderName": "Nick Snow",
   "receiverName": "John Doe",
   "message": "sms message",
+  "parts" : 1,
   "status": "DELIVERED"
 }
 ```
@@ -315,11 +320,12 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/sms/4fb7f28d-91ca-
   "receiver": "8b676172-78f8-4cc6-b105-5329c8a58ef2",
   "to": "+15625345678",
   "direction": "OUT",
-  "externalId": "cfe7c1a0-aeef-11eb-8529-0242ac130003",
+  "externalId": "SM993260f0b8744163ae3a56ce9d158a05",
   "starred": true,
   "senderName": "Nick Snow",
   "receiverName": "John Doe",
   "message": "Hi dear patient!",
+  "parts" : 1,
   "status": "DELIVERED"
 }
 ```
