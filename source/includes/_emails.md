@@ -296,7 +296,7 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails",
 
 ## Update email
 
-Updating an email has some different behaviour, depending on email status.
+Updating an email could have different behaviour, depending on email status.
 
 1. When email was sent, and it has direction = OUT (user sent it to patient),
 it can have one of following status [ACCEPTED, DELIVERED, REJECTED, FAILED]

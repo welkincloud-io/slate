@@ -24,6 +24,7 @@ includes:
   - calendar_schedule
   - chat
   - emails
+  - sms
   - data_audit
   - security_audit
   - webhook_audit
