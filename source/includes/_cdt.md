@@ -107,7 +107,7 @@ in our example it would be:
 | fields |  args |<list fields>: fields=name,phone | No | string array
 | page | args | page number | No | integer
 | size | args |page size | No | integer
-| sort | args |page size | No | integer
+| sort | args | Sort field with sorting order(asc or desc) after coma | no | field,order |
 | filters | args |key=v1,v2,v3 | No | key-value
 | dateStart | args |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | No | datetime
 | dateEnd | args |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | No | datetime

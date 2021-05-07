@@ -73,6 +73,7 @@ in our example it would be:
 | statuses | args | Encounter status. Available statuses: DRAFT,OPEN,ACTIVE,FINALIZED | no | string array |
 | page | args | Pagination: page number | no | integer |
 | size | args | Pagination: page size | no | integer |
+| sort | args | Sort field with sorting order(asc or desc) after coma | no | field,order |
 
 **Responses**
 
@@ -152,7 +153,7 @@ in our example it would be:
 | statuses | args | Encounter status. Available statuses: DRAFT,OPEN,ACTIVE,FINALIZED | no | string array |
 | page | args | Pagination: page number | no | integer |
 | size | args | Pagination: page size | no | integer |
-
+| sort | args | Sort field with sorting order(asc or desc) after coma | no | field,order |
 
 **Responses**
 
