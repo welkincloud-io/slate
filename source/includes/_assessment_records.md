@@ -4,7 +4,7 @@
 
 To get all assessment records would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -20,7 +20,7 @@ Example request:
 
 To get an assessment record would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records/{}`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records/{}`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -37,7 +37,7 @@ Example request:
 
 To create an assessment record would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -53,7 +53,7 @@ Example request:
 
 To update an assessment record would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records/{}`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records/{}`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -70,7 +70,7 @@ Example request:
 
 To update answers of assessment record would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records/{}/answers`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records/{}/answers`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -87,7 +87,7 @@ Example request:
 
 To delete an assessment record would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records/{}`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records/{}`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs

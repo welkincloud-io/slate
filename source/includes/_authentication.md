@@ -22,7 +22,7 @@ print(r.json())
 
 Once you finished the steps, lets review the URL structure that is typically generated for such setup:
 
-`URL Structure: https://api.live.welkincloud.io/{}/admin/api_clients/{}`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/admin/api_clients/{apiClientName}`
 
 There are several variables in this structure:
 
@@ -38,11 +38,9 @@ In order to Authenticate in Welkin, one needs to follow few steps:
 
 There are three field in response object:
 
-Field Name | Description | Examples
---------- | ----------- | --------
+Field Name | Description |
+--------- | ----------- | 
 clientName | Echos back the name of API client you used
 token | Bearer token that you will use in subsequent requests
 enabled | will indicate if the client is enable. This is also controlled in the Admin app
 
-{{resources/*}}
-<%= partial "partial4" %

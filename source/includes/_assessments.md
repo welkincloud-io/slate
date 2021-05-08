@@ -1,6 +1,6 @@
 # Assessments
 
-## Basic
+## Basics
 An assessment consists of 3 parts: main, scoring, condition settings.
 
 The main part contains a list of sections. Each section contains a list of fields. The **viewType** parameter in the
@@ -392,7 +392,7 @@ print(r.json())
 
 Collection of all assessment formation would be located at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/formation/{}/assessments`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/{}/assessments`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -765,7 +765,7 @@ print(r.json())
 
 A certain assessment formation would be located at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/formation/{}/assessments/{}`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/{}/assessments/{}`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -1225,7 +1225,7 @@ An assessment with name *phq_v1* has general CDT *_phq_v1* and CDT for scoring *
 
 A certain CDT related to assessment would be located at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/formation/{}/assessments/cdt/{}`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/{}/assessments/cdt/{}`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -1243,7 +1243,7 @@ Example request:
 
 To create an assessment would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/formation/draft/assessments`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/draft/assessments`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -1260,7 +1260,7 @@ Example request:
 
 To update an assessment would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/formation/draft/assessments/{}`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/draft/assessments/{}`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
@@ -1282,7 +1282,7 @@ Example request:
 
 To delete an assessment would be used at the following URL
 
-`URL Structure: https://api.live.welkincloud.io/{}/{}/formation/draft/assessments/{}`
+`URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/draft/assessments/{}`
 
 1. First variable is your Tenant name. We will use **gh** as a tenant name through this set of api docs
 2. Second variable is your Instance name. We will use **sb-demo** as an instance name through this set of api docs
