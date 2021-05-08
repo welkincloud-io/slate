@@ -315,10 +315,13 @@
             <a href="#creating-api-client" class="toc-h1 toc-link" data-title="Creating API Client">Creating API Client</a>
           </li>
           <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
             <a href="#assessments" class="toc-h1 toc-link" data-title="Assessments">Assessments</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#basic" class="toc-h2 toc-link" data-title="Basic">Basic</a>
+                    <a href="#basics" class="toc-h2 toc-link" data-title="Basics">Basics</a>
                   </li>
                   <li>
                     <a href="#get-all-assessments" class="toc-h2 toc-link" data-title="Get All Assessments">Get All Assessments</a>
@@ -362,9 +365,6 @@
                     <a href="#delete-an-assessment-record" class="toc-h2 toc-link" data-title="Delete an assessment record">Delete an assessment record</a>
                   </li>
               </ul>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
             <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
@@ -849,7 +849,66 @@ Welkin is currently in Closed Beta state, and APIs are subject to changes
 <p>Reminder: Security Policies and Roles are defined in the Designer and assigned in the Admin</p>
 
 <p>For this example we will assume Client Name is <strong>VBOPNRYRWJIP</strong> and Secret Key is <strong>+}B{KGTG6#zG%P;tQm0C</strong></p>
-<h1 id='assessments'>Assessments</h1><h2 id='basic'>Basic</h2>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To obtain a Bearer token:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'secret'</span><span class="p">:</span> <span class="s">'+}B{KGTG6#zG%P;tQm0C'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.live.welkincloud.io/gh/admin/api_clients/VBOPNRYRWJIP'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>Successful response will look like:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"clientName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJraWQiOiJvaGloUEZOREk2WmE5WEtXNEVIdTdVaFFob1l3Ull0aFFFMmpIY1MrczZrPSIsImFsZyI6IlJTMjU2In0.eyJjdXN0b206dHlwZSI6IkFQSV9DTElFTlQiLCJzdWIiOiIzZWQyMjNjOS1hNjFmLTRmMDktOGUzMi0wNGRkNjU2NDY2YzQiLCJhdWQiOiIycTJ0YmRnanV0Y3Zqdjg5NGY0Zm4wcXRnMCIsImV2ZW50X2lkIjoiMWVmYTc4MWItMzMzNy00MWI4LWExZjYtNTlmY2ZmYWYzMjgxIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2MTUyMjg0MjcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzBjOVhLV1pFQSIsImN1c3RvbTppZCI6IjAyZDI0MzU5LTU0ZWYtNGQ4Mi05MmRjLWZiY2RjOTQyNDJjMCIsImNvZ25pdG86dXNlcm5hbWUiOiJNVE5LREdVQUdQVUUiLCJleHAiOjE2MTUyMzIwMjcsImlhdCI6MTYxNTIyODQyN30.ktjPG0CIHP0As8e8I1UGMP1kocvjd4AIeQBZlZ0esMz414Dpsb6gwPNuDhJS-ej_gh_tZNSw4tePdxQcagfJHp64ByOuv3ZtAHPAm5l5dEZOcVxG4l4O45Mn1hIGhqP6vizNVBFlBWTnzYTyPlbJKS2PMeMsWPqxUDKeoEffczr2sb9VptUMg2dgY-vz6VZvZjtpPfWjKjnJHeIVMxUiW-9LcR-6BK2DHj5qwlzOkDs89rnqE_OFMUiyLfQlvQuoglSRUUiXNXGiU88YCNNzzG7fb3luuwFXBAdwWhK7pXM4o355eDp2bH-EFx_q82mJBy7lB0DfZTm1AHHjcn8BXg"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Once you finished the steps, lets review the URL structure that is typically generated for such setup:</p>
+
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/admin/api_clients/{apiClientName}</code></p>
+
+<p>There are several variables in this structure:</p>
+
+<ol>
+<li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
+<li>Second variable is your client name. We will use <strong>VBOPNRYRWJIP</strong> as a api client name</li>
+</ol>
+
+<p>In order to Authenticate in Welkin, one needs to follow few steps:</p>
+
+<ol>
+<li>HTTP Method: POST</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/api_clients/VBOPNRYRWJIP</code></li>
+<li>HTTP Reponse Codes: 201, 400, 500</li>
+</ol>
+
+<p>There are three field in response object:</p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>clientName</td>
+<td>Echos back the name of API client you used</td>
+</tr>
+<tr>
+<td>token</td>
+<td>Bearer token that you will use in subsequent requests</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>will indicate if the client is enable. This is also controlled in the Admin app</td>
+</tr>
+</tbody></table>
+<h1 id='assessments'>Assessments</h1><h2 id='basics'>Basics</h2>
 <p>An assessment consists of 3 parts: main, scoring, condition settings.</p>
 
 <p>The main part contains a list of sections. Each section contains a list of fields. The <strong>viewType</strong> parameter in the
@@ -1239,7 +1298,7 @@ be hit based on user answers.</p>
 </span></code></pre></div>
 <p>Collection of all assessment formation would be located at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/formation/{}/assessments</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/{}/assessments</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -1609,7 +1668,7 @@ version in draft.</p></li>
 </span></code></pre></div>
 <p>A certain assessment formation would be located at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/formation/{}/assessments/{}</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/{}/assessments/{}</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2069,7 +2128,7 @@ CDT for scoring has &#39;<strong>_scoring</strong>&#39; postfix.</p>
 
 <p>A certain CDT related to assessment would be located at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/formation/{}/assessments/cdt/{}</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/{}/assessments/cdt/{}</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2089,7 +2148,7 @@ version in draft</li>
 <h2 id='create-an-assessment'>Create an assessment</h2>
 <p>To create an assessment would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/formation/draft/assessments</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/draft/assessments</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2108,7 +2167,7 @@ version in draft</li>
 <h2 id='update-an-assessment'>Update an assessment</h2>
 <p>To update an assessment would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/formation/draft/assessments/{}</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/draft/assessments/{}</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2134,7 +2193,7 @@ correct name</li>
 <h2 id='delete-an-assessment'>Delete an assessment</h2>
 <p>To delete an assessment would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/formation/draft/assessments/{}</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/formation/draft/assessments/{}</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2154,7 +2213,7 @@ correct name</li>
 <h1 id='assessment-records'>Assessment records</h1><h2 id='get-all-assessment-records'>Get all assessment records</h2>
 <p>To get all assessment records would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2172,7 +2231,7 @@ correct name</li>
 <h2 id='get-an-assessment-record'>Get an assessment record</h2>
 <p>To get an assessment record would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records/{}</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records/{}</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2191,7 +2250,7 @@ correct name</li>
 <h2 id='create-an-assessment-record'>Create an assessment record</h2>
 <p>To create an assessment record would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2209,7 +2268,7 @@ correct name</li>
 <h2 id='update-an-assessment-record'>Update an assessment record</h2>
 <p>To update an assessment record would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records/{}</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records/{}</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2228,7 +2287,7 @@ correct name</li>
 <h2 id='update-answers-of-assessment-record'>Update answers of assessment record</h2>
 <p>To update answers of assessment record would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records/{}/answers</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records/{}/answers</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2247,7 +2306,7 @@ correct name</li>
 <h2 id='delete-an-assessment-record'>Delete an assessment record</h2>
 <p>To delete an assessment record would be used at the following URL</p>
 
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/{}/patients/{}/assessment-records/{}</code></p>
+<p><code>URL Structure: https://api.live.welkincloud.io/{tenantName}/{instanceName}/patients/{}/assessment-records/{}</code></p>
 
 <ol>
 <li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
@@ -2263,72 +2322,6 @@ correct name</li>
 <li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/patients/ee66e8e8-6ce1-40d3-b6cb-e5727c5347c8/assessments-records/some-uuid</code></li>
 <li>HTTP Response Codes: 200, 404</li>
 </ol>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To obtain a Bearer token:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'secret'</span><span class="p">:</span> <span class="s">'+}B{KGTG6#zG%P;tQm0C'</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.live.welkincloud.io/gh/admin/api_clients/VBOPNRYRWJIP'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
-</code></pre></div>
-<blockquote>
-<p>Successful response will look like:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"clientName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VBOPNRYRWJIP"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJraWQiOiJvaGloUEZOREk2WmE5WEtXNEVIdTdVaFFob1l3Ull0aFFFMmpIY1MrczZrPSIsImFsZyI6IlJTMjU2In0.eyJjdXN0b206dHlwZSI6IkFQSV9DTElFTlQiLCJzdWIiOiIzZWQyMjNjOS1hNjFmLTRmMDktOGUzMi0wNGRkNjU2NDY2YzQiLCJhdWQiOiIycTJ0YmRnanV0Y3Zqdjg5NGY0Zm4wcXRnMCIsImV2ZW50X2lkIjoiMWVmYTc4MWItMzMzNy00MWI4LWExZjYtNTlmY2ZmYWYzMjgxIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2MTUyMjg0MjcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzBjOVhLV1pFQSIsImN1c3RvbTppZCI6IjAyZDI0MzU5LTU0ZWYtNGQ4Mi05MmRjLWZiY2RjOTQyNDJjMCIsImNvZ25pdG86dXNlcm5hbWUiOiJNVE5LREdVQUdQVUUiLCJleHAiOjE2MTUyMzIwMjcsImlhdCI6MTYxNTIyODQyN30.ktjPG0CIHP0As8e8I1UGMP1kocvjd4AIeQBZlZ0esMz414Dpsb6gwPNuDhJS-ej_gh_tZNSw4tePdxQcagfJHp64ByOuv3ZtAHPAm5l5dEZOcVxG4l4O45Mn1hIGhqP6vizNVBFlBWTnzYTyPlbJKS2PMeMsWPqxUDKeoEffczr2sb9VptUMg2dgY-vz6VZvZjtpPfWjKjnJHeIVMxUiW-9LcR-6BK2DHj5qwlzOkDs89rnqE_OFMUiyLfQlvQuoglSRUUiXNXGiU88YCNNzzG7fb3luuwFXBAdwWhK7pXM4o355eDp2bH-EFx_q82mJBy7lB0DfZTm1AHHjcn8BXg"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>Once you finished the steps, lets review the URL structure that is typically generated for such setup:</p>
-
-<p><code>URL Structure: https://api.live.welkincloud.io/{}/admin/api_clients/{}</code></p>
-
-<p>There are several variables in this structure:</p>
-
-<ol>
-<li>First variable is your Tenant name. We will use <strong>gh</strong> as a tenant name through this set of api docs</li>
-<li>Second variable is your client name. We will use <strong>VBOPNRYRWJIP</strong> as a api client name</li>
-</ol>
-
-<p>In order to Authenticate in Welkin, one needs to follow few steps:</p>
-
-<ol>
-<li>HTTP Method: POST</li>
-<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/admin/api_clients/VBOPNRYRWJIP</code></li>
-<li>HTTP Reponse Codes: 201, 400, 500</li>
-</ol>
-
-<p>There are three field in response object:</p>
-
-<table><thead>
-<tr>
-<th>Field Name</th>
-<th>Description</th>
-<th>Examples</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>clientName</td>
-<td>Echos back the name of API client you used</td>
-<td></td>
-</tr>
-<tr>
-<td>token</td>
-<td>Bearer token that you will use in subsequent requests</td>
-<td></td>
-</tr>
-<tr>
-<td>enabled</td>
-<td>will indicate if the client is enable. This is also controlled in the Admin app</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p>{{resources/*}}
-&lt;%= partial &quot;partial4&quot; %</p>
 <h1 id='users'>Users</h1>
 <p>This API allows one to work with User records</p>
 <h2 id='create-user-record'>Create User Record</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
