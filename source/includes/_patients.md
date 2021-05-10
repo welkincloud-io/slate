@@ -47,8 +47,32 @@ print(r.json())
       "patientTerritories": [],
       "careTeam": []
     }
-....pagination links omitted
-  ]
+  ],
+  "pageable": {
+        "sort": {
+            "sorted": False,
+            "unsorted": True,
+            "empty": True
+            },
+        "pageNumber": 2,
+        "pageSize": 20,
+        "offset": 40,
+        "unpaged": False,
+        "paged": True
+	},
+	"last": False,
+	"totalElements": 357,
+	"totalPages": 18,
+	"first": False,
+	"number": 2,
+	"sort": {
+		"sorted": False,
+		"unsorted": True,
+		"empty": True
+	},
+	"numberOfElements": 20,
+	"size": 20,
+	"empty": False
 }
 ```
 
@@ -56,14 +80,20 @@ print(r.json())
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/patients`
 3. HTTP Response Codes: 200, 400, 500
 
-Following Query Parameters can be used to sort or find approporiately
+Following Query Parameters can be used to sort or find appropriately
 
-Parameter | Description | Examples
---------- | ----------- | --------
-sort |Allows one to specify the sort order of the returned patients collection | https://api.live.welkincloud.io/gh/sb-demo/patients?sort=firstName,desc
-query |When specified, will execute a search for a patient based of email address, first name, last name and phone | https://api.live.welkincloud.io/gh/sb-demo/patients?email=1@1.com
+Parameter | Description | 
+--------- | ----------- | 
+sort |Allows one to specify the sort order of the returned patients collection 
+query |When specified, will execute a search for a patient based of email address, first name, last name and phone  
+size | Pagination: Specifies number of records to return by each page. 
+page | Pagination: Specifies what page to return
 
-
+Here are few examples:
+1. https://api.live.welkincloud.io/gh/sb-demo/patients?sort=firstName,desc
+2. https://api.live.welkincloud.io/gh/sb-demo/patients?email=1@1.com
+3. https://api.live.welkincloud.io/gh/sb-demo/patients?size=20&page=2
+ 
 ## Create a Patient
 
 > ***Note 1***: `patientTerritories` must contain valid territory that was previously created in the designer.
