@@ -90,6 +90,7 @@ size | Pagination: Specifies number of records to return by each page.
 page | Pagination: Specifies what page to return
 
 Here are few examples:
+
 1. https://api.live.welkincloud.io/gh/sb-demo/patients?sort=firstName,desc
 2. https://api.live.welkincloud.io/gh/sb-demo/patients?email=1@1.com
 3. https://api.live.welkincloud.io/gh/sb-demo/patients?size=20&page=2
