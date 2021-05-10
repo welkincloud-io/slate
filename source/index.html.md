@@ -12,27 +12,29 @@ includes:
   - authentication
   - assessments
   - assessment_records
-  - users
-  - users_app_accesses
-  - users_policies
-  - users_territories
-  - patients
-  - cdt
   - calendar
   - calendar_events
   - calendar_work_hours
   - calendar_schedule
-  - chat
-  - emails
-  - sms
-  - data_audit
-  - security_audit
-  - webhook_audit
-  - documents
-  - encounter
   - care_plans
+  - cdt
+  - chat
+  - data_audit
+  - documents
+  - emails
+  - encounter
+  - patients
+  - security_audit
+  - sms
   - tasks
+  - users
+  - users_app_accesses
+  - users_policies
+  - users_territories
+  - webhook_audit
   - errors
+  
+  
   
 search: true
 
