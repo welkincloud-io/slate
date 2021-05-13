@@ -302,8 +302,7 @@ Updating an email could have different behaviour, depending on email status.
 it can have one of following status [ACCEPTED, DELIVERED, REJECTED, FAILED]
 In this case, we can only update 'starred' field and mark this email as an important
 
-2. When, email direction = IN (patient sent email to user), it could be also UNRECOGNISED (when system couldn't recognise know patient's email)
-In this case, we can assign this email to patient manually
+2. When, email direction = IN (patient sent email to user), we can assign this email to another patient manually. 
    
 3. When email has status [SCHEDULED]. We can do full update of this email
 
