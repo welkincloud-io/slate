@@ -88,12 +88,18 @@ sort |Allows one to specify the sort order of the returned patients collection
 query |When specified, will execute a search for a patient based of email address, first name, last name and phone  
 size | Pagination: Specifies number of records to return by each page. 
 page | Pagination: Specifies what page to return
+timezone | When specified, will execute a search by patient's timezone. Use empty string to find patients with no timezone configured (example 4)
+territories | Use empty string to find patients with no territories configured (example 5)
+cadence | Use empty string to find patients with no timezone configured (example 6)
 
 Here are few examples:
 
 1. https://api.live.welkincloud.io/gh/sb-demo/patients?sort=firstName,desc
 2. https://api.live.welkincloud.io/gh/sb-demo/patients?email=1@1.com
 3. https://api.live.welkincloud.io/gh/sb-demo/patients?size=20&page=2
+4. https://api.live.welkincloud.io/gh/sb-demo/patients?timezone=
+5. https://api.live.welkincloud.io/gh/sb-demo/patients?territories=
+6. https://api.live.welkincloud.io/gh/sb-demo/patients?cadence=
  
 ## Create a Patient
 
