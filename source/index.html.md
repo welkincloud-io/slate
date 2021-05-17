@@ -22,7 +22,7 @@ includes:
   - data_audit
   - documents
   - emails
-  - encounter
+  - encounters
   - patients
   - security_audit
   - sms

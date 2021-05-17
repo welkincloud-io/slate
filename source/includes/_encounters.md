@@ -214,7 +214,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -290,7 +290,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 
@@ -366,7 +366,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -394,7 +394,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -497,7 +497,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -550,7 +550,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -602,7 +602,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -631,7 +631,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -768,7 +768,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -833,7 +833,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -896,7 +896,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -925,7 +925,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -981,7 +981,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -1043,7 +1043,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | encounterId | path | ID of encounter | Yes | UUID |
@@ -1236,7 +1236,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | version | path | Version of formation | Yes | string |
@@ -1469,7 +1469,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 
@@ -1536,14 +1536,14 @@ in our example it would be:
 | 404 | Not Found |
 
 ### Description
-Get encounter template by id
+Get encounter template by name
 
 ### HTTP Request
-***GET*** `/{tenantName}/{instanceName}/formations/{version}/encounters/{encounterTemplateId}`
+***GET*** `/{tenantName}/{instanceName}/formations/{version}/encounters/{encounterTemplateName}`
 
 in our example it would be:
 
-***GET*** `https://api.live.welkincloud.io/gh/sb-demo/formations/current/encounters/a2063f42-395c-469f-8f4e-825af9223bef`
+***GET*** `https://api.live.welkincloud.io/gh/sb-demo/formations/current/encounters/temp-1`
 
 > Response
 
@@ -1562,11 +1562,11 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 | version | path | Version of formation | Yes | string |
-| encounterTemplateId | path | ID of template | Yes | UUID |
+| encounterTemplateName | path | Name of template | Yes | string |
 
 **Responses**
 
@@ -1616,7 +1616,7 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
 
@@ -1630,14 +1630,14 @@ in our example it would be:
 | 404 | Not Found |
 
 ### Description
-Update encounter template by encounter template id
+Update encounter template by encounter template name
 
 ### HTTP Request
-***PUT*** `/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateId}`
+***PUT*** `/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateName}`
 
 in our example it would be:
 
-***PUT*** `https://api.live.welkincloud.io/gh/sb-demo/formations/draft/encounters/336ae731-c674-4b85-941a-ef3b37d93b82`
+***PUT*** `https://api.live.welkincloud.io/gh/sb-demo/formations/draft/encounters/temp-1
 
 > Request
 
@@ -1668,10 +1668,10 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
-| encounterTemplateId | path | ID of template | Yes | UUID |
+| encounterTemplateName | path | Name of template | Yes | string |
 
 **Responses**
 
@@ -1683,10 +1683,10 @@ in our example it would be:
 | 404 | Not Found |
 
 ### Description
-Delete encounter template by template id
+Delete encounter template by template name
 
 ### HTTP Request
-***DELETE*** `/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateId}`
+***DELETE*** `/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateName}`
 
 in our example it would be:
 
@@ -1696,10 +1696,10 @@ in our example it would be:
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| userId | path | ID of user | Yes | UUID |
+| patientId | path | ID of patient | Yes | UUID |
 | tenantName | path | Name of tenant | Yes | string |
 | instanceName | path | Name of instance | Yes | string |
-| encounterTemplateId | path | ID of template | Yes | UUID |
+| encounterTemplateName | path | Name of template | Yes | string |
 
 **Responses**
 
