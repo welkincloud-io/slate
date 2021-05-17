@@ -23,7 +23,9 @@ includes:
   - documents
   - emails
   - encounters
+  - patient_programs
   - patients
+  - programs
   - security_audit
   - sms
   - tasks
