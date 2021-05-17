@@ -6902,8 +6902,7 @@ By default, we have 3 document types: Assessment (name - doc-type-assessment), D
 <li><p>When email was sent, and it has direction = OUT (user sent it to patient),
 it can have one of following status [ACCEPTED, DELIVERED, REJECTED, FAILED]
 In this case, we can only update &#39;starred&#39; field and mark this email as an important</p></li>
-<li><p>When, email direction = IN (patient sent email to user), it could be also UNRECOGNISED (when system couldn&#39;t recognise know patient&#39;s email)
-In this case, we can assign this email to patient manually</p></li>
+<li><p>When, email direction = IN (patient sent email to user), we can assign this email to another patient manually. </p></li>
 <li><p>When email has status [SCHEDULED]. We can do full update of this email</p></li>
 </ol>
 <h2 id='update-email-mark-as-an-important-email'>Update email. Mark as an important email</h2>
@@ -10065,6 +10064,18 @@ In this case, we can assign this email to patient manually</p></li>
 <td>page</td>
 <td>Pagination: Specifies what page to return</td>
 </tr>
+<tr>
+<td>timezone</td>
+<td>When specified, will execute a search by patient&#39;s timezone. Use empty string to find patients with no timezone configured (example 4)</td>
+</tr>
+<tr>
+<td>territories</td>
+<td>Use empty string to find patients with no territories configured (example 5)</td>
+</tr>
+<tr>
+<td>cadence</td>
+<td>Use empty string to find patients with no timezone configured (example 6)</td>
+</tr>
 </tbody></table>
 
 <p>Here are few examples:</p>
@@ -10073,6 +10084,9 @@ In this case, we can assign this email to patient manually</p></li>
 <li>https://api.live.welkincloud.io/gh/sb-demo/patients?sort=firstName,desc</li>
 <li>https://api.live.welkincloud.io/gh/sb-demo/patients?email=1@1.com</li>
 <li>https://api.live.welkincloud.io/gh/sb-demo/patients?size=20&amp;page=2</li>
+<li>https://api.live.welkincloud.io/gh/sb-demo/patients?timezone=</li>
+<li>https://api.live.welkincloud.io/gh/sb-demo/patients?territories=</li>
+<li>https://api.live.welkincloud.io/gh/sb-demo/patients?cadence=</li>
 </ol>
 <h2 id='create-a-patient'>Create a Patient</h2>
 <blockquote>
