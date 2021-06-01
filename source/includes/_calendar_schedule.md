@@ -53,6 +53,7 @@ print(r.json())
    ],
    "events": [
      {
+       "id": "313c2029-493b-4114-8b86-788d631a1851",
        "eventId": "313c2029-493b-4114-8b86-788d631a1851",
        "eventTitle": "New event title",
        "eventType": "APPOINTMENT",
@@ -67,6 +68,10 @@ print(r.json())
  }
 ]
 ```
+
+<aside class="notice">
+  <b>events.eventId</b> field is deprecated and will be replased to <b>events.id</b> in the future. 
+</aside>
 
 `URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / calendar /psm-schedules`
 
@@ -139,6 +144,7 @@ print(r.json())
     ],
     "events": [
       {
+        "id": "313c2029-493b-4114-8b86-788d631a1851",
         "eventId": "313c2029-493b-4114-8b86-788d631a1851",
         "eventTitle": "New event title",
         "eventType": "APPOINTMENT",
@@ -153,6 +159,10 @@ print(r.json())
   }
 ]
 ```
+
+<aside class="notice">
+  <b>events.eventId</b> field is deprecated and will be replased to <b>events.id</b> in the future. 
+</aside>
 
 `URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / calendar / available-psm-schedules`
 
