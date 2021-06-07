@@ -637,6 +637,26 @@
               </ul>
           </li>
           <li>
+            <a href="#patient-programs" class="toc-h1 toc-link" data-title="Patient programs">Patient programs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-patient-program-records-by-id" class="toc-h2 toc-link" data-title="Get all patient program records by id">Get all patient program records by id</a>
+                  </li>
+                  <li>
+                    <a href="#get-patient-program-record" class="toc-h2 toc-link" data-title="Get patient program record">Get patient program record</a>
+                  </li>
+                  <li>
+                    <a href="#update-patient-program-status-and-assign-program" class="toc-h2 toc-link" data-title="Update patient program status and assign program">Update patient program status and assign program</a>
+                  </li>
+                  <li>
+                    <a href="#change-phase-for-patient-program" class="toc-h2 toc-link" data-title="Change phase for patient program">Change phase for patient program</a>
+                  </li>
+                  <li>
+                    <a href="#unassign-patient-from-program" class="toc-h2 toc-link" data-title="Unassign patient from program">Unassign patient from program</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#patients" class="toc-h1 toc-link" data-title="Patients">Patients</a>
               <ul class="toc-list-h2">
                   <li>
@@ -653,6 +673,26 @@
                   </li>
                   <li>
                     <a href="#delete-a-specific-patient" class="toc-h2 toc-link" data-title="Delete a Specific Patient">Delete a Specific Patient</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#programs" class="toc-h1 toc-link" data-title="Programs">Programs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-programs" class="toc-h2 toc-link" data-title="Get all programs">Get all programs</a>
+                  </li>
+                  <li>
+                    <a href="#get-program-by-name" class="toc-h2 toc-link" data-title="Get program by name">Get program by name</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-program" class="toc-h2 toc-link" data-title="Create a program">Create a program</a>
+                  </li>
+                  <li>
+                    <a href="#update-program-by-name" class="toc-h2 toc-link" data-title="Update program by name">Update program by name</a>
+                  </li>
+                  <li>
+                    <a href="#delete-program-by-name" class="toc-h2 toc-link" data-title="Delete program by name">Delete program by name</a>
                   </li>
               </ul>
           </li>
@@ -3252,6 +3292,7 @@ correct name</li>
    </span><span class="p">],</span><span class="w">
    </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
      </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"313c2029-493b-4114-8b86-788d631a1851"</span><span class="p">,</span><span class="w">
        </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"313c2029-493b-4114-8b86-788d631a1851"</span><span class="p">,</span><span class="w">
        </span><span class="nl">"eventTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New event title"</span><span class="p">,</span><span class="w">
        </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPOINTMENT"</span><span class="p">,</span><span class="w">
@@ -3266,6 +3307,10 @@ correct name</li>
  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
+<aside class="notice">
+  <b>events.eventId</b> field is deprecated and will be replased to <b>events.id</b> in the future. 
+</aside>
+
 <p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / calendar /psm-schedules</code></p>
 
 <p>in our example it would be:
@@ -3348,6 +3393,7 @@ correct name</li>
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"313c2029-493b-4114-8b86-788d631a1851"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"313c2029-493b-4114-8b86-788d631a1851"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"eventTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New event title"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPOINTMENT"</span><span class="p">,</span><span class="w">
@@ -3362,6 +3408,10 @@ correct name</li>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
+<aside class="notice">
+  <b>events.eventId</b> field is deprecated and will be replased to <b>events.id</b> in the future. 
+</aside>
+
 <p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / calendar / available-psm-schedules</code></p>
 
 <p>in our example it would be:
@@ -7405,9 +7455,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -7526,9 +7576,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -7641,9 +7691,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -7716,9 +7766,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -7909,9 +7959,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8013,9 +8063,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8110,9 +8160,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8192,9 +8242,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8425,9 +8475,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8541,9 +8591,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8649,9 +8699,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8731,9 +8781,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8837,9 +8887,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -8944,9 +8994,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -9181,9 +9231,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -9459,9 +9509,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -9604,13 +9654,13 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </tbody></table>
 <h3 id='description-22'>Description</h3>
-<p>Get encounter template by id</p>
+<p>Get encounter template by name</p>
 <h3 id='http-request-22'>HTTP Request</h3>
-<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/encounters/{encounterTemplateId}</code></p>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/encounters/{encounterTemplateName}</code></p>
 
 <p>in our example it would be:</p>
 
-<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/current/encounters/a2063f42-395c-469f-8f4e-825af9223bef</code></p>
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/current/encounters/temp-1</code></p>
 
 <blockquote>
 <p>Response</p>
@@ -9636,9 +9686,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -9664,11 +9714,11 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>string</td>
 </tr>
 <tr>
-<td>encounterTemplateId</td>
+<td>encounterTemplateName</td>
 <td>path</td>
-<td>ID of template</td>
+<td>Name of template</td>
 <td>Yes</td>
-<td>UUID</td>
+<td>string</td>
 </tr>
 </tbody></table>
 
@@ -9741,9 +9791,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -9789,13 +9839,13 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </tbody></table>
 <h3 id='description-24'>Description</h3>
-<p>Update encounter template by encounter template id</p>
+<p>Update encounter template by encounter template name</p>
 <h3 id='http-request-24'>HTTP Request</h3>
-<p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateId}</code></p>
+<p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateName}</code></p>
 
 <p>in our example it would be:</p>
 
-<p><strong><em>PUT</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/draft/encounters/336ae731-c674-4b85-941a-ef3b37d93b82</code></p>
+<p><strong><em>PUT</em></strong> `https://api.live.welkincloud.io/gh/sb-demo/formations/draft/encounters/temp-1</p>
 
 <blockquote>
 <p>Request</p>
@@ -9832,9 +9882,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -9853,11 +9903,11 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>string</td>
 </tr>
 <tr>
-<td>encounterTemplateId</td>
+<td>encounterTemplateName</td>
 <td>path</td>
-<td>ID of template</td>
+<td>Name of template</td>
 <td>Yes</td>
-<td>UUID</td>
+<td>string</td>
 </tr>
 </tbody></table>
 
@@ -9887,9 +9937,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </tbody></table>
 <h3 id='description-25'>Description</h3>
-<p>Delete encounter template by template id</p>
+<p>Delete encounter template by template name</p>
 <h3 id='http-request-25'>HTTP Request</h3>
-<p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateId}</code></p>
+<p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateName}</code></p>
 
 <p>in our example it would be:</p>
 
@@ -9907,9 +9957,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </thead><tbody>
 <tr>
-<td>userId</td>
+<td>patientId</td>
 <td>path</td>
-<td>ID of user</td>
+<td>ID of patient</td>
 <td>Yes</td>
 <td>UUID</td>
 </tr>
@@ -9928,11 +9978,11 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>string</td>
 </tr>
 <tr>
-<td>encounterTemplateId</td>
+<td>encounterTemplateName</td>
 <td>path</td>
-<td>ID of template</td>
+<td>Name of template</td>
 <td>Yes</td>
-<td>UUID</td>
+<td>string</td>
 </tr>
 </tbody></table>
 
@@ -9947,6 +9997,533 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <tr>
 <td>200</td>
 <td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h1 id='patient-programs'>Patient programs</h1><h2 id='get-all-patient-program-records-by-id'>Get all patient program records by id</h2><h3 id='http-request'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/programs</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/programs</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-21T07:38:32.333Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"programName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead-management-program"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"programTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead Management Program"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"programDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Program for lead management"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"assigned"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"patientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08632f11-cb33-4b5b-aece-aaa360f9f747"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currentPhase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-21T09:38:44.323Z"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake Phase"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"currentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN_PROGRESS"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"compatibleWithCurrentVersion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"pathHistory"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-21T09:38:44.323Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake Phase"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"currentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"metaInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>assignedPrograms</td>
+<td>args</td>
+<td>Assigned or unassigned programs</td>
+<td>no</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>page</td>
+<td>args</td>
+<td>Pagination: page number</td>
+<td>no</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>size</td>
+<td>args</td>
+<td>Pagination: page size</td>
+<td>no</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>args</td>
+<td>Sort field with sorting order(asc or desc) after coma</td>
+<td>no</td>
+<td>field,order</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='get-patient-program-record'>Get patient program record</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/programs/{programName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/programs/lead-management-program</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-21T07:38:32.333Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead-management-program"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead Management Program"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Program for lead management"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"assigned"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"patientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08632f11-cb33-4b5b-aece-aaa360f9f747"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currentPhase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-21T09:38:44.323Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake Phase"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN_PROGRESS"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"compatibleWithCurrentVersion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pathHistory"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-21T09:38:44.323Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake Phase"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>programName</td>
+<td>path</td>
+<td>Name of program</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='update-patient-program-status-and-assign-program'>Update patient program status and assign program</h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><strong><em>PATCH</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/programs/{programName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>PATCH</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/programs/prog-4</code></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"assigned"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"IN_PROGRESS"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-17T09:13:33.332Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prog-4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prog-4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"assigned"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"patientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08632f11-cb33-4b5b-aece-aaa360f9f747"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currentPhase"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN_PROGRESS"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"compatibleWithCurrentVersion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pathHistory"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>programName</td>
+<td>path</td>
+<td>Name of program</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='change-phase-for-patient-program'>Change phase for patient program</h2><h3 id='http-request-4'>HTTP Request</h3>
+<p><strong><em>PATCH</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/programs/{programName}/phases</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>PATCH</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/programs/lead-management-program/phases</code></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"phaseName"</span><span class="p">:</span><span class="s2">"documents-sent"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-21T07:38:32.333Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead-management-program"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead Management Program"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"programDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Program for lead management"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"assigned"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"patientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08632f11-cb33-4b5b-aece-aaa360f9f747"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currentPhase"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-17T12:18:10.295Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"documents-sent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Documents Sent"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When documents are sent for signature"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"239"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN_PROGRESS"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"compatibleWithCurrentVersion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pathHistory"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-21T09:38:44.323Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake Phase"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-17T12:18:10.295Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"documents-sent"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Documents Sent"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When documents are sent for signature"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"currentVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"239"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>programName</td>
+<td>path</td>
+<td>Name of program</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='unassign-patient-from-program'>Unassign patient from program</h2><h3 id='http-request-5'>HTTP Request</h3>
+<p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/programs/{programName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>DELETE</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/programs/prog-4</code></p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>programName</td>
+<td>path</td>
+<td>Name of program</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created</td>
 </tr>
 <tr>
 <td>401</td>
@@ -10336,6 +10913,627 @@ All fields missing in the request will retain their previous values.</p>
 <aside class="warning">
 This operation is not supported yet
 </aside>
+<h1 id='programs'>Programs</h1><h2 id='get-all-programs'>Get all programs</h2><h3 id='http-request'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/programs</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/current/programs</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead-management-program"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead Management Program"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Program for lead management"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Start"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"End"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake Phase"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pre-enrollment"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pre-enrollment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pre-Enrollment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Before customer signs, but shows interest"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"documents-sent"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"documents-sent"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Documents Sent"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When documents are sent for signature"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enrolled"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enrolled"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enrolled"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer became a patient"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"nodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Start"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"input"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"sourcePosition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"right"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"targetPosition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"left"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>version</td>
+<td>path</td>
+<td>Version of formation</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='get-program-by-name'>Get program by name</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/programs/{programName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/current/programs/lead-management-program</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead-management-program"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead Management Program"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Program for lead management"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Start"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"End"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intake"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intake Phase"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pre-enrollment"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pre-enrollment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pre-Enrollment"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Before customer signs, but shows interest"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"documents-sent"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"documents-sent"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Documents Sent"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"When documents are sent for signature"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enrolled"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enrolled"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enrolled"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer became a patient"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"nodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Start"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"input"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"sourcePosition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"right"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"targetPosition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"left"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>path</td>
+<td>ID of user</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>version</td>
+<td>path</td>
+<td>Version of formation</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>programName</td>
+<td>path</td>
+<td>Name of program</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-program'>Create a program</h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><strong><em>POST</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/programs</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>POST</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/draft/programs</code></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_name_1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_title_1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_description_1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_name_1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_title_1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_description_1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_name_2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_name_2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_title_2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_description_2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_name_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_title_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_description_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_name_1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_title_1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_description_1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_name_2"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_name_2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_title_2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_description_2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"nodes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>path</td>
+<td>ID of user</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='update-program-by-name'>Update program by name</h2><h3 id='http-request-4'>HTTP Request</h3>
+<p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/programs/{programName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>PUT</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/draft/programs/care_program_name_1</code></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_name_1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_title_1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_description_1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_name_1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_title_1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_description_1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_name_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_title_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"care_program_description_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_name_1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_title_1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phase_description_1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"navigateTo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"nodes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>path</td>
+<td>ID of user</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>programName</td>
+<td>path</td>
+<td>Name of program</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='delete-program-by-name'>Delete program by name</h2><h3 id='http-request-5'>HTTP Request</h3>
+<p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/programs/{programName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>DELETE</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/draft/programs/care_program_name_1</code></p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>path</td>
+<td>ID of user</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>programName</td>
+<td>path</td>
+<td>Name of program</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
 <h1 id='security-audit'>Security audit</h1><h2 id='find-security-audit-event'>Find security audit event</h2>
 <p>It is a typical API to work security audit</p>
 
