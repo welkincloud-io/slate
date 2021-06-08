@@ -35,7 +35,7 @@ in our example it would be:
     "city": "Los Angeles",
     "zip": "99451",
     "addressLine1": "Hollywood Blvd 2021",
-    "timezone ": "America / Los_Angeles",
+    "timezone ": "America/Los_Angeles",
     "patientTerritories": []
   }
 }

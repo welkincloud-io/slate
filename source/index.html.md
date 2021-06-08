@@ -3,7 +3,7 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - python
-  
+
 toc_footers:
   - <a href='https://welkinhealth.com'>Visit our Website</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
@@ -23,8 +23,8 @@ includes:
   - documents
   - emails
   - encounters
-  - patient_programs
   - patients
+  - patient_programs
   - programs
   - security_audit
   - sms
@@ -35,9 +35,9 @@ includes:
   - users_territories
   - webhook_audit
   - errors
-  
-  
-  
+
+
+
 search: true
 
 code_clipboard: true
@@ -70,7 +70,7 @@ For better demonstration of the API, we will use the following setup:
 # Creating API Client
 Though this is better covered in our User Guide document, we are going to repeat the steps here, to ensure successful setup
 
-1. Create API client in your Organization 
+1. Create API client in your Organization
   * Navigate to Admin -> API Clients -> Create Client
   * Copy the Client Name and Secret Key or download it.
 
@@ -80,4 +80,3 @@ Though this is better covered in our User Guide document, we are going to repeat
 Reminder: Security Policies and Roles are defined in the Designer and assigned in the Admin
 
 For this example we will assume Client Name is **VBOPNRYRWJIP** and Secret Key is **+}B{KGTG6#zG%P;tQm0C**
-
