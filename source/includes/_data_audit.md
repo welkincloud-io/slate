@@ -71,6 +71,7 @@ subjectFullName | String | Full name of the person performing the action
 subjectActor | Enum of allowed values | Client type of the person performing the action | API_CLIENT, PATIENT, CS_TOOL_CLIENT, USER
 instance | String | Instance name
 patientFullName | String |  Full name of a patient who the action was taken on
+patientId | UUID |  Id of the patient who the action was taken on
 operation | Enum of allowed values | Type of action operation |CREATE, UPDATE, DELETE
 dateEnd | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | Filter by sentAt
 dateStart |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | Filter by sentAt
