@@ -576,6 +576,17 @@
               </ul>
           </li>
           <li>
+            <a href="#dictionaries" class="toc-h1 toc-link" data-title="Dictionaries">Dictionaries</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#dictionary-records" class="toc-h2 toc-link" data-title="Dictionary records">Dictionary records</a>
+                  </li>
+                  <li>
+                    <a href="#dictionary-formation" class="toc-h2 toc-link" data-title="Dictionary formation">Dictionary formation</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#emails" class="toc-h1 toc-link" data-title="Emails">Emails</a>
               <ul class="toc-list-h2">
                   <li>
@@ -6616,6 +6627,1128 @@ By default, we have 3 document types: Assessment (name - doc-type-assessment), D
 <li>HTTP URL: <code>https://api.live.welkincloud.io/welkonnect/commcenter/patients/ee66e8e8-6ce1-40d3-b6cb-e5727c5347c8/document-summary/4a59584c-af30-49c4-8601-b43b4fbeb741/doc-type-docusign</code></li>
 <li>HTTP Response Code: 200</li>
 </ol>
+<h1 id='dictionaries'>Dictionaries</h1>
+<p>APIs for working with dictionary infrastructure: records and formation
+There are 3 dictionaries by default:
+1. Timezone(timezone) - cannot be changed or populated
+2. CPT(cpt) and ICD-10(icd-10) - cannot be changed, but can be populated</p>
+<h2 id='dictionary-records'>Dictionary records</h2><h3 id='description'>Description</h3>
+<p>Get all dictionary records by name</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/dictionaries/{dictionaryName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/dictionaries/cpt</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"dictionaryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastUpdatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T07:08:37.209Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eb5d2e64-0f10-4014-b54d-7720028af60f"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T07:08:37.192Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T07:08:37.192Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2222"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2222"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"017e9b2f-c82d-4262-af0d-4827b7fb65c4"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T07:08:37.209Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T07:08:37.209Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3333"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3333"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001806e2-3464-40b2-8adb-e756abe31fb1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-09T09:24:44.566Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-09T09:24:44.566Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dateStart</td>
+<td>args</td>
+<td>From updated_at value</td>
+<td>no</td>
+<td>ISO datetime</td>
+</tr>
+<tr>
+<td>dateEnd</td>
+<td>args</td>
+<td>Before updated_at value</td>
+<td>no</td>
+<td>ISO datetime</td>
+</tr>
+<tr>
+<td>showDeleted</td>
+<td>args</td>
+<td>Show or hide deleted records</td>
+<td>no</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-2'>Description</h3>
+<p>Get dictionary record by name and id</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/dictionaries/{dictionaryName}/{dictionaryRecordId}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/dictionaries/cpt/001806e2-3464-40b2-8adb-e756abe31fb1</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001806e2-3464-40b2-8adb-e756abe31fb1"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-09T09:24:44.566Z"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-09T09:24:44.566Z"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryRecordId</td>
+<td>path</td>
+<td>Record ID</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-3'>Description</h3>
+<p>Add value to dictionary</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><strong><em>POST</em></strong> <code>/{tenantName}/{instanceName}/dictionaries/{dictionaryName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>POST</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/dictionaries/cpt</code></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"dictionaryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastUpdatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T10:59:43.568Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5df4668-18c0-4551-8021-3e0168ffbbb4"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T10:59:43.568Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T10:59:43.568Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4444"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-4'>Description</h3>
+<p>Remove all values from dictionary and set new. Records will be deleted completely</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/dictionaries/{dictionaryName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>PUT</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/dictionaries/cpt</code></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6666"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7777"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"dictionaryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastUpdatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T11:22:16.546Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7599f47b-4a66-439a-9bf6-c51877900a41"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T11:22:16.543Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T11:22:16.543Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6666"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6666"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0de7e286-4c57-49b2-8ace-b064fc9a6c3e"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T11:22:16.546Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T11:22:16.546Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7777"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7777"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-5'>Description</h3>
+<p>Update dictionary record by name and id</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/dictionaries/{dictionaryName}/{dictionaryRecordId}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>PUT</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/dictionaries/cpt/001806e2-3464-40b2-8adb-e756abe31fb1</code></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4445"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001806e2-3464-40b2-8adb-e756abe31fb1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-09T09:24:44.566Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T11:18:31.233Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4445"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4445"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryRecordId</td>
+<td>path</td>
+<td>Record ID</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-6'>Description</h3>
+<p>Delete dictionary record by name and id</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/dictionaries/{dictionaryName}/{dictionaryRecordId}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>DELETE</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/dictionaries/cpt/001806e2-3464-40b2-8adb-e756abe31fb1</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001806e2-3464-40b2-8adb-e756abe31fb1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-04-09T09:24:44.566Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-15T11:19:48.993Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fullValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4445"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4445"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryRecordId</td>
+<td>path</td>
+<td>Record ID</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h2 id='dictionary-formation'>Dictionary formation</h2><h3 id='description-7'>Description</h3>
+<p>Get all dictionary formations</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/dictionaries</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/current/dictionaries</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cpt"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icd-10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ICD-10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timezone"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Timezone"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timezone"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>version</td>
+<td>path</td>
+<td>Version of formation</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-8'>Description</h3>
+<p>Get dictionary formation by name</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/dictionaries/{dictionaryName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/current/dictionaries/timezone</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timezone"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Timezone"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timezone"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>version</td>
+<td>path</td>
+<td>Version of formation</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-9'>Description</h3>
+<p>Create new dictionary formation</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><strong><em>POST</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/dictionaries</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>POST</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/formations/draft/dictionaries</code></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphabet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphabet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lowercase-character"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uppercase-character"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphabet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphabet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lowercase-character"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uppercase-character"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-10'>Description</h3>
+<p>Update dictionary formation by name</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/dictionaries/{dictionaryName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>PUT</em></strong> `https://api.live.welkincloud.io/gh/sb-demo/formations/draft/dictionaries/alphabet</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphabet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphabet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"character"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphabet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphabet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"character"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-11'>Description</h3>
+<p>Delete dictionary formation by name</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/dictionaries/{dictionaryName}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>DELETE</em></strong> `https://api.live.welkincloud.io/gh/sb-demo/formations/draft/dictionaries/alphabet</p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>dictionaryName</td>
+<td>path</td>
+<td>Name of dictionary</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
 <h1 id='emails'>Emails</h1>
 <p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails</code></p>
 
