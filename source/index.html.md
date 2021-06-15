@@ -21,6 +21,7 @@ includes:
   - chat
   - data_audit
   - documents
+  - dictionaries
   - emails
   - encounters
   - patients
