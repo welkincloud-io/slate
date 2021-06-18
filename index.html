@@ -379,6 +379,9 @@
                     <a href="#get-event-by-id" class="toc-h2 toc-link" data-title="Get Event By ID">Get Event By ID</a>
                   </li>
                   <li>
+                    <a href="#get-event-by-external-id" class="toc-h2 toc-link" data-title="Get Event By External ID">Get Event By External ID</a>
+                  </li>
+                  <li>
                     <a href="#find-events" class="toc-h2 toc-link" data-title="Find Events">Find Events</a>
                   </li>
                   <li>
@@ -2397,6 +2400,7 @@ correct name</li>
  </span><span class="nl">"localEndDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-01T02:59:59.000+03:00"</span><span class="p">,</span><span class="w">
  </span><span class="nl">"allDayEvent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
  </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">2678399</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
  </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPOINTMENT"</span><span class="p">,</span><span class="w">
  </span><span class="nl">"eventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCHEDULED"</span><span class="p">,</span><span class="w">
  </span><span class="nl">"eventMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-PERSON"</span><span class="p">,</span><span class="w">
@@ -2474,6 +2478,10 @@ correct name</li>
 <td>additionalInfo</td>
 <td>Custom object without strict defined structure</td>
 </tr>
+<tr>
+<td>externalId</td>
+<td>Custom string for object identification, must be different for each event</td>
+</tr>
 </tbody></table>
 
 <p>Please note that <code>participants</code> field must contain participant with <code>id=hostId</code></p>
@@ -2491,6 +2499,7 @@ correct name</li>
     <span class="s">"eventStatus"</span><span class="p">:</span> <span class="s">"SCHEDULED"</span><span class="p">,</span>
     <span class="s">"eventMode"</span><span class="p">:</span> <span class="s">"IN-PERSON"</span><span class="p">,</span>
     <span class="s">"hostId"</span><span class="p">:</span> <span class="s">"301b2895-cbf0-4cac-b4cf-1d082faee95c"</span><span class="p">,</span>
+    <span class="s">"externalId"</span><span class="p">:</span> <span class="s">"externalId"</span><span class="p">,</span>
     <span class="s">"additionalInfo"</span><span class="p">:</span> <span class="p">{</span>
         <span class="s">"location"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span>
         <span class="s">"remarks"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span>
@@ -2537,6 +2546,7 @@ correct name</li>
   </span><span class="nl">"eventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCHEDULED"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"eventMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-PERSON"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"eventColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"externalId"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"hostId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301b2895-cbf0-4cac-b4cf-1d082faee95c"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -2606,6 +2616,7 @@ correct name</li>
   </span><span class="nl">"eventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCHEDULED"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"eventMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-PERSON"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"eventColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"externalId"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"hostId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301b2895-cbf0-4cac-b4cf-1d082faee95c"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -2633,6 +2644,66 @@ correct name</li>
 <ol>
 <li>HTTP Method: GET</li>
 <li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events/313c2029-493b-4114-8b86-788d631a1851</code></li>
+</ol>
+<h2 id='get-event-by-external-id'>Get Event By External ID</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/calendar/events/externalId?type=EXTERNAL_ID"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Response Code: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">status_code</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<blockquote>
+<p>Returned Json</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"313c2029-493b-4114-8b86-788d631a1851"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9565d236-f654-4116-bfb4-c10a5e840a9c"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-03T13:39:12.847Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9565d236-f654-4116-bfb4-c10a5e840a9c"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-03T13:55:59.652Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New event title"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"startDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"localStartDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01T03:00:00.000+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"endDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-31T23:59:59.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"localEndDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-01T02:59:59.000+03:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"allDayEvent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">2678399</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPOINTMENT"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCHEDULED"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-PERSON"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"externalId"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"hostId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301b2895-cbf0-4cac-b4cf-1d082faee95c"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attachment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"participants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d4e6eb8b-b627-461d-a17d-292083446df8"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"participantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301b2895-cbf0-4cac-b4cf-1d082faee95c"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"participantRole"</span><span class="p">:</span><span class="w"> </span><span class="s2">"psm"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"participationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8416e538-7417-4f3d-aaf5-19d212ae6f3b"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"participantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f684417-7868-467a-ae0a-f7aa8a4323e6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"participantRole"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patient"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"participationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attended"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<ol>
+<li>HTTP Method: GET</li>
+<li>HTTP URL: <code>https://api.live.welkincloud.io/gh/sb-demo/calendar/events/externalId?type=EXTERNAL_ID</code></li>
 </ol>
 <h2 id='find-events'>Find Events</h2><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">h</span> <span class="o">=</span> <span class="p">{</span>
@@ -2668,6 +2739,7 @@ correct name</li>
       </span><span class="nl">"eventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCHEDULED"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"eventMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-PERSON"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"eventColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"externalId"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"hostId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301b2895-cbf0-4cac-b4cf-1d082faee95c"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -2732,6 +2804,11 @@ correct name</li>
 <td>sort</td>
 <td>Allows one to specify the sort order of the returned patients collection</td>
 <td>sort=createdAt,asc</td>
+</tr>
+<tr>
+<td>includeCancelled</td>
+<td>Boolean value</td>
+<td>Should or not API return cancelled events (default: false)</td>
 </tr>
 </tbody></table>
 
@@ -2802,6 +2879,7 @@ correct name</li>
   </span><span class="nl">"eventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCHEDULED"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"eventMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-PERSON"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"eventColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"hostId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301b2895-cbf0-4cac-b4cf-1d082faee95c"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Room 1408"</span><span class="p">,</span><span class="w">
@@ -2869,6 +2947,7 @@ correct name</li>
   </span><span class="nl">"eventStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SCHEDULED"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"eventMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN-PERSON"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"eventColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"hostId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301b2895-cbf0-4cac-b4cf-1d082faee95c"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Room 1408"</span><span class="p">,</span><span class="w">
@@ -8395,8 +8474,136 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 </tr>
 </tbody></table>
 <h3 id='description-2'>Description</h3>
-<p>Get all encounter records by user id</p>
+<p>Get all encounter records with related data by patient id</p>
 <h3 id='http-request-2'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/full-encounters</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/full-encounters</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"encounter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">encounter</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"disposition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">disposition</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"calendarEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">calendar</span><span class="w"> </span><span class="err">event</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"userRelatedToCalendarEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">user</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"assessmentLinks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">assessment</span><span class="w"> </span><span class="err">links</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">comments</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"metaInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>statuses</td>
+<td>args</td>
+<td>Encounter status. Available statuses: DRAFT,OPEN,ACTIVE,FINALIZED</td>
+<td>no</td>
+<td>string array</td>
+</tr>
+<tr>
+<td>page</td>
+<td>args</td>
+<td>Pagination: page number</td>
+<td>no</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>size</td>
+<td>args</td>
+<td>Pagination: page size</td>
+<td>no</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>args</td>
+<td>Sort field with sorting order(asc or desc) after coma</td>
+<td>no</td>
+<td>field,order</td>
+</tr>
+<tr>
+<td>onlyWithCalendarEvent</td>
+<td>args</td>
+<td>Exclude all information not related to calendar event, except encounter record</td>
+<td>no</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-3'>Description</h3>
+<p>Get all encounter records by user id</p>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/users/{userId}/encounters</code></p>
 
 <p>in our example it would be:</p>
@@ -8538,9 +8745,137 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-3'>Description</h3>
+<h3 id='description-4'>Description</h3>
+<p>Get all encounter records with related data by user id</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/users/{userId}/full-encounters</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/users/f5b84d92-7989-45f4-bb5f-d85336c8e4b6/full-encounters</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"encounter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">encounter</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"disposition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">disposition</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"calendarEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">calendar</span><span class="w"> </span><span class="err">event</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"userRelatedToCalendarEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">user</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"assessmentLinks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">assessment</span><span class="w"> </span><span class="err">links</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">comments</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"metaInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>path</td>
+<td>ID of user</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>statuses</td>
+<td>args</td>
+<td>Encounter status. Available statuses: DRAFT,OPEN,ACTIVE,FINALIZED</td>
+<td>no</td>
+<td>string array</td>
+</tr>
+<tr>
+<td>page</td>
+<td>args</td>
+<td>Pagination: page number</td>
+<td>no</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>size</td>
+<td>args</td>
+<td>Pagination: page size</td>
+<td>no</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>args</td>
+<td>Sort field with sorting order(asc or desc) after coma</td>
+<td>no</td>
+<td>field,order</td>
+</tr>
+<tr>
+<td>onlyWithCalendarEvent</td>
+<td>args</td>
+<td>Exclude all information not related to calendar event, except encounter record</td>
+<td>no</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-5'>Description</h3>
 <p>Get encounter record by a patient id and encounter id</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}</code></p>
 
 <p>in our example it would be:</p>
@@ -8648,9 +8983,109 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-4'>Description</h3>
+<h3 id='description-6'>Description</h3>
+<p>Get encounter record with all related data by a patient id and encounter id</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/full-encounters/{encounterId}</code></p>
+
+<p>in our example it would be:</p>
+
+<p><strong><em>GET</em></strong> <code>https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/full-encounters/7d72c423-48bc-4fc6-aa35-72a6cdd0c4ca</code></p>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"encounter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">encounter</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"disposition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">disposition</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"calendarEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">calendar</span><span class="w"> </span><span class="err">event</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"userRelatedToCalendarEvent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">user</span><span class="w"> </span><span class="err">record</span><span class="p">},</span><span class="w">
+            </span><span class="nl">"assessmentLinks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">assessment</span><span class="w"> </span><span class="err">links</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">comments</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"metaInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>patientId</td>
+<td>path</td>
+<td>ID of patient</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>tenantName</td>
+<td>path</td>
+<td>Name of tenant</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>instanceName</td>
+<td>path</td>
+<td>Name of instance</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>encounterId</td>
+<td>path</td>
+<td>ID of encounter</td>
+<td>Yes</td>
+<td>UUID</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+</tbody></table>
+<h3 id='description-7'>Description</h3>
 <p>Create an encounter for patient</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><strong><em>POST</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters</code></p>
 
 <p>in our example it would be:</p>
@@ -8762,9 +9197,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-5'>Description</h3>
+<h3 id='description-8'>Description</h3>
 <p>Update encounter record by encounter id</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><strong><em>PATCH</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}</code></p>
 
 <p>in our example it would be:</p>
@@ -8884,9 +9319,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-6'>Description</h3>
+<h3 id='description-9'>Description</h3>
 <p>Delete encounter record by encounter id</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}</code></p>
 
 <p>in our example it would be:</p>
@@ -8959,9 +9394,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h2 id='encounter-comments'>Encounter comments</h2><h3 id='description-7'>Description</h3>
+<h2 id='encounter-comments'>Encounter comments</h2><h3 id='description-10'>Description</h3>
 <p>Get all encounter comments by encounter id</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/comments</code></p>
 
 <p>in our example it would be:</p>
@@ -9062,9 +9497,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-8'>Description</h3>
+<h3 id='description-11'>Description</h3>
 <p>Get encounter comment by encounter id and comment id</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/comments/{commentId}</code></p>
 
 <p>in our example it would be:</p>
@@ -9159,9 +9594,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-9'>Description</h3>
+<h3 id='description-12'>Description</h3>
 <p>Create a comment for encounter</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><strong><em>POST</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/comments</code></p>
 
 <p>in our example it would be:</p>
@@ -9256,9 +9691,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-10'>Description</h3>
+<h3 id='description-13'>Description</h3>
 <p>Update comment for encounter by comment id</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/comments/{commentId}</code></p>
 
 <p>in our example it would be:</p>
@@ -9360,9 +9795,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-11'>Description</h3>
+<h3 id='description-14'>Description</h3>
 <p>Delete comment for encounter by comment id</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/comments/{commentId}</code></p>
 
 <p>in our example it would be:</p>
@@ -9442,9 +9877,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h2 id='encounter-assessment-links'>Encounter assessment links</h2><h3 id='description-12'>Description</h3>
+<h2 id='encounter-assessment-links'>Encounter assessment links</h2><h3 id='description-15'>Description</h3>
 <p>Get all assessment links by encounter id</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/assessments</code></p>
 
 <p>in our example it would be:</p>
@@ -9567,9 +10002,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-13'>Description</h3>
+<h3 id='description-16'>Description</h3>
 <p>Get assessment link by encounter id and assessment link id</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/assessments/{encounterAssessmentId}</code></p>
 
 <p>in our example it would be:</p>
@@ -9675,9 +10110,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-14'>Description</h3>
+<h3 id='description-17'>Description</h3>
 <p>Create an assessment link for encounter</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><strong><em>POST</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/assessments</code></p>
 
 <p>in our example it would be:</p>
@@ -9784,9 +10219,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-15'>Description</h3>
+<h3 id='description-18'>Description</h3>
 <p>Update assessment link for encounter by assessment link id</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><strong><em>PATCH</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/assessments/{encounterAssessmentId}</code></p>
 
 <p>in our example it would be:</p>
@@ -9899,9 +10334,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-16'>Description</h3>
+<h3 id='description-19'>Description</h3>
 <p>Delete assessment link for encounter by assessment link id</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/assessments/{encounterAssessmentId}</code></p>
 
 <p>in our example it would be:</p>
@@ -9981,9 +10416,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h2 id='encounter-disposition-record'>Encounter disposition record</h2><h3 id='description-17'>Description</h3>
+<h2 id='encounter-disposition-record'>Encounter disposition record</h2><h3 id='description-20'>Description</h3>
 <p>Get disposition for encounter</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-20'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/disposition</code></p>
 
 <p>in our example it would be:</p>
@@ -10080,9 +10515,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-18'>Description</h3>
+<h3 id='description-21'>Description</h3>
 <p>Update disposition for encounter</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-21'>HTTP Request</h3>
 <p><strong><em>PATCH</em></strong> <code>/{tenantName}/{instanceName}/patients/{patientId}/encounters/{encounterId}/disposition</code></p>
 
 <p>in our example it would be:</p>
@@ -10187,9 +10622,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h2 id='encounter-disposition-formation'>Encounter disposition formation</h2><h3 id='description-19'>Description</h3>
+<h2 id='encounter-disposition-formation'>Encounter disposition formation</h2><h3 id='description-22'>Description</h3>
 <p>Get disposition formation</p>
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-22'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/encounter-disposition</code></p>
 
 <p>in our example it would be:</p>
@@ -10424,9 +10859,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-20'>Description</h3>
+<h3 id='description-23'>Description</h3>
 <p>Update disposition formation</p>
-<h3 id='http-request-20'>HTTP Request</h3>
+<h3 id='http-request-23'>HTTP Request</h3>
 <p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/encounter-disposition</code></p>
 
 <p>in our example it would be:</p>
@@ -10695,9 +11130,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h2 id='encounter-templates'>Encounter templates</h2><h3 id='description-21'>Description</h3>
+<h2 id='encounter-templates'>Encounter templates</h2><h3 id='description-24'>Description</h3>
 <p>Get all encounter templates</p>
-<h3 id='http-request-21'>HTTP Request</h3>
+<h3 id='http-request-24'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/encounters</code></p>
 
 <p>in our example it would be:</p>
@@ -10792,9 +11227,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-22'>Description</h3>
+<h3 id='description-25'>Description</h3>
 <p>Get encounter template by name</p>
-<h3 id='http-request-22'>HTTP Request</h3>
+<h3 id='http-request-25'>HTTP Request</h3>
 <p><strong><em>GET</em></strong> <code>/{tenantName}/{instanceName}/formations/{version}/encounters/{encounterTemplateName}</code></p>
 
 <p>in our example it would be:</p>
@@ -10886,9 +11321,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-23'>Description</h3>
+<h3 id='description-26'>Description</h3>
 <p>Create a template for encounter</p>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request-26'>HTTP Request</h3>
 <p><strong><em>POST</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/encounters</code></p>
 
 <p>in our example it would be:</p>
@@ -10977,9 +11412,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-24'>Description</h3>
+<h3 id='description-27'>Description</h3>
 <p>Update encounter template by encounter template name</p>
-<h3 id='http-request-24'>HTTP Request</h3>
+<h3 id='http-request-27'>HTTP Request</h3>
 <p><strong><em>PUT</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateName}</code></p>
 
 <p>in our example it would be:</p>
@@ -11075,9 +11510,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <td>Not Found</td>
 </tr>
 </tbody></table>
-<h3 id='description-25'>Description</h3>
+<h3 id='description-28'>Description</h3>
 <p>Delete encounter template by template name</p>
-<h3 id='http-request-25'>HTTP Request</h3>
+<h3 id='http-request-28'>HTTP Request</h3>
 <p><strong><em>DELETE</em></strong> <code>/{tenantName}/{instanceName}/formations/draft/encounters/{encounterTemplateName}</code></p>
 
 <p>in our example it would be:</p>
