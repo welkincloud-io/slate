@@ -85,6 +85,64 @@ in our example it would be:
 | 404 | Not Found |
 
 ### Description
+Get all encounter records with related data by patient id
+
+### HTTP Request
+***GET*** `/{tenantName}/{instanceName}/patients/{patientId}/full-encounters`
+
+in our example it would be:
+
+***GET*** `https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/full-encounters`
+
+> Response
+
+```json
+{
+    "data": [
+        {
+            "encounter": {encounter record},
+            "disposition": {disposition record},
+            "calendarEvent": {calendar event record},
+            "userRelatedToCalendarEvent": {user record},
+            "assessmentLinks": [assessment links],
+            "comments": [comments]
+        }
+    ],
+    "metaInfo": {
+        "page": 0,
+        "pageSize": 20,
+        "totalElements": 1,
+        "numberOfElements": 1,
+        "totalPages": 1,
+        "firstPage": true,
+        "lastPage": true
+    }
+}
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| patientId | path | ID of patient | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| statuses | args | Encounter status. Available statuses: DRAFT,OPEN,ACTIVE,FINALIZED | no | string array |
+| page | args | Pagination: page number | no | integer |
+| size | args | Pagination: page size | no | integer |
+| sort | args | Sort field with sorting order(asc or desc) after coma | no | field,order |
+| onlyWithCalendarEvent | args | Exclude all information not related to calendar event, except encounter record  | no | boolean |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### Description
 Get all encounter records by user id
 
 ### HTTP Request
@@ -165,6 +223,64 @@ in our example it would be:
 | 404 | Not Found |
 
 ### Description
+Get all encounter records with related data by user id
+
+### HTTP Request
+***GET*** `/{tenantName}/{instanceName}/users/{userId}/full-encounters`
+
+in our example it would be:
+
+***GET*** `https://api.live.welkincloud.io/gh/sb-demo/users/f5b84d92-7989-45f4-bb5f-d85336c8e4b6/full-encounters`
+
+> Response
+
+```json
+{
+    "data": [
+        {
+            "encounter": {encounter record},
+            "disposition": {disposition record},
+            "calendarEvent": {calendar event record},
+            "userRelatedToCalendarEvent": {user record},
+            "assessmentLinks": [assessment links],
+            "comments": [comments]
+        }
+    ],
+    "metaInfo": {
+        "page": 0,
+        "pageSize": 20,
+        "totalElements": 1,
+        "numberOfElements": 1,
+        "totalPages": 1,
+        "firstPage": true,
+        "lastPage": true
+    }
+}
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| userId | path | ID of user | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| statuses | args | Encounter status. Available statuses: DRAFT,OPEN,ACTIVE,FINALIZED | no | string array |
+| page | args | Pagination: page number | no | integer |
+| size | args | Pagination: page size | no | integer |
+| sort | args | Sort field with sorting order(asc or desc) after coma | no | field,order |
+| onlyWithCalendarEvent | args | Exclude all information not related to calendar event, except encounter record  | no | boolean |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### Description
 Get encounter record by a patient id and encounter id
 
 ### HTTP Request
@@ -207,6 +323,60 @@ in our example it would be:
                 "source_name": null,
                 "status": "OPEN"
             }
+}
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| patientId | path | ID of patient | Yes | UUID |
+| tenantName | path | Name of tenant | Yes | string |
+| instanceName | path | Name of instance | Yes | string |
+| encounterId | path | ID of encounter | Yes | UUID |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | OK |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+
+### Description
+Get encounter record with all related data by a patient id and encounter id
+
+### HTTP Request
+***GET*** `/{tenantName}/{instanceName}/patients/{patientId}/full-encounters/{encounterId}`
+
+in our example it would be:
+
+***GET*** `https://api.live.welkincloud.io/gh/sb-demo/patients/08632f11-cb33-4b5b-aece-aaa360f9f747/full-encounters/7d72c423-48bc-4fc6-aa35-72a6cdd0c4ca`
+
+> Response
+
+```json
+{
+    "data": [
+        {
+            "encounter": {encounter record},
+            "disposition": {disposition record},
+            "calendarEvent": {calendar event record},
+            "userRelatedToCalendarEvent": {user record},
+            "assessmentLinks": [assessment links],
+            "comments": [comments]
+        }
+    ],
+    "metaInfo": {
+        "page": 0,
+        "pageSize": 20,
+        "totalElements": 1,
+        "numberOfElements": 1,
+        "totalPages": 1,
+        "firstPage": true,
+        "lastPage": true
+    }
 }
 ```
 
