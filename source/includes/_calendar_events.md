@@ -16,6 +16,7 @@
  "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
  "allDayEvent": false,
  "duration": 2678399,
+ "externalId": null,
  "eventType": "APPOINTMENT",
  "eventStatus": "SCHEDULED",
  "eventMode": "IN-PERSON",
@@ -67,6 +68,7 @@ Field Name|  Field description
 --------- |  ----------------
 hostId | ID of user which owns the event
 additionalInfo | Custom object without strict defined structure
+externalId | Custom string for object identification, must be different for each event
 
 Please note that `participants` field must contain participant with `id=hostId`
 
@@ -87,6 +89,7 @@ data = {
     "eventStatus": "SCHEDULED",
     "eventMode": "IN-PERSON",
     "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+    "externalId": "externalId",
     "additionalInfo": {
         "location": "",
         "remarks": "",
@@ -134,6 +137,7 @@ print(r.json())
   "eventStatus": "SCHEDULED",
   "eventMode": "IN-PERSON",
   "eventColor": null,
+  "externalId": "externalId",
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "location": "",
@@ -207,6 +211,7 @@ print(r.json())
   "eventStatus": "SCHEDULED",
   "eventMode": "IN-PERSON",
   "eventColor": null,
+  "externalId": "externalId",
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "remarks": "",
@@ -234,6 +239,71 @@ print(r.json())
 
 1. HTTP Method: GET
 2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/313c2029-493b-4114-8b86-788d631a1851`
+
+## Get Event By External ID
+
+```python
+import requests
+h = {
+    "Authorization": "Bearer {}".format(token)
+}
+
+r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/calendar/events/externalId?type=EXTERNAL_ID", headers=h)
+
+print("Response Code: {}".format(r.status_code))
+print(r.json())
+```
+
+> Returned Json
+
+```json
+{
+  "id": "313c2029-493b-4114-8b86-788d631a1851",
+  "createdBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "createdAt": "2021-05-03T13:39:12.847Z",
+  "updatedBy": "9565d236-f654-4116-bfb4-c10a5e840a9c",
+  "updatedAt": "2021-05-03T13:55:59.652Z",
+  "eventTitle": "New event title",
+  "eventDescription": "",
+  "startDateTime": "2020-01-01T00:00:00.000Z",
+  "localStartDateTime": "2020-01-01T03:00:00.000+03:00",
+  "endDateTime": "2020-01-31T23:59:59.000Z",
+  "localEndDateTime": "2020-02-01T02:59:59.000+03:00",
+  "allDayEvent": false,
+  "duration": 2678399,
+  "eventType": "APPOINTMENT",
+  "eventStatus": "SCHEDULED",
+  "eventMode": "IN-PERSON",
+  "eventColor": null,
+  "externalId": "externalId",
+  "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+  "additionalInfo": {
+    "remarks": "",
+    "location": "",
+    "attachment": ""
+  },
+  "participants": [
+    {
+      "id": "d4e6eb8b-b627-461d-a17d-292083446df8",
+      "participantId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
+      "participantRole": "psm",
+      "participationStatus": "",
+      "attended": false
+    },
+    {
+      "id": "8416e538-7417-4f3d-aaf5-19d212ae6f3b",
+      "participantId": "4f684417-7868-467a-ae0a-f7aa8a4323e6",
+      "participantRole": "patient",
+      "participationStatus": "",
+      "attended": false
+    }
+  ]
+}
+```
+
+1. HTTP Method: GET
+2. HTTP URL: `https://api.live.welkincloud.io/gh/sb-demo/calendar/events/externalId?type=EXTERNAL_ID`
+
 
 ## Find Events
 
@@ -273,6 +343,7 @@ print(r.json())
       "eventStatus": "SCHEDULED",
       "eventMode": "IN-PERSON",
       "eventColor": null,
+      "externalId": "externalId",
       "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
       "additionalInfo": {
         "remarks": "",
@@ -312,6 +383,7 @@ from | Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | 
 to |Date_time in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | to=2021-01-28T23:10:04.874Z
 eventType | Enum of allowed values | "GROUP_THERAPY", "APPOINTMENT", "LEAVE"
 sort | Allows one to specify the sort order of the returned patients collection	 | sort=createdAt,asc
+includeCancelled | Boolean value | Should or not API return cancelled events (default: false)
 
 Example URLs: 
 
@@ -383,6 +455,7 @@ print(r.json())
   "eventStatus": "SCHEDULED",
   "eventMode": "IN-PERSON",
   "eventColor": null,
+  "externalId": null,
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "location": "Room 1408",
@@ -455,6 +528,7 @@ print(r.json())
   "eventStatus": "SCHEDULED",
   "eventMode": "IN-PERSON",
   "eventColor": null,
+  "externalId": null,
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "location": "Room 1408",
