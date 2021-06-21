@@ -1,10 +1,18 @@
 # Emails
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails`
+There are two URL structures for email operations. 
+One is located in the patient context and is used to work with emails that have assigned patient (Recognized structure).
+Another one is used to work with emails without assigned patient (Unrecognized structure). Unrecognized structure should be used only for operating with unrecognized emails (which have `status=UNRECOGNIZED`)
+
+`Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails`
+
+`Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails`
 
 in our example it would be:
 
-`https://api.live.welkincloud.io/gh/sb-demo/emails`
+`https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails`
+
+`https://api.live.welkincloud.io/gh/sb-demo/unrecognized-patients/emails`
 
 ## Get all emails
 
@@ -16,7 +24,7 @@ h = {
         "Authorization": "Bearer {}".format(token)
     }
 
-r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/emails", headers=h)
+r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails", headers=h)
 print(r.json())
 ```
 
@@ -57,28 +65,32 @@ print(r.json())
 
 Following Query Parameters can be used to sort or find approporiately
  
-We can use any combination of this parameters in single request: Example: {{url}}/{{tenantName}}/{{instanceName}}/emails?status=DELIVERED, FAILED&email=some-email@email.com&starred=true
+We can use any combination of this parameters in single request: Example: 
+`{{url}}/{{tenantName}}/{{instanceName}}/patients/{{patientId}}/emails?status=DELIVERED,FAILED&email=some-email@email.com&starred=true`
 
 Parameter | Description | Examples
 --------- | ----------- | --------
-sort |Allows one to specify the sort order of the returned emails collection | https://api.live.welkincloud.io/gh/sb-demo/emails?sort=firstName,desc
-size |When specified, size per page | https://api.live.welkincloud.io/gh/sb-demo/emails?size=20
-page |When specified, page number | https://api.live.welkincloud.io/gh/sb-demo/emails?page=1
-search |When specified, will execute a search based on subject and body fields | https://api.live.welkincloud.io/gh/sb-demo/emails?search=sometext
-sender |When specified, search by sender id | https://api.live.welkincloud.io/gh/sb-demo/emails?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe
-receiver |When specified, search by receiver id | https://api.live.welkincloud.io/gh/sb-demo/emails?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe
-direction |When specified, search by direction (IN or OUT) | https://api.live.welkincloud.io/gh/sb-demo/emails?direction=IN
-starred |When specified, search by starred (boolean value) field (as an important email) | https://api.live.welkincloud.io/gh/sb-demo/emails?starred=true
-from |When specified, search by 'from' email | https://api.live.welkincloud.io/gh/sb-demo/emails?from=test@gmail.com
-to |When specified, search by 'to' email | https://api.live.welkincloud.io/gh/sb-demo/emails?to=test@gmail.com
-email |When specified, search by 'to' or 'from' email | https://api.live.welkincloud.io/gh/sb-demo/emails?email=test@gmail.com
-senderName |When specified, search by sender name | https://api.live.welkincloud.io/gh/sb-demo/emails?senderName=Jon doe
-receiverName |When specified, search by receiver name | https://api.live.welkincloud.io/gh/sb-demo/emails?receiverName=Jon doe
-status |When specified, search by status [SCHEDULED, ACCEPTED, DELIVERED, REJECTED, FAILED, UNRECOGNISED]| https://api.live.welkincloud.io/gh/sb-demo/emails?status=DELIVERED
+sort |Allows one to specify the sort order of the returned emails collection | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?sort=firstName,desc
+size |When specified, size per page | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?size=20
+page |When specified, page number | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?page=1
+search |When specified, will execute a search based on subject and body fields | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?search=sometext
+sender |When specified, search by sender id | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe
+receiver |When specified, search by receiver id | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe
+direction |When specified, search by direction (IN or OUT) | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?direction=IN
+starred |When specified, search by starred (boolean value) field (as an important email) | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?starred=true
+from |When specified, search by 'from' email | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?from=test@gmail.com
+to |When specified, search by 'to' email | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?to=test@gmail.com
+email |When specified, search by 'to' or 'from' email | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?email=test@gmail.com
+senderName |When specified, search by sender name | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?senderName=Jon doe
+receiverName |When specified, search by receiver name | https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?receiverName=Jon doe
+status |When specified, search by status [SCHEDULED, ACCEPTED, DELIVERED, REJECTED, FAILED, UNRECOGNISED]| https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?status=DELIVERED
 
 ## Get email by id
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}`
+`Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}`
+
+`Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}`
+
 
 > ***GET request***
 
@@ -88,7 +100,7 @@ h = {
         "Authorization": "Bearer {}".format(token)
     }
 
-r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/emails/92c6f2c6-61b7-46ad-b1a8-3ca541b88c0f", headers=h)
+r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails/92c6f2c6-61b7-46ad-b1a8-3ca541b88c0f", headers=h)
 print(r.json())
 ```
 
@@ -131,7 +143,7 @@ Creates email record and send it with one of the email service (Mailgun or paubo
 ## Send a basic email
 ***Note***: Configuration for Mailgun email service should be added.
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails`
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails`
 
 > ***POST request. Send basic email***
 
@@ -147,7 +159,7 @@ data = {
     "sendNow": true
 }
 
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails", 
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails", 
   json=data, headers=h)
 ```
 
@@ -183,7 +195,7 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails",
 
 ## Send a secure email
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails`
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails`
 
 ***Note***: Configuration for Paubox email service should be added.
 
@@ -202,7 +214,7 @@ data = {
     "secure" : true
 }
 
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails", 
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails", 
   json=data, headers=h)
 ```
 
@@ -238,7 +250,7 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails",
 
 ## Send email with attachments
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails`
+`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails`
 
 ***Note***: Attachments will be stored in S3 bucket.
 
@@ -260,7 +272,7 @@ multipart_data = MultipartEncoder(
            }
     )
 
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails", 
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails", 
   data=multipart_data, headers=h)
 ```
 
@@ -308,7 +320,9 @@ In this case, we can only update 'starred' field and mark this email as an impor
 
 ## Update email. Mark as an important email
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}`
+`Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}`
+
+`Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}`
 
 > ***PUT request. Mark as an important email***
 
@@ -321,7 +335,7 @@ data = {
     "starred" : true
 }
 
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb", 
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb", 
   json=data, headers=h)
 ```
 
@@ -357,7 +371,9 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91
 
 ## Update email. Assign to patient
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}`
+`Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}`
+
+`Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}`
 
 > ***PUT request. Assign to patient***
 
@@ -367,10 +383,10 @@ h = {
     "Authorization": "Bearer {}".format(token)
 }
 data = {
-    "sender" : de23c848-65aa-45a1-bf7b-f1d36a6e4ebe
+    "sender" : "de23c848-65aa-45a1-bf7b-f1d36a6e4ebe"
 }
 
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb", 
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/unrecognized-patients/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb", 
   json=data, headers=h)
 ```
 
@@ -407,7 +423,9 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91
 
 ## Update email. Full update when [SCHEDULED]
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}`
+`Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}`
+
+`Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}`
 
 > ***PUT request. Full update when [SCHEDULED]***
 
@@ -424,7 +442,7 @@ data = {
     "secure" : true
 }
 
-r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb", 
+r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb", 
   json=data, headers=h)
 ```
 
@@ -460,7 +478,9 @@ r = requests.post("https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91
 
 ## Delete email
 
-`URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}`
+`Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}`
+
+`Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}`
 
 ***Note*** Email could be deleted only in statuses [SCHEDULED, UNRECOGNISED]
 
@@ -472,7 +492,7 @@ h = {
         "Authorization": "Bearer {}".format(token)
     }
 
-r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb", headers=h)
+r = requests.get("https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb", headers=h)
 print(r.json())
 ```
 
