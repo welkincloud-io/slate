@@ -725,13 +725,13 @@
                     <a href="#get-all-sms" class="toc-h2 toc-link" data-title="Get all sms">Get all sms</a>
                   </li>
                   <li>
-                    <a href="#get-email-by-id" class="toc-h2 toc-link" data-title="Get email by id">Get email by id</a>
+                    <a href="#get-sms-by-id" class="toc-h2 toc-link" data-title="Get sms by id">Get sms by id</a>
                   </li>
                   <li>
-                    <a href="#send-an-email" class="toc-h2 toc-link" data-title="Send an email">Send an email</a>
+                    <a href="#send-an-sms" class="toc-h2 toc-link" data-title="Send an sms">Send an sms</a>
                   </li>
                   <li>
-                    <a href="#send-a-basic-email" class="toc-h2 toc-link" data-title="Send a basic email">Send a basic email</a>
+                    <a href="#send-a-basic-sms" class="toc-h2 toc-link" data-title="Send a basic sms">Send a basic sms</a>
                   </li>
                   <li>
                     <a href="#update-sms" class="toc-h2 toc-link" data-title="Update sms">Update sms</a>
@@ -7829,11 +7829,19 @@ There are 3 dictionaries by default:
 </tr>
 </tbody></table>
 <h1 id='emails'>Emails</h1>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails</code></p>
+<p>There are two URL structures for email operations. 
+One is located in the patient context and is used to work with emails that have assigned patient (Recognized structure).
+Another one is used to work with emails without assigned patient (Unrecognized structure). Unrecognized structure should be used only for operating with unrecognized emails (which have <code>status=UNRECOGNIZED</code>)</p>
+
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails</code></p>
 
 <p>in our example it would be:</p>
 
-<p><code>https://api.live.welkincloud.io/gh/sb-demo/emails</code></p>
+<p><code>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails</code></p>
+
+<p><code>https://api.live.welkincloud.io/gh/sb-demo/unrecognized-patients/emails</code></p>
 <h2 id='get-all-emails'>Get all emails</h2>
 <blockquote>
 <p><strong><em>GET request</em></strong></p>
@@ -7843,7 +7851,7 @@ There are 3 dictionaries by default:
         <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
     <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
@@ -7882,7 +7890,8 @@ There are 3 dictionaries by default:
 </span></code></pre></div>
 <p>Following Query Parameters can be used to sort or find approporiately</p>
 
-<p>We can use any combination of this parameters in single request: Example: {{url}}/{{tenantName}}/{{instanceName}}/emails?status=DELIVERED, FAILED&amp;email=some-email@email.com&amp;starred=true</p>
+<p>We can use any combination of this parameters in single request: Example: 
+<code>{{url}}/{{tenantName}}/{{instanceName}}/patients/{{patientId}}/emails?status=DELIVERED,FAILED&amp;email=some-email@email.com&amp;starred=true</code></p>
 
 <table><thead>
 <tr>
@@ -7894,76 +7903,78 @@ There are 3 dictionaries by default:
 <tr>
 <td>sort</td>
 <td>Allows one to specify the sort order of the returned emails collection</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?sort=firstName,desc</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?sort=firstName,desc</td>
 </tr>
 <tr>
 <td>size</td>
 <td>When specified, size per page</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?size=20</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?size=20</td>
 </tr>
 <tr>
 <td>page</td>
 <td>When specified, page number</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?page=1</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?page=1</td>
 </tr>
 <tr>
 <td>search</td>
 <td>When specified, will execute a search based on subject and body fields</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?search=sometext</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?search=sometext</td>
 </tr>
 <tr>
 <td>sender</td>
 <td>When specified, search by sender id</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe</td>
 </tr>
 <tr>
 <td>receiver</td>
 <td>When specified, search by receiver id</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe</td>
 </tr>
 <tr>
 <td>direction</td>
 <td>When specified, search by direction (IN or OUT)</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?direction=IN</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?direction=IN</td>
 </tr>
 <tr>
 <td>starred</td>
 <td>When specified, search by starred (boolean value) field (as an important email)</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?starred=true</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?starred=true</td>
 </tr>
 <tr>
 <td>from</td>
 <td>When specified, search by &#39;from&#39; email</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?from=test@gmail.com</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?from=test@gmail.com</td>
 </tr>
 <tr>
 <td>to</td>
 <td>When specified, search by &#39;to&#39; email</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?to=test@gmail.com</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?to=test@gmail.com</td>
 </tr>
 <tr>
 <td>email</td>
 <td>When specified, search by &#39;to&#39; or &#39;from&#39; email</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?email=test@gmail.com</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?email=test@gmail.com</td>
 </tr>
 <tr>
 <td>senderName</td>
 <td>When specified, search by sender name</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?senderName=Jon doe</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?senderName=Jon doe</td>
 </tr>
 <tr>
 <td>receiverName</td>
 <td>When specified, search by receiver name</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?receiverName=Jon doe</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?receiverName=Jon doe</td>
 </tr>
 <tr>
 <td>status</td>
 <td>When specified, search by status [SCHEDULED, ACCEPTED, DELIVERED, REJECTED, FAILED, UNRECOGNISED]</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/emails?status=DELIVERED</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails?status=DELIVERED</td>
 </tr>
 </tbody></table>
 <h2 id='get-email-by-id'>Get email by id</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}</code></p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}</code></p>
 
 <blockquote>
 <p><strong><em>GET request</em></strong></p>
@@ -7973,7 +7984,7 @@ There are 3 dictionaries by default:
         <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
     <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails/92c6f2c6-61b7-46ad-b1a8-3ca541b88c0f"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails/92c6f2c6-61b7-46ad-b1a8-3ca541b88c0f"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
@@ -8011,7 +8022,7 @@ There are 3 dictionaries by default:
 <h2 id='send-a-basic-email'>Send a basic email</h2>
 <p><strong><em>Note</em></strong>: Configuration for Mailgun email service should be added.</p>
 
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails</code></p>
+<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails</code></p>
 
 <blockquote>
 <p><strong><em>POST request. Send basic email</em></strong></p>
@@ -8027,7 +8038,7 @@ There are 3 dictionaries by default:
     <span class="s">"sendNow"</span><span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -8059,7 +8070,7 @@ There are 3 dictionaries by default:
     </span><span class="nl">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='send-a-secure-email'>Send a secure email</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails</code></p>
+<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails</code></p>
 
 <p><strong><em>Note</em></strong>: Configuration for Paubox email service should be added.</p>
 
@@ -8078,7 +8089,7 @@ There are 3 dictionaries by default:
     <span class="s">"secure"</span> <span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -8110,7 +8121,7 @@ There are 3 dictionaries by default:
     </span><span class="nl">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='send-email-with-attachments'>Send email with attachments</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails</code></p>
+<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails</code></p>
 
 <p><strong><em>Note</em></strong>: Attachments will be stored in S3 bucket.</p>
 
@@ -8132,7 +8143,7 @@ There are 3 dictionaries by default:
            <span class="p">}</span>
     <span class="p">)</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails"</span><span class="p">,</span> 
   <span class="n">data</span><span class="o">=</span><span class="n">multipart_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -8174,7 +8185,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
 <li><p>When email has status [SCHEDULED]. We can do full update of this email</p></li>
 </ol>
 <h2 id='update-email-mark-as-an-important-email'>Update email. Mark as an important email</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}</code></p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}</code></p>
 
 <blockquote>
 <p><strong><em>PUT request. Mark as an important email</em></strong></p>
@@ -8187,7 +8200,7 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
     <span class="s">"starred"</span> <span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -8219,7 +8232,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
     </span><span class="nl">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='update-email-assign-to-patient'>Update email. Assign to patient</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}</code></p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}</code></p>
 
 <blockquote>
 <p><strong><em>PUT request. Assign to patient</em></strong></p>
@@ -8229,10 +8244,10 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
     <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"sender"</span> <span class="p">:</span> <span class="n">de23c848</span><span class="o">-</span><span class="mi">65</span><span class="n">aa</span><span class="o">-</span><span class="mi">45</span><span class="n">a1</span><span class="o">-</span><span class="n">bf7b</span><span class="o">-</span><span class="n">f1d36a6e4ebe</span>
+    <span class="s">"sender"</span> <span class="p">:</span> <span class="s">"de23c848-65aa-45a1-bf7b-f1d36a6e4ebe"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/unrecognized-patients/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -8264,7 +8279,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
     </span><span class="nl">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='update-email-full-update-when-scheduled'>Update email. Full update when [SCHEDULED]</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}</code></p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}</code></p>
 
 <blockquote>
 <p><strong><em>PUT request. Full update when [SCHEDULED]</em></strong></p>
@@ -8281,7 +8298,7 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
     <span class="s">"secure"</span> <span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -8313,7 +8330,9 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
     </span><span class="nl">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='delete-email'>Delete email</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / emails / {{uuid}}</code></p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / emails / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / emails / {{uuid}}</code></p>
 
 <p><strong><em>Note</em></strong> Email could be deleted only in statuses [SCHEDULED, UNRECOGNISED]</p>
 
@@ -8325,7 +8344,7 @@ In this case, we can only update &#39;starred&#39; field and mark this email as 
         <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
     <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/emails/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div><h1 id='encounters'>Encounters</h1>
 <p>APIs for working with an encounter infrastructure: records, assessment links, comments, template, disposition, disposition-formation</p>
@@ -13297,11 +13316,19 @@ This operation is not supported yet
 </tr>
 </tbody></table>
 <h1 id='sms'>Sms</h1>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / sms</code></p>
+<p>There are two URL structures for sms operations. 
+One is located in the patient context and is used to work with sms that have assigned patient (Recognized structure).
+Another one is used to work with sms without assigned patient (Unrecognized structure). Unrecognized structure should be used only for operating with unrecognized sms (which have <code>status=UNRECOGNIZED</code>)</p>
 
-<p>in our example it would be:</p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / sms</code></p>
 
-<p><code>https://api.live.welkincloud.io/gh/sb-demo/sms</code></p>
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / sms</code></p>
+
+<p>In our example it would be:</p>
+
+<p><code>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms</code></p>
+
+<p><code>https://api.live.welkincloud.io/gh/sb-demo/unrecognized-patients/5da47c49-0c2b-4239-b438-7a826d407739/sms</code></p>
 <h2 id='get-all-sms'>Get all sms</h2>
 <blockquote>
 <p><strong><em>GET request</em></strong></p>
@@ -13311,7 +13338,7 @@ This operation is not supported yet
         <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
     <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/sms"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
@@ -13348,7 +13375,7 @@ This operation is not supported yet
 </span></code></pre></div>
 <p>Following Query Parameters can be used to sort or find approporiately</p>
 
-<p>We can use any combination of this parameters in single request: Example: {{url}}/{{tenantName}}/{{instanceName}}/sms?status=DELIVERED, FAILED&amp;phone=+15625345678&amp;starred=true</p>
+<p>We can use any combination of this parameters in single request: Example: {{url}}/{{tenantName}}/{{instanceName}}/patients/{{patientId}}/sms?status=DELIVERED,FAILED&amp;phone=+15625345678&amp;starred=true</p>
 
 <table><thead>
 <tr>
@@ -13360,76 +13387,78 @@ This operation is not supported yet
 <tr>
 <td>sort</td>
 <td>Allows one to specify the sort order of the returned sms collection</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?sort=firstName,desc</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?sort=firstName,desc</td>
 </tr>
 <tr>
 <td>size</td>
 <td>When specified, size per page</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?size=20</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?size=20</td>
 </tr>
 <tr>
 <td>page</td>
 <td>When specified, page number</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?page=1</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?page=1</td>
 </tr>
 <tr>
 <td>search</td>
 <td>When specified, will execute a search based on message field</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?search=sometext</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?search=sometext</td>
 </tr>
 <tr>
 <td>sender</td>
 <td>When specified, search by sender id</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe</td>
 </tr>
 <tr>
 <td>receiver</td>
 <td>When specified, search by receiver id</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?sender=de23c848-65aa-45a1-bf7b-f1d36a6e4ebe</td>
 </tr>
 <tr>
 <td>direction</td>
 <td>When specified, search by direction (IN or OUT)</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?direction=IN</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?direction=IN</td>
 </tr>
 <tr>
 <td>starred</td>
 <td>When specified, search by starred (boolean value) field (as an important sms)</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?starred=true</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?starred=true</td>
 </tr>
 <tr>
 <td>from</td>
 <td>When specified, search by &#39;from&#39; phone</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?from=test@gmail.com</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?from=test@gmail.com</td>
 </tr>
 <tr>
 <td>to</td>
 <td>When specified, search by &#39;to&#39; phone</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?to=test@gmail.com</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?to=test@gmail.com</td>
 </tr>
 <tr>
 <td>phone</td>
 <td>When specified, search by &#39;to&#39; or &#39;from&#39; phone</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?email=test@gmail.com</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?email=test@gmail.com</td>
 </tr>
 <tr>
 <td>senderName</td>
 <td>When specified, search by sender name</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?senderName=Jon doe</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?senderName=Jon doe</td>
 </tr>
 <tr>
 <td>receiverName</td>
 <td>When specified, search by receiver name</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?receiverName=Jon doe</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?receiverName=Jon doe</td>
 </tr>
 <tr>
 <td>status</td>
 <td>When specified, search by status [SCHEDULED, ACCEPTED, SENT, RECEIVED, DELIVERED, UNDELIVERED, FAILED, UNRECOGNISED]</td>
-<td>https://api.live.welkincloud.io/gh/sb-demo/sms?status=DELIVERED</td>
+<td>https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms?status=DELIVERED</td>
 </tr>
 </tbody></table>
-<h2 id='get-email-by-id'>Get email by id</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / sms / {{uuid}}</code></p>
+<h2 id='get-sms-by-id'>Get sms by id</h2>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / sms / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / sms / {{uuid}}</code></p>
 
 <blockquote>
 <p><strong><em>GET request</em></strong></p>
@@ -13439,7 +13468,7 @@ This operation is not supported yet
         <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
     <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/sms/92c6f2c6-61b7-46ad-b1a8-3ca541b88c0f"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms/92c6f2c6-61b7-46ad-b1a8-3ca541b88c0f"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <blockquote>
@@ -13468,14 +13497,14 @@ This operation is not supported yet
   </span><span class="nl">"parts"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='send-an-email'>Send an email</h2>
+</span></code></pre></div><h2 id='send-an-sms'>Send an sms</h2>
 <p>Creates sms record and send it.</p>
 
 <p><strong><em>Note</em></strong>: Welkonnect module should be configured</p>
-<h2 id='send-a-basic-email'>Send a basic email</h2>
+<h2 id='send-a-basic-sms'>Send a basic sms</h2>
 <p><strong><em>Note</em></strong>: Configuration for Twilio service should be added.</p>
 
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / sms</code></p>
+<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / sms</code></p>
 
 <blockquote>
 <p><strong><em>POST request. Send sms</em></strong></p>
@@ -13490,7 +13519,7 @@ This operation is not supported yet
     <span class="s">"receiver"</span><span class="p">:</span> <span class="s">"8b676172-78f8-4cc6-b105-5329c8a58ef2"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/sms"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -13520,7 +13549,7 @@ This operation is not supported yet
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='update-sms'>Update sms</h2>
-<p>Updating a sms could have some different behaviour, depending on email status.</p>
+<p>Updating a sms could have some different behaviour, depending on sms status.</p>
 
 <ol>
 <li><p>When sms was sent, and it has direction = OUT (user sent it to patient),
@@ -13531,7 +13560,9 @@ In this case, we can assign this sms to patient manually</p></li>
 <li><p>When sms has status [SCHEDULED]. We can do full update of this sms</p></li>
 </ol>
 <h2 id='update-sms-mark-as-an-important-sms'>Update sms. Mark as an important sms</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / sms / {{uuid}}</code></p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / sms / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / sms / {{uuid}}</code></p>
 
 <blockquote>
 <p><strong><em>PUT request. Mark as an important sms</em></strong></p>
@@ -13544,7 +13575,7 @@ In this case, we can assign this sms to patient manually</p></li>
     <span class="s">"starred"</span> <span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/sms/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -13574,7 +13605,9 @@ In this case, we can assign this sms to patient manually</p></li>
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='update-sms-assign-to-patient'>Update sms. Assign to patient</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / sms / {{uuid}}</code></p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / sms / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / sms / {{uuid}}</code></p>
 
 <blockquote>
 <p><strong><em>PUT request. Assign to patient</em></strong></p>
@@ -13584,10 +13617,10 @@ In this case, we can assign this sms to patient manually</p></li>
     <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"sender"</span> <span class="p">:</span> <span class="n">de23c848</span><span class="o">-</span><span class="mi">65</span><span class="n">aa</span><span class="o">-</span><span class="mi">45</span><span class="n">a1</span><span class="o">-</span><span class="n">bf7b</span><span class="o">-</span><span class="n">f1d36a6e4ebe</span>
+    <span class="s">"sender"</span> <span class="p">:</span> <span class="s">"de23c848-65aa-45a1-bf7b-f1d36a6e4ebe"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/sms/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -13617,7 +13650,7 @@ In this case, we can assign this sms to patient manually</p></li>
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='update-sms-full-update-when-scheduled'>Update sms. Full update when [SCHEDULED]</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / sms / {{uuid}}</code></p>
+<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / sms / {{uuid}}</code></p>
 
 <blockquote>
 <p><strong><em>PUT request. Full update when [SCHEDULED]</em></strong></p>
@@ -13632,7 +13665,7 @@ In this case, we can assign this sms to patient manually</p></li>
     <span class="s">"receiver"</span><span class="p">:</span> <span class="s">"8b676172-78f8-4cc6-b105-5329c8a58ef2"</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/sms/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> 
   <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
@@ -13662,7 +13695,9 @@ In this case, we can assign this sms to patient manually</p></li>
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='delete-sms'>Delete sms</h2>
-<p><code>URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / sms / {{uuid}}</code></p>
+<p><code>Recognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / patients / {{patientId}} / sms / {{uuid}}</code></p>
+
+<p><code>Unrecognized URL Structure: {{url}} / {{tenantName}} / {{instanceName}} / unrecognized-patients / sms / {{uuid}}</code></p>
 
 <p><strong><em>Note</em></strong> Sms could be deleted only in statuses [SCHEDULED, UNRECOGNISED]</p>
 
@@ -13674,7 +13709,7 @@ In this case, we can assign this sms to patient manually</p></li>
         <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
     <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/sms/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.live.welkincloud.io/gh/sb-demo/patients/5da47c49-0c2b-4239-b438-7a826d407739/sms/4fb7f28d-91ca-4f89-bad2-f43ed41ed6bb"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div><h1 id='tasks'>Tasks</h1>
 <p>APIs for working with tasks</p>
