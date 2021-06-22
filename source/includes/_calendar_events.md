@@ -17,6 +17,7 @@
  "allDayEvent": false,
  "duration": 2678399,
  "externalId": null,
+ "externalIdUpdatedAt": "2021-06-11T18:10:45.711Z",
  "eventType": "APPOINTMENT",
  "eventStatus": "SCHEDULED",
  "eventMode": "IN-PERSON",
@@ -69,6 +70,7 @@ Field Name|  Field description
 hostId | ID of user which owns the event
 additionalInfo | Custom object without strict defined structure
 externalId | Custom string for object identification, must be different for each event
+externalIdUpdatedAt | Timestamp when calendar event externalId has been updated
 
 Please note that `participants` field must contain participant with `id=hostId`
 
@@ -138,6 +140,7 @@ print(r.json())
   "eventMode": "IN-PERSON",
   "eventColor": null,
   "externalId": "externalId",
+  "externalIdUpdatedAt": "2021-06-11T18:10:45.711Z",
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "location": "",
@@ -212,6 +215,7 @@ print(r.json())
   "eventMode": "IN-PERSON",
   "eventColor": null,
   "externalId": "externalId",
+  "externalIdUpdatedAt": "2021-06-11T18:10:45.711Z",
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "remarks": "",
@@ -276,6 +280,7 @@ print(r.json())
   "eventMode": "IN-PERSON",
   "eventColor": null,
   "externalId": "externalId",
+  "externalIdUpdatedAt": "2021-06-11T18:10:45.711Z",
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "remarks": "",
@@ -344,6 +349,7 @@ print(r.json())
       "eventMode": "IN-PERSON",
       "eventColor": null,
       "externalId": "externalId",
+      "externalIdUpdatedAt": "2021-06-11T18:10:45.711Z",
       "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
       "additionalInfo": {
         "remarks": "",
@@ -456,6 +462,7 @@ print(r.json())
   "eventMode": "IN-PERSON",
   "eventColor": null,
   "externalId": null,
+  "externalIdUpdatedAt": "2021-06-11T18:10:45.711Z",
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "location": "Room 1408",
@@ -529,6 +536,7 @@ print(r.json())
   "eventMode": "IN-PERSON",
   "eventColor": null,
   "externalId": null,
+  "externalIdUpdatedAt": "2021-06-11T18:10:45.711Z",
   "hostId": "301b2895-cbf0-4cac-b4cf-1d082faee95c",
   "additionalInfo": {
     "location": "Room 1408",
